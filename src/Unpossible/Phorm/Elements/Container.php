@@ -1,6 +1,18 @@
 <?php
 
-namespace Phorm\Elements;
+/*
+ * This file is part of the Phorm project.
+ *
+ * @link https://github.com/akimsko/phorm
+ *
+ * @copyright Copyright 2014 Bo Thinggaard
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Unpossible\Phorm\Elements;
 
 /**
  * Class Container
@@ -27,7 +39,7 @@ class Container extends Element {
 	 *
 	 * @param Element[] $children
 	 *
-	 * @return ElementContainer
+	 * @return Container
 	 */
 	public function addChildren(array $children) {
 		$this->children = array_merge($this->children, $children);
@@ -39,7 +51,7 @@ class Container extends Element {
 	 *
 	 * @param Element[] $children
 	 *
-	 * @return ElementContainer
+	 * @return Container
 	 */
 	public function setChildren(array $children) {
 		$this->children = $children;
@@ -49,7 +61,7 @@ class Container extends Element {
 	/**
 	 * Remove all children.
 	 *
-	 * @return ElementContainer
+	 * @return Container
 	 */
 	public function removeChildren() {
 		$this->children = array();
@@ -62,7 +74,7 @@ class Container extends Element {
 	 * @param string  $index
 	 * @param Element $child
 	 *
-	 * @return ElementContainer
+	 * @return Container
 	 */
 	public function setChild($index, Element $child) {
 		$this->children[$index] = $child;
@@ -87,7 +99,7 @@ class Container extends Element {
 	 *
 	 * @param string $index
 	 *
-	 * @return ElementContainer
+	 * @return Container
 	 */
 	public function removeChild($index) {
 		if (array_key_exists($index, $this->children)) {

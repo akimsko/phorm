@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Phorm\Elements;
+namespace spec\Unpossible\Phorm\Elements;
 
-use Phorm\Elements\Element;
+use Unpossible\Phorm\Elements\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -10,11 +10,11 @@ class ContainerSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Phorm\Elements\Container');
+        $this->shouldHaveType('Unpossible\Phorm\Elements\Container');
     }
 
 	function it_extends_element() {
-		$this->shouldHaveType('Phorm\Elements\Element');
+		$this->shouldHaveType('Unpossible\Phorm\Elements\Element');
 	}
 
 	function it_should_have_children() {
@@ -72,10 +72,10 @@ class ContainerSpec extends ObjectBehavior
 	}
 
 	function it_should_be_chainable() {
-		$this->setChildren(array())->shouldHaveType('Phorm\Elements\Container');
-		$this->addChildren(array())->shouldHaveType('Phorm\Elements\Container');
-		$this->setChild('test', new Element())->shouldHaveType('Phorm\Elements\Container');
-		$this->removeChildren()->shouldHaveType('Phorm\Elements\Container');
-		$this->removeChild('test')->shouldHaveType('Phorm\Elements\Container');
+		$this->setChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\Container');
+		$this->addChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\Container');
+		$this->setChild('test', new Element())->shouldHaveType('Unpossible\Phorm\Elements\Container');
+		$this->removeChildren()->shouldHaveType('Unpossible\Phorm\Elements\Container');
+		$this->removeChild('test')->shouldHaveType('Unpossible\Phorm\Elements\Container');
 	}
 }

@@ -1,9 +1,33 @@
 {
+	"name":         "unpossible/phorm",
+	"description":  "Simple PHP form builder for PHP 5.3+",
+	"keywords":     ["form", "builder", "basic"],
+	"homepage":     "https://github.com/akimsko/phorm",
+	"type":         "library",
+	"license":      "Apache-2.0",
+	"authors":      [
+		{
+			"name":      "Bo Thinggaard",
+			"email":     "bo@unpossiblesystems.com",
+			"homepage":  "https://github.com/akimsko"
+		}
+	],
+
+	"require": {
+		"php": ">=5.3.3"
+	},
+
 	"require-dev": {
 		"phpspec/phpspec": "2.0.*@dev"
 	},
+
 	"config": {
 		"bin-dir": "bin"
 	},
-	"autoload": {"psr-0": {"": "src"}}
+
+	"autoload": {
+		"psr-0": {
+			"": "src"
+		}
+	}
 }
