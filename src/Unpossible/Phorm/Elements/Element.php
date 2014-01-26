@@ -22,6 +22,9 @@ namespace Unpossible\Phorm\Elements;
  */
 class Element {
 
+	/** @var string Uknown type. */
+	const TYPE_UNKNOWN = 'unknown';
+
 	/** @var string Element type. */
 	protected $type;
 
@@ -29,11 +32,9 @@ class Element {
 	protected $attributes;
 
 	/**
-	 * @param string $type
 	 * @param array  $attributes
 	 */
-	public function __construct($type = '', array $attributes = array()) {
-		$this->type       = $type;
+	public function __construct(array $attributes = array()) {
 		$this->attributes = $attributes;
 	}
 
@@ -43,6 +44,9 @@ class Element {
 	 * @return string
 	 */
 	public function getType() {
+		if (!$this->type && !($this->type = strtolower(substr(get_class($this), strlen(get_class()))))) {
+			$this->type = self::TYPE_UNKNOWN;
+		}
 		return $this->type;
 	}
 

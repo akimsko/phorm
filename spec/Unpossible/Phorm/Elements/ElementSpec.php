@@ -7,7 +7,8 @@ use Prophecy\Argument;
 
 class ElementSpec extends ObjectBehavior {
 	function let() {
-		$this->beConstructedWith('cTest', array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
+		$this->beConstructedWith(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
+		$this->setType('cTest');
 	}
 
 	function it_is_initializable() {

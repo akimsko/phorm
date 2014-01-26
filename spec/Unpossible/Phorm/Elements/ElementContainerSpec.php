@@ -6,11 +6,11 @@ use Unpossible\Phorm\Elements\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ContainerSpec extends ObjectBehavior
+class ElementContainerSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Unpossible\Phorm\Elements\Container');
+        $this->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
     }
 
 	function it_extends_element() {
@@ -23,8 +23,8 @@ class ContainerSpec extends ObjectBehavior
 
 	function it_should_remove_children() {
 		$children = array(
-			'test1' => new Element('ele1'),
-			'test2' => new Element('ele2')
+			'test1' => new Element(),
+			'test2' => new Element()
 		);
 
 		$this->setChildren($children);
@@ -43,13 +43,13 @@ class ContainerSpec extends ObjectBehavior
 		$this->removeChildren();
 
 		$children1 = array(
-			'test1' => new Element('ele1'),
-			'test2' => new Element('ele2')
+			'test1' => new Element(),
+			'test2' => new Element()
 		);
 
 		$children2 = array(
-			'test3' => new Element('ele3'),
-			'test4' => new Element('ele4')
+			'test3' => new Element(),
+			'test4' => new Element()
 		);
 
 		$this->addChildren($children1);
@@ -61,8 +61,8 @@ class ContainerSpec extends ObjectBehavior
 	function it_should_store_children() {
 		$this->removeAttributes();
 
-		$child1 = new Element('ele1');
-		$child2 = new Element('ele2');
+		$child1 = new Element();
+		$child2 = new Element();
 
 		$this->setChild('test1', $child1);
 		$this->getChild('test1')->shouldBeEqualTo($child1);
@@ -72,10 +72,10 @@ class ContainerSpec extends ObjectBehavior
 	}
 
 	function it_should_be_chainable() {
-		$this->setChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\Container');
-		$this->addChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\Container');
-		$this->setChild('test', new Element())->shouldHaveType('Unpossible\Phorm\Elements\Container');
-		$this->removeChildren()->shouldHaveType('Unpossible\Phorm\Elements\Container');
-		$this->removeChild('test')->shouldHaveType('Unpossible\Phorm\Elements\Container');
+		$this->setChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
+		$this->addChildren(array())->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
+		$this->setChild('test', new Element())->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
+		$this->removeChildren()->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
+		$this->removeChild('test')->shouldHaveType('Unpossible\Phorm\Elements\ElementContainer');
 	}
 }
