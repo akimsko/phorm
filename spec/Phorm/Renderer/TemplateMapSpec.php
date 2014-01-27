@@ -23,4 +23,9 @@ class TemplateMapSpec extends ObjectBehavior
 		$this->setDefaultTemplate('test');
 		$this->getTemplate('somethingNotMapped')->shouldBe('test');
 	}
+
+	function it_is_chainable() {
+		$this->setTemplate('test', 'test')->shouldHaveType('Phorm\Renderer\TemplateMap');
+		$this->setDefaultTemplate('test')->shouldHaveType('Phorm\Renderer\TemplateMap');
+	}
 }

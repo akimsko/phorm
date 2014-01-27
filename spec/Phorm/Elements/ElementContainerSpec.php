@@ -17,11 +17,11 @@ class ElementContainerSpec extends ObjectBehavior
 		$this->shouldHaveType('Phorm\Elements\Element');
 	}
 
-	function it_should_have_children() {
+	function it_has_children() {
 		$this->getChildren()->shouldBeArray();
 	}
 
-	function it_should_remove_children() {
+	function it_removes_children() {
 		$children = array(
 			'test1' => new Element(),
 			'test2' => new Element()
@@ -39,7 +39,7 @@ class ElementContainerSpec extends ObjectBehavior
 		$this->getChildren()->shouldHaveCount(0);
 	}
 
-	function it_should_add_children() {
+	function it_adds_children() {
 		$this->removeChildren();
 
 		$children1 = array(
@@ -58,7 +58,7 @@ class ElementContainerSpec extends ObjectBehavior
 		$this->getChildren()->shouldBeEqualTo(array_merge($children1, $children2));
 	}
 
-	function it_should_store_children() {
+	function it_stores_children() {
 		$this->removeAttributes();
 
 		$child1 = new Element();
@@ -71,7 +71,7 @@ class ElementContainerSpec extends ObjectBehavior
 		$this->getChildren()->shouldBeEqualTo(array('test1' => $child1, 'test2' => $child2));
 	}
 
-	function it_should_be_chainable() {
+	function it_is_chainable() {
 		$this->setChildren(array())->shouldHaveType('Phorm\Elements\ElementContainer');
 		$this->addChildren(array())->shouldHaveType('Phorm\Elements\ElementContainer');
 		$this->setChild('test', new Element())->shouldHaveType('Phorm\Elements\ElementContainer');

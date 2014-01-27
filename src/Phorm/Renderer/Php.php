@@ -1,10 +1,28 @@
 <?php
 
+/*
+ * This file is part of the Phorm project.
+ *
+ * @link https://github.com/akimsko/phorm
+ *
+ * @copyright Copyright 2014 Bo Thinggaard
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Phorm\Renderer;
 
 use Phorm\Elements\ElementContainer;
 use Phorm\Elements\Element;
 
+/**
+ * Class Php
+ *
+ * @package Phorm\Renderer
+ * @author  Bo Thinggaard <bo@unpossiblesystems.com>
+ */
 class Php extends Template {
 
 	/**
@@ -25,11 +43,17 @@ class Php extends Template {
 	 */
 	public function render(Element $element) {
 		ob_start();
-		new PhpScoper($element, $this->getTemplateProvider());
+		new PhpScoper($element, $this->getTemplateMap());
 		return ob_get_clean();
 	}
 }
 
+/**
+ * Class PhpScoper
+ *
+ * @package Phorm\Renderer
+ * @author  Bo Thinggaard <bo@unpossiblesystems.com>
+ */
 class PhpScoper {
 	/** @var TemplateMap */
 	private $templateProvider;

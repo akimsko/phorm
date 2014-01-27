@@ -1,32 +1,39 @@
 <?php
-/**
- * This file is part of the phorm project.
+
+/*
+ * This file is part of the Phorm project.
+ *
+ * @link https://github.com/akimsko/phorm
+ *
+ * @copyright Copyright 2014 Bo Thinggaard
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-
 namespace Phorm\Renderer;
-
 
 /**
  * Class Template
  *
- * @package Unpossible\Phorm\Renderer
- * @author Bo Thinggaard <bo@unpossiblesystems.com>
+ * @package Phorm\Renderer
+ * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 abstract class Template implements RendererInterface {
 
 	/** @var TemplateMap */
-	private $templateProvider;
+	private $templateMap;
 
 	/**
 	 * Set template provider.
 	 *
-	 * @param TemplateMap $provider
+	 * @param TemplateMap $map
 	 *
 	 * @return Template
 	 */
-	public function setTemplateProvider(TemplateMap $provider) {
-		$this->templateProvider = $provider;
+	public function setTemplateMap(TemplateMap $map) {
+		$this->templateMap = $map;
 		return $this;
 	}
 
@@ -35,12 +42,12 @@ abstract class Template implements RendererInterface {
 	 *
 	 * @return TemplateMap
 	 */
-	public function getTemplateProvider() {
-		if (!$this->templateProvider) {
-			$this->templateProvider = new TemplateMap();
-			$this->templateProvider->setDefaultTemplate($this->getDefaultTemplate());
+	public function getTemplateMap() {
+		if (!$this->templateMap) {
+			$this->templateMap = new TemplateMap();
+			$this->templateMap->setDefaultTemplate($this->getDefaultTemplate());
 		}
-		return $this->templateProvider;
+		return $this->templateMap;
 	}
 
 	/**
@@ -52,7 +59,7 @@ abstract class Template implements RendererInterface {
 	 * @return TemplateMap
 	 */
 	public function setTemplate($key, $template) {
-		$this->getTemplateProvider()->setTemplate($key, $template);
+		$this->getTemplateMap()->setTemplate($key, $template);
 		return $this;
 	}
 
@@ -64,7 +71,7 @@ abstract class Template implements RendererInterface {
 	 * @return string The template
 	 */
 	public function getTemplate($key) {
-		return $this->getTemplateProvider()->getTemplate($key);
+		return $this->getTemplateMap()->getTemplate($key);
 	}
 
 	/**

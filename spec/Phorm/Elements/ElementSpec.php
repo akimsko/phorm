@@ -15,17 +15,17 @@ class ElementSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Elements\Element');
 	}
 
-	function it_should_have_a_type() {
+	function it_has_a_type() {
 		$this->getType()->shouldBeEqualTo('cTest');
 		$this->setType('test');
 		$this->getType()->shouldBeEqualTo('test');
 	}
 
-	function it_should_have_attributes() {
+	function it_has_attributes() {
 		$this->getAttributes()->shouldBeEqualTo(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
 	}
 
-	function it_should_replace_attributes() {
+	function it_replaces_attributes() {
 		$attributes = array(
 			'test1' => 'test1',
 			'test2' => 'test2'
@@ -35,7 +35,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo($attributes);
 	}
 
-	function it_should_remove_attributes() {
+	function it_removes_attributes() {
 		$this->setAttributes(
 			 array(
 				  'test1' => 'test1',
@@ -51,7 +51,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldHaveCount(0);
 	}
 
-	function it_should_add_attributes() {
+	function it_adds_attributes() {
 		$this->removeAttributes();
 
 		$attributes1 = array(
@@ -71,7 +71,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo(array_merge($attributes1, $attributes2));
 	}
 
-	function it_should_store_attribute() {
+	function it_stores_attribute() {
 		$this->removeAttributes();
 
 		$this->setAttribute('test1', 'test1');
@@ -81,7 +81,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo(array('test1' => 'test1', 'test2' => 'test2'));
 	}
 
-	function it_should_be_chainable() {
+	function it_is_chainable() {
 		$this->setType('test')->shouldHaveType('Phorm\Elements\Element');
 		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Elements\Element');
 		$this->setAttributes(array())->shouldHaveType('Phorm\Elements\Element');
