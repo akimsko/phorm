@@ -13,17 +13,6 @@ class PhpSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Renderer\Template');
 	}
 
-	function it_should_map_types_to_templates() {
-		$this->setTemplate('test1', 'testTemplate1');
-		$this->getTemplate('test1')->shouldBeEqualTo('testTemplate1');
-		$this->setTemplate('test2', 'testTemplate2');
-		$this->getTemplate('test2')->shouldBeEqualTo('testTemplate2');
-	}
-
-	function it_should_have_a_default_template() {
-		$this->getTemplate('somethingNotMapped')->shouldBeLike(true);
-	}
-
 	function it_renders_elements() {
 		$element1 = new Element();
 		$element1

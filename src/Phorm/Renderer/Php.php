@@ -14,7 +14,6 @@
 
 namespace Phorm\Renderer;
 
-use Phorm\Element\Container;
 use Phorm\Element\Element;
 
 /**
@@ -26,12 +25,14 @@ use Phorm\Element\Element;
 class Php extends Template {
 
 	/**
-	 * Get the default template.
-	 *
-	 * @return string
+	 * Register default templates.
 	 */
-	protected function getDefaultTemplate() {
-		return __DIR__ . '/../templates/default.php';
+	protected function registerDefaultTemplates(TemplateResolver $templates) {
+		$templateDir = __DIR__ . '/../templates/php';
+		$templates
+			->registerTemplate('element', "$templateDir/element.php")
+			->registerTemplate('content', "$templateDir/content.php")
+			->registerTemplate('container', "$templateDir/container.php");
 	}
 
 	/**
@@ -43,7 +44,7 @@ class Php extends Template {
 	 */
 	public function render(Element $element) {
 		ob_start();
-		new PhpScoper($element, $this->getTemplateMap());
+		new PhpScoper($element, $this->getTemplates());
 		return ob_get_clean();
 	}
 }
@@ -55,15 +56,15 @@ class Php extends Template {
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 class PhpScoper {
-	/** @var TemplateMap */
-	private $templateProvider;
+	/** @var TemplateResolver */
+	private $templates;
 
 	/**
-	 * @param Element          $element
-	 * @param TemplateMap $templateProvider
+	 * @param Element     $element
+	 * @param TemplateResolver $templates
 	 */
-	public function __construct(Element $element, TemplateMap $templateProvider) {
-		$this->templateProvider = $templateProvider;
+	public function __construct(Element $element, TemplateResolver $templates) {
+		$this->templates = $templates;
 		$this->render($element);
 	}
 
@@ -73,12 +74,7 @@ class PhpScoper {
 	 * @param Element $element
 	 */
 	private function render(Element $element) {
-		$template = $this->templateProvider->getTemplate($element->getType());
-
-		if ($element instanceof Container) {
-			$children = $element->getChildren();
-		}
-
+		$template = $this->templates->getTemplateForElement($element);
 		require $template;
 	}
 }

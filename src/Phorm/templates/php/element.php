@@ -19,9 +19,3 @@
 		echo " $name=\"$value\"";
 	}
 ?>>
-<?php if (isset($children)): ?>
-<?php foreach ($children as $child): ?>
-	<?php echo $this->render($child); ?>
-<?php endforeach; ?>
-</<?php echo $element->getType(); ?>>
-<?php endif; ?>

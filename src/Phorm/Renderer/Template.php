@@ -22,32 +22,32 @@ namespace Phorm\Renderer;
  */
 abstract class Template implements RendererInterface {
 
-	/** @var TemplateMap */
-	private $templateMap;
+	/** @var TemplateResolver */
+	private $templates;
 
 	/**
 	 * Set template provider.
 	 *
-	 * @param TemplateMap $map
+	 * @param TemplateResolver $templates
 	 *
 	 * @return $this
 	 */
-	public function setTemplateMap(TemplateMap $map) {
-		$this->templateMap = $map;
+	public function setTemplates(TemplateResolver $templates) {
+		$this->templates = $templates;
 		return $this;
 	}
 
 	/**
-	 * Get the template provider.
+	 * Get the template resolver.
 	 *
-	 * @return TemplateMap
+	 * @return TemplateResolver
 	 */
-	public function getTemplateMap() {
-		if (!$this->templateMap) {
-			$this->templateMap = new TemplateMap();
-			$this->templateMap->setDefaultTemplate($this->getDefaultTemplate());
+	public function getTemplates() {
+		if (!$this->templates) {
+			$this->templates = new TemplateResolver();
+			$this->registerDefaultTemplates($this->templates);
 		}
-		return $this->templateMap;
+		return $this->templates;
 	}
 
 	/**
@@ -58,8 +58,8 @@ abstract class Template implements RendererInterface {
 	 *
 	 * @return $this
 	 */
-	public function setTemplate($key, $template) {
-		$this->getTemplateMap()->setTemplate($key, $template);
+	public function registerTemplate($key, $template) {
+		$this->getTemplates()->registerTemplate($key, $template);
 		return $this;
 	}
 
@@ -71,14 +71,25 @@ abstract class Template implements RendererInterface {
 	 * @return string The template
 	 */
 	public function getTemplate($key) {
-		return $this->getTemplateMap()->getTemplate($key);
+		return $this->getTemplates()->getTemplate($key);
 	}
 
 	/**
-	 * Get the default template.
+	 * Get the template for element.
+	 *
+	 * @param Element $element
 	 *
 	 * @return string
+	 *
+	 * @throws Exception\TemplateNotFoundException
 	 */
-	abstract protected function getDefaultTemplate();
+	public function getTemplateForElement(Element $element) {
+		return $this->getTemplates()->getTemplateForElement($element);
+	}
+
+	/**
+	 * Register default templates.
+	 */
+	abstract protected function registerDefaultTemplates(TemplateResolver $templates);
 
 } 
