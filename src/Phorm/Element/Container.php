@@ -39,7 +39,7 @@ class Container extends Element {
 	 *
 	 * @param Element[] $children
 	 *
-	 * @return Container
+	 * @return $this
 	 */
 	public function addChildren(array $children) {
 		$this->children = array_merge($this->children, $children);
@@ -51,7 +51,7 @@ class Container extends Element {
 	 *
 	 * @param Element[] $children
 	 *
-	 * @return Container
+	 * @return $this
 	 */
 	public function setChildren(array $children) {
 		$this->children = $children;
@@ -61,7 +61,7 @@ class Container extends Element {
 	/**
 	 * Remove all children.
 	 *
-	 * @return Container
+	 * @return $this
 	 */
 	public function removeChildren() {
 		$this->children = array();
@@ -74,7 +74,7 @@ class Container extends Element {
 	 * @param string  $index
 	 * @param Element $child
 	 *
-	 * @return Container
+	 * @return $this
 	 */
 	public function setChild($index, Element $child) {
 		$this->children[$index] = $child;
@@ -99,7 +99,7 @@ class Container extends Element {
 	 *
 	 * @param string $index
 	 *
-	 * @return Container
+	 * @return $this
 	 */
 	public function removeChild($index) {
 		if (array_key_exists($index, $this->children)) {

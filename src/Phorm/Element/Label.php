@@ -44,7 +44,7 @@ class Label extends Content {
 	 *
 	 * @param string $elementId
 	 *
-	 * @return Label
+	 * @return $this
 	 */
 	public function setFor($elementId) {
 		return $this->setAttribute('for', $elementId);
@@ -55,7 +55,7 @@ class Label extends Content {
 	 *
 	 * @param string $formId
 	 *
-	 * @return Label
+	 * @return $this
 	 */
 	public function setForm($formId) {
 		return $this->setAttribute('form', $formId);

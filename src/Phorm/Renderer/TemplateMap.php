@@ -34,7 +34,7 @@ class TemplateMap {
 	 * @param string $key
 	 * @param string $template
 	 *
-	 * @return TemplateMap
+	 * @return $this
 	 */
 	public function setTemplate($key, $template) {
 		$this->templates[$key] = $template;
@@ -59,7 +59,7 @@ class TemplateMap {
 	 *
 	 * @param string $template
 	 *
-	 * @return TemplateMap
+	 * @return $this
 	 */
 	public function setDefaultTemplate($template) {
 		$this->defaultTemplate = $template;

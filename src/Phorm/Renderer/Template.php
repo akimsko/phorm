@@ -30,7 +30,7 @@ abstract class Template implements RendererInterface {
 	 *
 	 * @param TemplateMap $map
 	 *
-	 * @return Template
+	 * @return $this
 	 */
 	public function setTemplateMap(TemplateMap $map) {
 		$this->templateMap = $map;
@@ -56,7 +56,7 @@ abstract class Template implements RendererInterface {
 	 * @param string $key
 	 * @param string $template
 	 *
-	 * @return TemplateMap
+	 * @return $this
 	 */
 	public function setTemplate($key, $template) {
 		$this->getTemplateMap()->setTemplate($key, $template);

@@ -46,7 +46,7 @@ class Element {
 	 *
 	 * @param string $type
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function setType($type) {
 		$this->type = $type;
@@ -67,7 +67,7 @@ class Element {
 	 *
 	 * @param array $attributes
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function setAttributes(array $attributes) {
 		$this->attributes = $attributes;
@@ -79,7 +79,7 @@ class Element {
 	 *
 	 * @param array $attributes
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function addAttributes(array $attributes) {
 		$this->attributes = array_merge($this->attributes, $attributes);
@@ -92,7 +92,7 @@ class Element {
 	 * @param string $name
 	 * @param string $value
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function setAttribute($name, $value) {
 		$this->attributes[$name] = $value;
@@ -117,7 +117,7 @@ class Element {
 	 *
 	 * @param string $name
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function removeAttribute($name) {
 		if (array_key_exists($name, $this->attributes)) {
@@ -129,7 +129,7 @@ class Element {
 	/**
 	 * Remove all element attributes.
 	 *
-	 * @return Element
+	 * @return $this
 	 */
 	public function removeAttributes() {
 		$this->attributes = array();
