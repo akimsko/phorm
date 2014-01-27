@@ -31,14 +31,14 @@ class Php extends Template {
 }
 
 class PhpScoper {
-	/** @var TemplateProvider */
+	/** @var TemplateMap */
 	private $templateProvider;
 
 	/**
 	 * @param Element          $element
-	 * @param TemplateProvider $templateProvider
+	 * @param TemplateMap $templateProvider
 	 */
-	public function __construct(Element $element, TemplateProvider $templateProvider) {
+	public function __construct(Element $element, TemplateMap $templateProvider) {
 		$this->templateProvider = $templateProvider;
 		$this->render($element);
 	}

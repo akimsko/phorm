@@ -15,17 +15,17 @@ namespace Phorm\Renderer;
  */
 abstract class Template implements RendererInterface {
 
-	/** @var TemplateProvider */
+	/** @var TemplateMap */
 	private $templateProvider;
 
 	/**
 	 * Set template provider.
 	 *
-	 * @param TemplateProvider $provider
+	 * @param TemplateMap $provider
 	 *
 	 * @return Template
 	 */
-	public function setTemplateProvider(TemplateProvider $provider) {
+	public function setTemplateProvider(TemplateMap $provider) {
 		$this->templateProvider = $provider;
 		return $this;
 	}
@@ -33,11 +33,11 @@ abstract class Template implements RendererInterface {
 	/**
 	 * Get the template provider.
 	 *
-	 * @return TemplateProvider
+	 * @return TemplateMap
 	 */
 	public function getTemplateProvider() {
 		if (!$this->templateProvider) {
-			$this->templateProvider = new TemplateProvider();
+			$this->templateProvider = new TemplateMap();
 			$this->templateProvider->setDefaultTemplate($this->getDefaultTemplate());
 		}
 		return $this->templateProvider;
@@ -49,7 +49,7 @@ abstract class Template implements RendererInterface {
 	 * @param string $key
 	 * @param string $template
 	 *
-	 * @return TemplateProvider
+	 * @return TemplateMap
 	 */
 	public function setTemplate($key, $template) {
 		$this->getTemplateProvider()->setTemplate($key, $template);

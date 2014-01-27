@@ -7,12 +7,12 @@
 namespace Phorm\Renderer;
 
 /**
- * Class TemplateProvider
+ * Class TemplateMap
  *
  * @package Unpossible\Phorm\Renderer
  * @author Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class TemplateProvider {
+class TemplateMap {
 
 	/** @var string The default template when key misses. */
 	protected $defaultTemplate = '';
@@ -26,7 +26,7 @@ class TemplateProvider {
 	 * @param string $key
 	 * @param string $template
 	 *
-	 * @return TemplateProvider
+	 * @return TemplateMap
 	 */
 	public function setTemplate($key, $template) {
 		$this->templates[$key] = $template;
@@ -51,7 +51,7 @@ class TemplateProvider {
 	 *
 	 * @param string $template
 	 *
-	 * @return TemplateProvider
+	 * @return TemplateMap
 	 */
 	public function setDefaultTemplate($template) {
 		$this->defaultTemplate = $template;

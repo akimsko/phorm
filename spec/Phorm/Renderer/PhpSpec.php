@@ -10,7 +10,7 @@ use Phorm\Elements\Element;
 class PhpSpec extends ObjectBehavior {
 	function it_is_initializable() {
 		$this->shouldHaveType('Phorm\Renderer\Php');
-		$this->shouldImplement('Phorm\Renderer\RendererInterface');
+		$this->shouldHaveType('Phorm\Renderer\Template');
 	}
 
 	function it_should_map_types_to_templates() {
@@ -24,7 +24,7 @@ class PhpSpec extends ObjectBehavior {
 		$this->getTemplate('somethingNotMapped')->shouldBeLike(true);
 	}
 
-	function it_render_elements() {
+	function it_renders_elements() {
 		$element1 = new Element(array('name' => 'test1'));
 		$element1->setType('typeone');
 
