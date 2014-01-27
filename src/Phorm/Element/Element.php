@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Phorm\Elements;
+namespace Phorm\Element;
 
 /**
  * Class Element
@@ -21,9 +21,6 @@ namespace Phorm\Elements;
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 class Element {
-
-	/** @var string Uknown type. */
-	const TYPE_UNKNOWN = 'unknown';
 
 	/** @var string Element type. */
 	protected $type;
@@ -44,8 +41,9 @@ class Element {
 	 * @return string
 	 */
 	public function getType() {
-		if (!$this->type && !($this->type = strtolower(substr(get_class($this), strlen(get_class()))))) {
-			$this->type = self::TYPE_UNKNOWN;
+		if (!$this->type) {
+			$refl = new \ReflectionClass($this);
+			$this->type = strtolower($refl->getShortName());
 		}
 		return $this->type;
 	}

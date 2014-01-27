@@ -1,20 +1,20 @@
 <?php
 
-namespace spec\Phorm\Elements;
+namespace spec\Phorm\Element;
 
-use Phorm\Elements\Element;
+use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ElementContainerSpec extends ObjectBehavior
+class ContainerSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Phorm\Elements\ElementContainer');
+        $this->shouldHaveType('Phorm\Element\Container');
     }
 
 	function it_extends_element() {
-		$this->shouldHaveType('Phorm\Elements\Element');
+		$this->shouldHaveType('Phorm\Element\Element');
 	}
 
 	function it_has_children() {
@@ -72,10 +72,10 @@ class ElementContainerSpec extends ObjectBehavior
 	}
 
 	function it_is_chainable() {
-		$this->setChildren(array())->shouldHaveType('Phorm\Elements\ElementContainer');
-		$this->addChildren(array())->shouldHaveType('Phorm\Elements\ElementContainer');
-		$this->setChild('test', new Element())->shouldHaveType('Phorm\Elements\ElementContainer');
-		$this->removeChildren()->shouldHaveType('Phorm\Elements\ElementContainer');
-		$this->removeChild('test')->shouldHaveType('Phorm\Elements\ElementContainer');
+		$this->setChildren(array())->shouldHaveType('Phorm\Element\Container');
+		$this->addChildren(array())->shouldHaveType('Phorm\Element\Container');
+		$this->setChild('test', new Element())->shouldHaveType('Phorm\Element\Container');
+		$this->removeChildren()->shouldHaveType('Phorm\Element\Container');
+		$this->removeChild('test')->shouldHaveType('Phorm\Element\Container');
 	}
 }

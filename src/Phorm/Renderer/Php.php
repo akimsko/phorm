@@ -14,8 +14,8 @@
 
 namespace Phorm\Renderer;
 
-use Phorm\Elements\ElementContainer;
-use Phorm\Elements\Element;
+use Phorm\Element\Container;
+use Phorm\Element\Element;
 
 /**
  * Class Php
@@ -75,7 +75,7 @@ class PhpScoper {
 	private function render(Element $element) {
 		$template = $this->templateProvider->getTemplate($element->getType());
 
-		if ($element instanceof ElementContainer) {
+		if ($element instanceof Container) {
 			$children = $element->getChildren();
 		}
 

@@ -13,7 +13,7 @@
 
 namespace Phorm\Renderer;
 
-use Phorm\Elements\Element;
+use Phorm\Element\Element;
 
 /**
  * Interface RendererInterface

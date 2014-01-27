@@ -4,8 +4,8 @@ namespace spec\Phorm\Renderer;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Phorm\Elements\ElementContainer;
-use Phorm\Elements\Element;
+use Phorm\Element\Container;
+use Phorm\Element\Element;
 
 class PhpSpec extends ObjectBehavior {
 	function it_is_initializable() {
@@ -31,7 +31,7 @@ class PhpSpec extends ObjectBehavior {
 		$element2 = new Element(array('name' => 'test2'));
 		$element2->setType('typetwo');
 
-		$container = new ElementContainer(array('name' => 'container'));
+		$container = new Container(array('name' => 'container'));
 		$container
 			->setChild('child1', $element1)
 			->setChild('child2', $element2);

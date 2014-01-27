@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Phorm\Elements;
+namespace spec\Phorm\Element;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -12,7 +12,7 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_is_initializable() {
-		$this->shouldHaveType('Phorm\Elements\Element');
+		$this->shouldHaveType('Phorm\Element\Element');
 	}
 
 	function it_has_a_type() {
@@ -82,11 +82,11 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_is_chainable() {
-		$this->setType('test')->shouldHaveType('Phorm\Elements\Element');
-		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Elements\Element');
-		$this->setAttributes(array())->shouldHaveType('Phorm\Elements\Element');
-		$this->addAttributes(array())->shouldHaveType('Phorm\Elements\Element');
-		$this->removeAttribute('test')->shouldHaveType('Phorm\Elements\Element');
-		$this->removeAttributes()->shouldHaveType('Phorm\Elements\Element');
+		$this->setType('test')->shouldHaveType('Phorm\Element\Element');
+		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Element\Element');
+		$this->setAttributes(array())->shouldHaveType('Phorm\Element\Element');
+		$this->addAttributes(array())->shouldHaveType('Phorm\Element\Element');
+		$this->removeAttribute('test')->shouldHaveType('Phorm\Element\Element');
+		$this->removeAttributes()->shouldHaveType('Phorm\Element\Element');
 	}
 }
