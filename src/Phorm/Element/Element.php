@@ -22,34 +22,34 @@ namespace Phorm\Element;
  */
 class Element {
 
-	/** @var string Element type. */
-	protected $type;
+	/** @var string Element tag. */
+	protected $tag;
 
 	/** @var array Element attributes. */
 	protected $attributes;
 
 	/**
-	 * Get element type.
+	 * Get element tag.
 	 *
 	 * @return string
 	 */
-	public function getType() {
-		if (!$this->type) {
+	public function getTag() {
+		if (!$this->tag) {
 			$refl = new \ReflectionClass($this);
-			$this->type = strtolower($refl->getShortName());
+			$this->tag = strtolower($refl->getShortName());
 		}
-		return $this->type;
+		return $this->tag;
 	}
 
 	/**
-	 * Set element type.
+	 * Set element tag.
 	 *
-	 * @param string $type
+	 * @param string $tag
 	 *
 	 * @return $this
 	 */
-	public function setType($type) {
-		$this->type = $type;
+	public function setTag($tag) {
+		$this->tag = $tag;
 		return $this;
 	}
 

@@ -8,7 +8,7 @@ use Prophecy\Argument;
 class ElementSpec extends ObjectBehavior {
 	function let() {
 		$this->setAttributes(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
-		$this->setType('cTest');
+		$this->setTag('cTest');
 	}
 
 	function it_is_initializable() {
@@ -16,9 +16,9 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_has_a_type() {
-		$this->getType()->shouldBeEqualTo('cTest');
-		$this->setType('test');
-		$this->getType()->shouldBeEqualTo('test');
+		$this->getTag()->shouldBeEqualTo('cTest');
+		$this->setTag('test');
+		$this->getTag()->shouldBeEqualTo('test');
 	}
 
 	function it_has_attributes() {
@@ -82,7 +82,7 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_is_chainable() {
-		$this->setType('test')->shouldHaveType('Phorm\Element\Element');
+		$this->setTag('test')->shouldHaveType('Phorm\Element\Element');
 		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Element\Element');
 		$this->setAttributes(array())->shouldHaveType('Phorm\Element\Element');
 		$this->addAttributes(array())->shouldHaveType('Phorm\Element\Element');

@@ -13,8 +13,8 @@ class LabelSpec extends ObjectBehavior
 		$this->shouldHaveType('Phorm\Element\Element');
     }
 
-	function it_has_type_label() {
-		$this->getType()->shouldReturn('label');
+	function it_has_tag_label() {
+		$this->getTag()->shouldReturn('label');
 	}
 
 	function it_has_for_attribute_shortcut() {

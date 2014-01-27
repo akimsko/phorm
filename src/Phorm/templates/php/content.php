@@ -14,8 +14,8 @@
 
 ?>
 <<?php
-	echo $element->getType();
+	echo $element->getTag();
 	foreach($element->getAttributes() as $name=>$value){
 		echo " $name=\"$value\"";
 	}
-?>><?php echo $element->getContent(); ?></<?php echo $element->getType(); ?>>
+?>><?php echo $element->getContent(); ?></<?php echo $element->getTag(); ?>>

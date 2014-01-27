@@ -25,7 +25,7 @@ use Phorm\Renderer\Exception\TemplateNotFoundException;
  */
 class TemplateResolver {
 
-	/** @var array Type => template map. */
+	/** @var array key => template map. */
 	protected $templates = array();
 
 	/**
@@ -64,8 +64,8 @@ class TemplateResolver {
 	 * @throws Exception\TemplateNotFoundException
 	 */
 	public function getTemplateForElement(Element $element) {
-		if (array_key_exists($element->getType(), $this->templates)) {
-			return $this->templates[$element->getType()];
+		if (array_key_exists($element->getTag(), $this->templates)) {
+			return $this->templates[$element->getTag()];
 		}
 
 		$refl = new \ReflectionClass($element);
