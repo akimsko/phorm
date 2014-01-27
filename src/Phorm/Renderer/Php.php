@@ -1,9 +1,9 @@
 <?php
 
-namespace Unpossible\Phorm\Renderer;
+namespace Phorm\Renderer;
 
-use Unpossible\Phorm\Elements\ElementContainer;
-use Unpossible\Phorm\Elements\Element;
+use Phorm\Elements\ElementContainer;
+use Phorm\Elements\Element;
 
 class Php extends Template {
 

@@ -4,9 +4,9 @@
  */
 
 
-namespace Unpossible\Phorm\Renderer;
+namespace Phorm\Renderer;
 
-use Unpossible\Phorm\Elements\Element;
+use Phorm\Elements\Element;
 
 interface RendererInterface {
 

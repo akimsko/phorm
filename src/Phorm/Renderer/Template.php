@@ -4,7 +4,7 @@
  */
 
 
-namespace Unpossible\Phorm\Renderer;
+namespace Phorm\Renderer;
 
 
 /**

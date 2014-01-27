@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Unpossible\Phorm\Renderer;
+namespace spec\Phorm\Renderer;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Unpossible\Phorm\Elements\ElementContainer;
-use Unpossible\Phorm\Elements\Element;
+use Phorm\Elements\ElementContainer;
+use Phorm\Elements\Element;
 
 class PhpSpec extends ObjectBehavior {
 	function it_is_initializable() {
-		$this->shouldHaveType('Unpossible\Phorm\Renderer\Php');
-		$this->shouldImplement('Unpossible\Phorm\Renderer\RendererInterface');
+		$this->shouldHaveType('Phorm\Renderer\Php');
+		$this->shouldImplement('Phorm\Renderer\RendererInterface');
 	}
 
 	function it_should_map_types_to_templates() {

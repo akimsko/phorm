@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Unpossible\Phorm\Elements;
+namespace spec\Phorm\Elements;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -12,7 +12,7 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_is_initializable() {
-		$this->shouldHaveType('Unpossible\Phorm\Elements\Element');
+		$this->shouldHaveType('Phorm\Elements\Element');
 	}
 
 	function it_should_have_a_type() {
@@ -82,11 +82,11 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_should_be_chainable() {
-		$this->setType('test')->shouldHaveType('Unpossible\Phorm\Elements\Element');
-		$this->setAttribute('test', 'test')->shouldHaveType('Unpossible\Phorm\Elements\Element');
-		$this->setAttributes(array())->shouldHaveType('Unpossible\Phorm\Elements\Element');
-		$this->addAttributes(array())->shouldHaveType('Unpossible\Phorm\Elements\Element');
-		$this->removeAttribute('test')->shouldHaveType('Unpossible\Phorm\Elements\Element');
-		$this->removeAttributes()->shouldHaveType('Unpossible\Phorm\Elements\Element');
+		$this->setType('test')->shouldHaveType('Phorm\Elements\Element');
+		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Elements\Element');
+		$this->setAttributes(array())->shouldHaveType('Phorm\Elements\Element');
+		$this->addAttributes(array())->shouldHaveType('Phorm\Elements\Element');
+		$this->removeAttribute('test')->shouldHaveType('Phorm\Elements\Element');
+		$this->removeAttributes()->shouldHaveType('Phorm\Elements\Element');
 	}
 }

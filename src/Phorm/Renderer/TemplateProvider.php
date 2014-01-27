@@ -4,7 +4,7 @@
  * This file is part of the phorm project.
  */
 
-namespace Unpossible\Phorm\Renderer;
+namespace Phorm\Renderer;
 
 /**
  * Class TemplateProvider

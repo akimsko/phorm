@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Unpossible\Phorm\Elements;
+namespace Phorm\Elements;
 
 /**
  * Class Element
