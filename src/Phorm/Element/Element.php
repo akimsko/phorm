@@ -29,13 +29,6 @@ class Element {
 	protected $attributes;
 
 	/**
-	 * @param array  $attributes
-	 */
-	public function __construct(array $attributes = array()) {
-		$this->attributes = $attributes;
-	}
-
-	/**
 	 * Get element type.
 	 *
 	 * @return string

@@ -25,14 +25,19 @@ class PhpSpec extends ObjectBehavior {
 	}
 
 	function it_renders_elements() {
-		$element1 = new Element(array('name' => 'test1'));
-		$element1->setType('typeone');
+		$element1 = new Element();
+		$element1
+			->setAttributes(array('name' => 'test1'))
+			->setType('typeone');
 
-		$element2 = new Element(array('name' => 'test2'));
-		$element2->setType('typetwo');
+		$element2 = new Element();
+		$element2
+			->setAttributes(array('name' => 'test2'))
+			->setType('typetwo');
 
-		$container = new Container(array('name' => 'container'));
+		$container = new Container();
 		$container
+			->setAttributes(array('name' => 'container'))
 			->setChild('child1', $element1)
 			->setChild('child2', $element2);
 

@@ -7,7 +7,7 @@ use Prophecy\Argument;
 
 class ElementSpec extends ObjectBehavior {
 	function let() {
-		$this->beConstructedWith(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
+		$this->setAttributes(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
 		$this->setType('cTest');
 	}
 
