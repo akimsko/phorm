@@ -25,9 +25,9 @@ use Phorm\Element\Element;
 class Php extends Template {
 
 	/**
-	 * Register default templates.
+	 * Register templates to the default template resolver.
 	 */
-	protected function registerDefaultTemplates(TemplateResolver $templates) {
+	protected function registerTemplates(TemplateResolver $templates) {
 		$templateDir = __DIR__ . '/../templates/php';
 		$templates
 			->registerTemplate('element', "$templateDir/element.php")

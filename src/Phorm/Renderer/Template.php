@@ -26,15 +26,14 @@ abstract class Template implements Renderer {
 	private $templates;
 
 	/**
-	 * Set template provider.
-	 *
 	 * @param TemplateResolver $templates
-	 *
-	 * @return $this
 	 */
-	public function setTemplates(TemplateResolver $templates) {
+	public function __construct(TemplateResolver $templates = null) {
+		if (!$templates) {
+			$templates = new TemplateResolver();
+			$this->registerTemplates($templates);
+		}
 		$this->templates = $templates;
-		return $this;
 	}
 
 	/**
@@ -42,11 +41,7 @@ abstract class Template implements Renderer {
 	 *
 	 * @return TemplateResolver
 	 */
-	public function getTemplates() {
-		if (!$this->templates) {
-			$this->templates = new TemplateResolver();
-			$this->registerDefaultTemplates($this->templates);
-		}
+	protected function getTemplates() {
 		return $this->templates;
 	}
 
@@ -88,8 +83,8 @@ abstract class Template implements Renderer {
 	}
 
 	/**
-	 * Register default templates.
+	 * Register templates to the default template resolver.
 	 */
-	abstract protected function registerDefaultTemplates(TemplateResolver $templates);
+	abstract protected function registerTemplates(TemplateResolver $templates);
 
 } 
