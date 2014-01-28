@@ -21,7 +21,7 @@ use Phorm\Element\Element;
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-interface RendererInterface {
+interface Renderer {
 
 	/**
 	 * Render an element.

@@ -20,7 +20,7 @@ namespace Phorm\Renderer;
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-abstract class Template implements RendererInterface {
+abstract class Template implements Renderer {
 
 	/** @var TemplateResolver */
 	private $templates;
@@ -81,7 +81,7 @@ abstract class Template implements RendererInterface {
 	 *
 	 * @return string
 	 *
-	 * @throws Exception\RendererException
+	 * @throws \Phorm\Exception\RendererException
 	 */
 	public function getTemplateForElement(Element $element) {
 		return $this->getTemplates()->getTemplateForElement($element);

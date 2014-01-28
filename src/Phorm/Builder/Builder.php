@@ -1,13 +1,20 @@
 <?php
-/**
- * This file is part of the phorm project.
- */
 
+/*
+ * This file is part of the Phorm project.
+ *
+ * @link https://github.com/akimsko/phorm
+ *
+ * @copyright Copyright 2014 Bo Thinggaard
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Phorm\Builder;
 
 use Phorm\Element\Element;
-
 
 /**
  * Class Builder
@@ -20,9 +27,6 @@ abstract class Builder {
 	/** @var array Element attributes. */
 	private $attributes = array();
 
-	/** @var string The element type */
-	private $elementType;
-
 	/**
 	 * Get attributes.
 	 *
@@ -30,17 +34,6 @@ abstract class Builder {
 	 */
 	protected function getAttributes() {
 		return $this->attributes;
-	}
-
-	/**
-	 * Get element type.
-	 *
-	 * @return string
-	 */
-	protected function getElementType() {
-		return $this->elementType
-			? $this->elementType
-			: ($this->elementType = $this->getDefaultElementType());
 	}
 
 	/**
@@ -92,27 +85,6 @@ abstract class Builder {
 	public function setClass($class) {
 		return $this->setAttribute('class', $class);
 	}
-
-	/**
-	 * Set element type.
-	 *
-	 * Overrides the default type for the element.
-	 *
-	 * @param string $type
-	 *
-	 * @return $this
-	 */
-	public function setElementType($type) {
-		$this->elementType = $type;
-		return $this;
-	}
-
-	/**
-	 * Get default element type.
-	 *
-	 * @return string
-	 */
-	abstract protected function getDefaultElementType();
 
 	/**
 	 * Build element.

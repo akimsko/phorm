@@ -8,9 +8,11 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class FormBuilderSpec extends ObjectBehavior {
+	private $type = 'Phorm\Builder\FormBuilder';
+
 	function it_is_initializable() {
-		$this->shouldHaveType('Phorm\Builder\FormBuilder');
-		$this->shouldImplement('Phorm\Builder\Builder');
+		$this->shouldHaveType($this->type);
+		$this->shouldHaveType('Phorm\Builder\Builder');
 	}
 
 	function it_builds_a_form_to_spec(Composite $form, Element $element) {
@@ -41,6 +43,18 @@ class FormBuilderSpec extends ObjectBehavior {
 		$this->addElement($element);
 
 		$this->build($form)->shouldHaveType('Phorm\Element\Composite');
+	}
+
+	function it_is_chainable(Element $element) {
+		$this->setAcceptCharset('accept-charset')->shouldHaveType($this->type);
+		$this->setAction('action')->shouldHaveType($this->type);
+		$this->setAutocomplete('autocomplete')->shouldHaveType($this->type);
+		$this->setEnctype('enctype')->shouldHaveType($this->type);
+		$this->setMethod('method')->shouldHaveType($this->type);
+		$this->setName('name')->shouldHaveType($this->type);
+		$this->setNovalidate('novalidate')->shouldHaveType($this->type);
+		$this->setTarget('target')->shouldHaveType($this->type);
+		$this->addElement($element)->shouldHaveType($this->type);
 	}
 
 }
