@@ -2,6 +2,8 @@
 
 namespace spec\Phorm\Builder;
 
+use Phorm\Element\Composite;
+use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -11,11 +13,22 @@ class FormBuilderSpec extends ObjectBehavior {
 		$this->shouldImplement('Phorm\Builder\Builder');
 	}
 
-	function it_builds_a_form() {
-		$this->build()->shouldHaveType('Phorm\Element\Composite');
-	}
+	function it_builds_a_form_to_spec(Composite $form, Element $element) {
+		$form->setElementType('form')->shouldBeCalled();
+		$form->setChildren(array($element))->shouldBeCalled();
+		$form->setAttributes(
+			array(
+				'accept-charset' => 'accept-charset',
+				'action'         => 'action',
+				'autocomplete'   => 'autocomplete',
+				'enctype'        => 'enctype',
+				'method'         => 'method',
+				'name'           => 'name',
+				'novalidate'     => 'novalidate',
+				'target'         => 'target'
+			)
+		)->shouldBeCalled();
 
-	function it_has_attribute_shorcut_setters() {
 		$this->setAcceptCharset('accept-charset');
 		$this->setAction('action');
 		$this->setAutocomplete('autocomplete');
@@ -25,23 +38,9 @@ class FormBuilderSpec extends ObjectBehavior {
 		$this->setNovalidate('novalidate');
 		$this->setTarget('target');
 
-		$this->getAttributes()->shouldReturn(
-			 array(
-				 'accept-charset' => 'accept-charset',
-				 'action'         => 'action',
-				 'autocomplete'   => 'autocomplete',
-				 'enctype'        => 'enctype',
-				 'method'         => 'method',
-				 'name'           => 'name',
-				 'novalidate'     => 'novalidate',
-				 'target'         => 'target'
-			 )
-		);
+		$this->addElement($element);
+
+		$this->build($form)->shouldHaveType('Phorm\Element\Composite');
 	}
 
-	function it_can_override_elementtype() {
-		$this->getElementType()->shouldReturn('form');
-		$this->setElementType('test');
-		$this->getElementType()->shouldReturn('test');
-	}
 }

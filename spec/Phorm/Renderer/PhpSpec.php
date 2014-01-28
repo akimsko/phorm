@@ -26,9 +26,9 @@ class PhpSpec extends ObjectBehavior {
 
 		$container = new Composite();
 		$container
-			->setAttributes(array('name' => 'container'))
-			->setChild('child1', $element1)
-			->setChild('child2', $element2);
+			->setAttribute('name', 'container')
+			->addChild($element1)
+			->addChild($element2);
 
 		$this->render($container)->shouldReturn(
 <<<EOD

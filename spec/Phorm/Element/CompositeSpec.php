@@ -23,18 +23,17 @@ class CompositeSpec extends ObjectBehavior
 
 	function it_removes_children() {
 		$children = array(
-			'test1' => new Element(),
-			'test2' => new Element()
+			new Element(),
+			new Element()
 		);
 
 		$this->setChildren($children);
 
 		$this->getChildren()->shouldHaveCount(2);
-		$this->getChild('test1')->shouldBeEqualTo($children['test1']);
-		$this->removeChild('test1');
+		$this->getChild(0)->shouldBeEqualTo($children[0]);
+		$this->removeChild(0);
 		$this->getChildren()->shouldHaveCount(1);
-		$this->getChild('test1')->shouldBeNull();
-		$this->getChild('test2')->shouldBeEqualTo($children['test2']);
+		$this->getChild(0)->shouldBeEqualTo($children[1]);
 		$this->removeChildren();
 		$this->getChildren()->shouldHaveCount(0);
 	}
@@ -43,13 +42,13 @@ class CompositeSpec extends ObjectBehavior
 		$this->removeChildren();
 
 		$children1 = array(
-			'test1' => new Element(),
-			'test2' => new Element()
+			new Element(),
+			new Element()
 		);
 
 		$children2 = array(
-			'test3' => new Element(),
-			'test4' => new Element()
+			new Element(),
+			new Element()
 		);
 
 		$this->addChildren($children1);
@@ -64,18 +63,18 @@ class CompositeSpec extends ObjectBehavior
 		$child1 = new Element();
 		$child2 = new Element();
 
-		$this->setChild('test1', $child1);
-		$this->getChild('test1')->shouldBeEqualTo($child1);
-		$this->setChild('test2', $child2);
-		$this->getChild('test2')->shouldBeEqualTo($child2);
-		$this->getChildren()->shouldBeEqualTo(array('test1' => $child1, 'test2' => $child2));
+		$this->addChild($child1);
+		$this->getChild(0)->shouldBeEqualTo($child1);
+		$this->addChild($child2);
+		$this->getChild(1)->shouldBeEqualTo($child2);
+		$this->getChildren()->shouldBeEqualTo(array($child1, $child2));
 	}
 
 	function it_is_chainable() {
 		$this->setChildren(array())->shouldHaveType('Phorm\Element\Composite');
 		$this->addChildren(array())->shouldHaveType('Phorm\Element\Composite');
-		$this->setChild('test', new Element())->shouldHaveType('Phorm\Element\Composite');
+		$this->addChild(new Element())->shouldHaveType('Phorm\Element\Composite');
+		$this->removeChild(0)->shouldHaveType('Phorm\Element\Composite');
 		$this->removeChildren()->shouldHaveType('Phorm\Element\Composite');
-		$this->removeChild('test')->shouldHaveType('Phorm\Element\Composite');
 	}
 }

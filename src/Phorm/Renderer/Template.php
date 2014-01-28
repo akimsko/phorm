@@ -81,7 +81,7 @@ abstract class Template implements RendererInterface {
 	 *
 	 * @return string
 	 *
-	 * @throws Exception\TemplateNotFoundException
+	 * @throws Exception\RendererException
 	 */
 	public function getTemplateForElement(Element $element) {
 		return $this->getTemplates()->getTemplateForElement($element);

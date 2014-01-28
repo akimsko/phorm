@@ -15,7 +15,8 @@
 namespace Phorm\Renderer;
 
 use Phorm\Element\Element;
-use Phorm\Renderer\Exception\TemplateNotFoundException;
+use Phorm\Exception\RendererException;
+
 
 /**
  * Class TemplateResolver
@@ -61,7 +62,7 @@ class TemplateResolver {
 	 *
 	 * @return string
 	 *
-	 * @throws Exception\TemplateNotFoundException
+	 * @throws RendererException
 	 */
 	public function getTemplateForElement(Element $element) {
 		if (array_key_exists($element->getElementType(), $this->templates)) {
@@ -77,6 +78,6 @@ class TemplateResolver {
 
 		} while ($refl = $refl->getParentClass());
 
-		throw new TemplateNotFoundException("Could not resolve template for element '" . get_class($element) . "'");
+		throw new RendererException("Could not resolve template for element '" . get_class($element) . "'");
 	}
 }

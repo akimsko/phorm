@@ -36,7 +36,7 @@ class TemplateResolverSpec extends ObjectBehavior
 
 	function it_throws_template_not_found_exception() {
 		$element = new Element();
-		$this->shouldThrow('Phorm\Renderer\Exception\TemplateNotFoundException')->duringGetTemplateForElement($element);
+		$this->shouldThrow('Phorm\Exception\RendererException')->duringGetTemplateForElement($element);
 	}
 
 	function it_is_chainable() {

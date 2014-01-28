@@ -6,6 +6,8 @@
 
 namespace Phorm\Builder;
 
+use Phorm\Element\Element;
+
 
 /**
  * Class Builder
@@ -26,7 +28,7 @@ abstract class Builder {
 	 *
 	 * @return array
 	 */
-	public function getAttributes() {
+	protected function getAttributes() {
 		return $this->attributes;
 	}
 
@@ -35,7 +37,7 @@ abstract class Builder {
 	 *
 	 * @return string
 	 */
-	public function getElementType() {
+	protected function getElementType() {
 		return $this->elementType
 			? $this->elementType
 			: ($this->elementType = $this->getDefaultElementType());
@@ -115,7 +117,7 @@ abstract class Builder {
 	/**
 	 * Build element.
 	 *
-	 * @return \Phorm\Element\Element
+	 * @return Element
 	 */
 	abstract public function build();
 } 

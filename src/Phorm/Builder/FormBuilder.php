@@ -3,8 +3,17 @@
 namespace Phorm\Builder;
 
 use Phorm\Element\Composite;
+use Phorm\Element\Element;
+use Phorm\Exception\BuilderException;
 
 class FormBuilder extends Builder {
+
+	/** @var Element[] */
+	private $elements = array();
+
+	protected function getElements() {
+		return $this->elements;
+	}
 
 	/**
 	 * Get default element type.
@@ -47,15 +56,26 @@ class FormBuilder extends Builder {
 		return $this->setAttribute('target', $target);
 	}
 
+	public function addElement(Element $element) {
+		$this->elements[] = $element;
+	}
+
 	/**
 	 * Build element.
 	 *
-	 * @return \Phorm\Element\Composite
+	 * @param Composite $element
+	 *
+	 * @return Composite
+	 *
+	 * @throws BuilderException
 	 */
-	public function build() {
-		$form = new Composite();
-		return $form
-			->setAttributes($this->getAttributes())
-			->setElementType($this->getElementType());
+	public function build(Composite $element = null) {
+		$form = $element ? $element : new Composite();
+
+		$form->setAttributes($this->getAttributes());
+		$form->setElementType($this->getElementType());
+		$form->setChildren($this->getElements());
+
+		return $form;
 	}
 }

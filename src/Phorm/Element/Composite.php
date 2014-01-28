@@ -42,7 +42,7 @@ class Composite extends Element {
 	 * @return $this
 	 */
 	public function addChildren(array $children) {
-		$this->children = array_merge($this->children, $children);
+		$this->children = array_merge($this->children, array_values($children));
 		return $this;
 	}
 
@@ -54,7 +54,7 @@ class Composite extends Element {
 	 * @return $this
 	 */
 	public function setChildren(array $children) {
-		$this->children = $children;
+		$this->children = array_values($children);
 		return $this;
 	}
 
@@ -69,41 +69,41 @@ class Composite extends Element {
 	}
 
 	/**
-	 * Set/add child.
+	 * Add child.
 	 *
-	 * @param string  $index
 	 * @param Element $child
 	 *
 	 * @return $this
 	 */
-	public function setChild($index, Element $child) {
-		$this->children[$index] = $child;
+	public function addChild(Element $child) {
+		$this->children[] = $child;
 		return $this;
 	}
 
 	/**
-	 * Get child at index.
+	 * Get child at $position.
 	 *
-	 * @param string $index
+	 * @param string $position
 	 *
 	 * @return null|Element
 	 */
-	public function getChild($index) {
-		return isset($this->children[$index])
-			? $this->children[$index]
+	public function getChild($position) {
+		return isset($this->children[$position])
+			? $this->children[$position]
 			: null;
 	}
 
 	/**
 	 * Remove child at index.
 	 *
-	 * @param string $index
+	 * @param string $position
 	 *
 	 * @return $this
 	 */
-	public function removeChild($index) {
-		if (array_key_exists($index, $this->children)) {
-			unset($this->children[$index]);
+	public function removeChild($position) {
+		if (array_key_exists($position, $this->children)) {
+			unset($this->children[$position]);
+			$this->children = array_values($this->children);
 		}
 		return $this;
 	}
