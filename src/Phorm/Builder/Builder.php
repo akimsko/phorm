@@ -89,7 +89,9 @@ abstract class Builder {
 	/**
 	 * Build element.
 	 *
+	 * @param Element $element
+	 *
 	 * @return Element
 	 */
-	abstract public function build();
+	abstract public function build(Element $element = null);
 } 

@@ -136,14 +136,18 @@ class FormBuilder extends Builder {
 	/**
 	 * Build element.
 	 *
-	 * @param Composite $element
+	 * @param Element $element
 	 *
 	 * @return Composite
 	 *
 	 * @throws BuilderException
 	 */
-	public function build(Composite $element = null) {
+	public function build(Element $element = null) {
 		$form = $element ? $element : new Composite();
+
+		if (!$element instanceof Composite) {
+			throw new BuilderException('This builder can only build composites.');
+		}
 
 		$form->setElementType('form');
 		$form->setAttributes($this->getAttributes());
