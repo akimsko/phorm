@@ -64,8 +64,8 @@ class TemplateResolver {
 	 * @throws Exception\TemplateNotFoundException
 	 */
 	public function getTemplateForElement(Element $element) {
-		if (array_key_exists($element->getTag(), $this->templates)) {
-			return $this->templates[$element->getTag()];
+		if (array_key_exists($element->getElementType(), $this->templates)) {
+			return $this->templates[$element->getElementType()];
 		}
 
 		$refl = new \ReflectionClass($element);

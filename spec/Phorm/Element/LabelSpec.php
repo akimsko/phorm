@@ -14,7 +14,7 @@ class LabelSpec extends ObjectBehavior
     }
 
 	function it_has_tag_label() {
-		$this->getTag()->shouldReturn('label');
+		$this->getElementType()->shouldReturn('label');
 	}
 
 	function it_has_for_attribute_shortcut() {

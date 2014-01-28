@@ -29,7 +29,7 @@ class TemplateResolverSpec extends ObjectBehavior
 
 	function it_resolves_template_for_type() {
 		$element = new Element();
-		$element->setTag('testtype');
+		$element->setElementType('testtype');
 		$this->registerTemplate('testtype', 'testtype');
 		$this->getTemplateForElement($element)->shouldReturn('testtype');
 	}

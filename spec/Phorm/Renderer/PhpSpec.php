@@ -17,12 +17,12 @@ class PhpSpec extends ObjectBehavior {
 		$element1 = new Element();
 		$element1
 			->setAttributes(array('name' => 'test1'))
-			->setTag('typeone');
+			->setElementType('typeone');
 
 		$element2 = new Element();
 		$element2
 			->setAttributes(array('name' => 'test2'))
-			->setTag('typetwo');
+			->setElementType('typetwo');
 
 		$container = new Composite();
 		$container

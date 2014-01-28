@@ -23,33 +23,33 @@ namespace Phorm\Element;
 class Element {
 
 	/** @var string Element tag. */
-	protected $tag;
+	protected $elementType;
 
 	/** @var array Element attributes. */
 	protected $attributes;
 
 	/**
-	 * Get element tag.
+	 * Get element type.
 	 *
 	 * @return string
 	 */
-	public function getTag() {
-		if (!$this->tag) {
+	public function getElementType() {
+		if (!$this->elementType) {
 			$refl = new \ReflectionClass($this);
-			$this->tag = strtolower($refl->getShortName());
+			$this->elementType = strtolower($refl->getShortName());
 		}
-		return $this->tag;
+		return $this->elementType;
 	}
 
 	/**
-	 * Set element tag.
+	 * Set element type.
 	 *
-	 * @param string $tag
+	 * @param string $elementType
 	 *
 	 * @return $this
 	 */
-	public function setTag($tag) {
-		$this->tag = $tag;
+	public function setElementType($elementType) {
+		$this->elementType = $elementType;
 		return $this;
 	}
 

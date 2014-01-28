@@ -56,6 +56,6 @@ class FormBuilder extends Builder {
 		$form = new Composite();
 		return $form
 			->setAttributes($this->getAttributes())
-			->setTag($this->getElementType());
+			->setElementType($this->getElementType());
 	}
 }

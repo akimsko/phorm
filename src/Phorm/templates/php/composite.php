@@ -14,7 +14,7 @@
 
 ?>
 <<?php
-	echo $element->getTag();
+	echo $element->getElementType();
 	foreach($element->getAttributes() as $name=>$value){
 		echo " $name=\"$value\"";
 	}
@@ -22,4 +22,4 @@
 <?php foreach ($element->getChildren() as $child): ?>
 	<?php echo $this->render($child); ?>
 <?php endforeach; ?>
-</<?php echo $element->getTag(); ?>>
+</<?php echo $element->getElementType(); ?>>
