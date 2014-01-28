@@ -20,6 +20,6 @@ namespace Phorm\Exception;
  * @package Phorm\Renderer\Exception
  * @author Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class RendererException extends GeneralException {
+class RendererException extends PhormException {
 
 } 

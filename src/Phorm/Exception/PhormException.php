@@ -14,11 +14,11 @@
 namespace Phorm\Exception;
 
 /**
- * Class GeneralException
+ * Class PhormException
  *
  * @package Phorm\Exception
  * @author Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class GeneralException extends \Exception {
+class PhormException extends \Exception {
 
 } 

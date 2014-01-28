@@ -20,6 +20,6 @@ namespace Phorm\Exception;
  * @package Phorm\Exception
  * @author Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class BuilderException extends GeneralException {
+class BuilderException extends PhormException {
 
 } 
