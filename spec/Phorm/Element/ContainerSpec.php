@@ -6,11 +6,11 @@ use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ContainerSpec extends ObjectBehavior
+class CompositeSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Phorm\Element\Container');
+        $this->shouldHaveType('Phorm\Element\Composite');
     }
 
 	function it_extends_element() {
@@ -72,10 +72,10 @@ class ContainerSpec extends ObjectBehavior
 	}
 
 	function it_is_chainable() {
-		$this->setChildren(array())->shouldHaveType('Phorm\Element\Container');
-		$this->addChildren(array())->shouldHaveType('Phorm\Element\Container');
-		$this->setChild('test', new Element())->shouldHaveType('Phorm\Element\Container');
-		$this->removeChildren()->shouldHaveType('Phorm\Element\Container');
-		$this->removeChild('test')->shouldHaveType('Phorm\Element\Container');
+		$this->setChildren(array())->shouldHaveType('Phorm\Element\Composite');
+		$this->addChildren(array())->shouldHaveType('Phorm\Element\Composite');
+		$this->setChild('test', new Element())->shouldHaveType('Phorm\Element\Composite');
+		$this->removeChildren()->shouldHaveType('Phorm\Element\Composite');
+		$this->removeChild('test')->shouldHaveType('Phorm\Element\Composite');
 	}
 }

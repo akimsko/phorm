@@ -4,7 +4,7 @@ namespace spec\Phorm\Renderer;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Phorm\Element\Container;
+use Phorm\Element\Composite;
 use Phorm\Element\Element;
 
 class PhpSpec extends ObjectBehavior {
@@ -24,7 +24,7 @@ class PhpSpec extends ObjectBehavior {
 			->setAttributes(array('name' => 'test2'))
 			->setTag('typetwo');
 
-		$container = new Container();
+		$container = new Composite();
 		$container
 			->setAttributes(array('name' => 'container'))
 			->setChild('child1', $element1)
@@ -32,10 +32,10 @@ class PhpSpec extends ObjectBehavior {
 
 		$this->render($container)->shouldReturn(
 <<<EOD
-<container name="container">
+<composite name="container">
 	<typeone name="test1">
 	<typetwo name="test2">
-</container>
+</composite>
 
 EOD
 		);

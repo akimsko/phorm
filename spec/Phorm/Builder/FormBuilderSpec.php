@@ -12,7 +12,7 @@ class FormBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_a_form() {
-		$this->build()->shouldHaveType('Phorm\Element\Container');
+		$this->build()->shouldHaveType('Phorm\Element\Composite');
 	}
 
 	function it_has_attribute_shorcut_setters() {
@@ -40,6 +40,7 @@ class FormBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_can_override_elementtype() {
+		$this->getElementType()->shouldReturn('form');
 		$this->setElementType('test');
 		$this->getElementType()->shouldReturn('test');
 	}

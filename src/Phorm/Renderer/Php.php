@@ -32,7 +32,7 @@ class Php extends Template {
 		$templates
 			->registerTemplate('element', "$templateDir/element.php")
 			->registerTemplate('content', "$templateDir/content.php")
-			->registerTemplate('container', "$templateDir/container.php");
+			->registerTemplate('composite', "$templateDir/composite.php");
 	}
 
 	/**

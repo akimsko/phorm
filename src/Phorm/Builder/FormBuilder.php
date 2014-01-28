@@ -2,7 +2,7 @@
 
 namespace Phorm\Builder;
 
-use Phorm\Element\Container;
+use Phorm\Element\Composite;
 
 class FormBuilder extends Builder {
 
@@ -50,10 +50,10 @@ class FormBuilder extends Builder {
 	/**
 	 * Build element.
 	 *
-	 * @return \Phorm\Element\Container
+	 * @return \Phorm\Element\Composite
 	 */
 	public function build() {
-		$form = new Container();
+		$form = new Composite();
 		return $form
 			->setAttributes($this->getAttributes())
 			->setTag($this->getElementType());

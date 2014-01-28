@@ -2,7 +2,7 @@
 
 namespace spec\Phorm\Renderer;
 
-use Phorm\Element\Container;
+use Phorm\Element\Composite;
 use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -22,7 +22,7 @@ class TemplateResolverSpec extends ObjectBehavior
 	}
 
 	function it_resolves_template_for_nearest_parent() {
-		$element = new Container();
+		$element = new Composite();
 		$this->registerTemplate('element', 'test');
 		$this->getTemplateForElement($element)->shouldReturn('test');
 	}

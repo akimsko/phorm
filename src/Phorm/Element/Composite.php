@@ -15,12 +15,12 @@
 namespace Phorm\Element;
 
 /**
- * Class Container
+ * Class Composite
  *
  * @package Phorm
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class Container extends Element {
+class Composite extends Element {
 
 	/** @var Element[] Children. */
 	protected $children = array();
