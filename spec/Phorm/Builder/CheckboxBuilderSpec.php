@@ -6,8 +6,7 @@ use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class CheckboxBuilderSpec extends ObjectBehavior
-{
+class CheckboxBuilderSpec extends ObjectBehavior {
 	private $type = 'Phorm\Builder\CheckboxBuilder';
 
 	function it_is_initializable() {
@@ -19,7 +18,7 @@ class CheckboxBuilderSpec extends ObjectBehavior
 		$element->setElementType('input')->shouldBeCalled();
 		$element->setAttributes(
 				array(
-					'type'   => 'checkbox',
+					'type'    => 'checkbox',
 					'checked' => 'checked'
 				)
 		)->shouldBeCalled();

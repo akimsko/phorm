@@ -6,12 +6,10 @@ use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class CompositeSpec extends ObjectBehavior
-{
-    function it_is_initializable()
-    {
-        $this->shouldHaveType('Phorm\Element\Composite');
-    }
+class CompositeSpec extends ObjectBehavior {
+	function it_is_initializable() {
+		$this->shouldHaveType('Phorm\Element\Composite');
+	}
 
 	function it_extends_element() {
 		$this->shouldHaveType('Phorm\Element\Element');

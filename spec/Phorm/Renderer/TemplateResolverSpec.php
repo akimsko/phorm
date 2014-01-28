@@ -7,12 +7,10 @@ use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class TemplateResolverSpec extends ObjectBehavior
-{
-    function it_is_initializable()
-    {
-        $this->shouldHaveType('Phorm\Renderer\TemplateResolver');
-    }
+class TemplateResolverSpec extends ObjectBehavior {
+	function it_is_initializable() {
+		$this->shouldHaveType('Phorm\Renderer\TemplateResolver');
+	}
 
 	function it_maps_keys_to_templates() {
 		$this->registerTemplate('test1', 'testTemplate1');

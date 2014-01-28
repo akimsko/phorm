@@ -38,8 +38,8 @@ class ElementSpec extends ObjectBehavior {
 	function it_removes_attributes() {
 		$this->setAttributes(
 			 array(
-				  'test1' => 'test1',
-				  'test2' => 'test2'
+				 'test1' => 'test1',
+				 'test2' => 'test2'
 			 )
 		);
 
