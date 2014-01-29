@@ -25,14 +25,19 @@ use Phorm\Element\Element;
 class Php extends Template {
 
 	/**
-	 * Render an element.
+	 * Render an element tree.
 	 *
 	 * @param Element $element
 	 *
-	 * @return string The rendered element.
+	 * @return string The rendered element tree.
 	 */
 	public function render(Element $element) {
-		$scoper = new PhpScoper($this->getTemplates());
+		static $scoper;
+
+		if (!$scoper) {
+			$scoper = new PhpScoper($this->getTemplates(), $this->getHelper());
+		}
+
 		return $scoper->render($element);
 	}
 }
@@ -45,26 +50,29 @@ class Php extends Template {
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class PhpScoper extends Renderer {
+class PhpScoper {
+
 	/** @var array */
 	private $superNotSoSecretStuff = array();
 
 	/**
 	 * @param TemplateResolver $templates
+	 * @param Helper           $helper
 	 */
-	public function __construct(TemplateResolver $templates) {
+	public function __construct(TemplateResolver $templates, Helper $helper) {
 		$this->superNotSoSecretStuff['resolver'] = $templates;
+		$this->superNotSoSecretStuff['helper'] = $helper;
 	}
 
 	/**
-	 * Render.
+	 * Render an element tree.
 	 *
 	 * @param Element $element
 	 *
-	 * @return string
+	 * @return string The rendered element tree.
 	 */
 	public function render(Element $element) {
-		$formHelper = new Helper($this);
+		$formHelper = $this->superNotSoSecretStuff['helper'];
 		if (!($this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolver']->getTemplateForElement($element))) {
 			return $formHelper->renderElement($element);
 		}

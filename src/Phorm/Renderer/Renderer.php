@@ -17,7 +17,7 @@ namespace Phorm\Renderer;
 use Phorm\Element\Element;
 
 /**
- * Class RendererInterface
+ * Class Renderer
  *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
@@ -35,11 +35,11 @@ abstract class Renderer {
 	}
 
 	/**
-	 * Render an element.
+	 * Render an element tree.
 	 *
 	 * @param Element $element
 	 *
-	 * @return string The rendered element.
+	 * @return string The rendered element tree.
 	 */
 	abstract public function render(Element $element);
 }
