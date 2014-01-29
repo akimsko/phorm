@@ -32,7 +32,7 @@ use Phorm\Renderer\Renderer;
  * @method Builder\InputBuilder input() Build an input element.
  * @method Builder\RadioBuilder radio() Build a radio element.
  */
-class Phorm implements Renderer {
+class Phorm {
 
 	/** @var Renderer */
 	private $renderer;

@@ -59,9 +59,7 @@ class TemplateResolver {
 	 *
 	 * @param Element $element
 	 *
-	 * @return string
-	 *
-	 * @throws RendererException
+	 * @return null|string
 	 */
 	public function getTemplateForElement(Element $element) {
 		if (array_key_exists($element->getElementType(), $this->templates)) {
@@ -77,6 +75,6 @@ class TemplateResolver {
 
 		} while ($refl = $refl->getParentClass());
 
-		throw new RendererException("Could not resolve template for element '" . get_class($element) . "'");
+		return null;
 	}
 }

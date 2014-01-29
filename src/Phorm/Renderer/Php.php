@@ -25,17 +25,6 @@ use Phorm\Element\Element;
 class Php extends Template {
 
 	/**
-	 * Register templates to the default template resolver.
-	 */
-	protected function registerTemplates(TemplateResolver $templates) {
-		$templateDir = __DIR__ . '/../templates/php';
-		$templates
-			->registerTemplate('element', "$templateDir/element.php")
-			->registerTemplate('content', "$templateDir/content.php")
-			->registerTemplate('composite', "$templateDir/composite.php");
-	}
-
-	/**
 	 * Render an element.
 	 *
 	 * @param Element $element
@@ -43,38 +32,44 @@ class Php extends Template {
 	 * @return string The rendered element.
 	 */
 	public function render(Element $element) {
-		ob_start();
-		new PhpScoper($element, $this->getTemplates());
-		return ob_get_clean();
+		$scoper = new PhpScoper($this->getTemplates());
+		return $scoper->render($element);
 	}
 }
 
 /**
  * Class PhpScoper
  *
+ * A bit of hack in an attempt to isolate the php template as much as possible.
+ *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class PhpScoper {
-	/** @var TemplateResolver */
-	private $templates;
+class PhpScoper extends Renderer {
+	/** @var array */
+	private $superNotSoSecretStuff = array();
 
 	/**
-	 * @param Element     $element
 	 * @param TemplateResolver $templates
 	 */
-	public function __construct(Element $element, TemplateResolver $templates) {
-		$this->templates = $templates;
-		$this->render($element);
+	public function __construct(TemplateResolver $templates) {
+		$this->superNotSoSecretStuff['resolver'] = $templates;
 	}
 
 	/**
 	 * Render.
 	 *
 	 * @param Element $element
+	 *
+	 * @return string
 	 */
-	private function render(Element $element) {
-		$template = $this->templates->getTemplateForElement($element);
-		require $template;
+	public function render(Element $element) {
+		$formHelper = new Helper($this);
+		if (!($this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolver']->getTemplateForElement($element))) {
+			return $formHelper->renderElement($element);
+		}
+		ob_start();
+		require $this->superNotSoSecretStuff['template'];
+		return ob_get_clean();
 	}
 }

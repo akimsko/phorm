@@ -14,13 +14,15 @@
 
 namespace Phorm\Renderer;
 
+use Phorm\Element\Element;
+
 /**
  * Class Template
  *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-abstract class Template implements Renderer {
+abstract class Template extends Renderer {
 
 	/** @var TemplateResolver */
 	private $templates;
@@ -29,11 +31,9 @@ abstract class Template implements Renderer {
 	 * @param TemplateResolver $templates
 	 */
 	public function __construct(TemplateResolver $templates = null) {
-		if (!$templates) {
-			$templates = new TemplateResolver();
-			$this->registerTemplates($templates);
-		}
-		$this->templates = $templates;
+		$this->templates = $templates
+			? $templates
+			: new TemplateResolver();
 	}
 
 	/**
@@ -74,17 +74,10 @@ abstract class Template implements Renderer {
 	 *
 	 * @param Element $element
 	 *
-	 * @return string
-	 *
-	 * @throws \Phorm\Exception\RendererException
+	 * @return null|string
 	 */
 	public function getTemplateForElement(Element $element) {
 		return $this->getTemplates()->getTemplateForElement($element);
 	}
-
-	/**
-	 * Register templates to the default template resolver.
-	 */
-	abstract protected function registerTemplates(TemplateResolver $templates);
 
 } 

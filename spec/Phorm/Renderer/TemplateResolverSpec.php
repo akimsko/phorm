@@ -25,16 +25,14 @@ class TemplateResolverSpec extends ObjectBehavior {
 		$this->getTemplateForElement($element)->shouldReturn('test');
 	}
 
-	function it_resolves_template_for_type() {
-		$element = new Element();
-		$element->setElementType('testtype');
+	function it_resolves_template_for_type(Element $element) {
+		$element->getElementType()->willReturn('testtype');
 		$this->registerTemplate('testtype', 'testtype');
 		$this->getTemplateForElement($element)->shouldReturn('testtype');
 	}
 
-	function it_throws_template_not_found_exception() {
-		$element = new Element();
-		$this->shouldThrow('Phorm\Exception\RendererException')->duringGetTemplateForElement($element);
+	function it_gives_null_if_no_template_is_found(Element $element) {
+		$this->getTemplateForElement($element)->shouldBeNull();
 	}
 
 	function it_is_chainable() {

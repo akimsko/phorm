@@ -17,12 +17,22 @@ namespace Phorm\Renderer;
 use Phorm\Element\Element;
 
 /**
- * Interface RendererInterface
+ * Class RendererInterface
  *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-interface Renderer {
+abstract class Renderer {
+
+	/**
+	 * Get helper.
+	 *
+	 * @return Helper
+	 */
+	public function getHelper() {
+		static $helper;
+		return $helper ? $helper : ($helper = new Helper($this));
+	}
 
 	/**
 	 * Render an element.
@@ -31,6 +41,5 @@ interface Renderer {
 	 *
 	 * @return string The rendered element.
 	 */
-	public function render(Element $element);
-
-} 
+	abstract public function render(Element $element);
+}

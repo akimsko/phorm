@@ -13,24 +13,18 @@ class PhpSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Renderer\Template');
 	}
 
-	function it_renders_elements() {
-		$element1 = new Element();
-		$element1
-			->setAttributes(array('name' => 'test1'))
-			->setElementType('typeone');
+	function it_renders_elements(Composite $composite, Element $element1, Element $element2) {
+		$composite->getElementType()->willReturn('composite');
+		$composite->getAttributes()->willReturn(array('name' => 'container'));
+		$composite->getChildren()->willReturn(array($element1, $element2));
 
-		$element2 = new Element();
-		$element2
-			->setAttributes(array('name' => 'test2'))
-			->setElementType('typetwo');
+		$element1->getElementType()->willReturn('typeone');
+		$element1->getAttributes()->willReturn(array('name' => 'test1'));
 
-		$container = new Composite();
-		$container
-			->setAttribute('name', 'container')
-			->addChild($element1)
-			->addChild($element2);
+		$element2->getElementType()->willReturn('typetwo');
+		$element2->getAttributes()->willReturn(array('name' => 'test2'));
 
-		$this->render($container)->shouldReturn(
+		$this->render($composite)->shouldReturn(
 <<<EOD
 <composite name="container">
 	<typeone name="test1">
