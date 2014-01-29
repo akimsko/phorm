@@ -15,7 +15,6 @@
 namespace Phorm\Renderer;
 
 use Phorm\Element\Element;
-use Phorm\Exception\RendererException;
 
 /**
  * Class TemplateResolver

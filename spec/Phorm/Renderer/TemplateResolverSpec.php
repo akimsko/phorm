@@ -31,7 +31,7 @@ class TemplateResolverSpec extends ObjectBehavior {
 		$this->getTemplateForElement($element)->shouldReturn('testtype');
 	}
 
-	function it_gives_null_if_no_template_is_found(Element $element) {
+	function it_gives_null_if_template_is_not_found(Element $element) {
 		$this->getTemplateForElement($element)->shouldBeNull();
 	}
 
