@@ -18,12 +18,12 @@ use Phorm\Element\Element;
 use Phorm\Resolver\FileResolver;
 
 /**
- * Class Php
+ * Class PhpRenderer
  *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class Php extends FileRenderer {
+class PhpRenderer extends FileRenderer {
 
 	/**
 	 * Get the default resolver.

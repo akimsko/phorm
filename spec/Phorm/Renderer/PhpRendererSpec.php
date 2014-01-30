@@ -7,9 +7,9 @@ use Prophecy\Argument;
 use Phorm\Element\Composite;
 use Phorm\Element\Element;
 
-class PhpSpec extends ObjectBehavior {
+class PhpRendererSpec extends ObjectBehavior {
 	function it_is_initializable() {
-		$this->shouldHaveType('Phorm\Renderer\Php');
+		$this->shouldHaveType('Phorm\Renderer\PhpRenderer');
 		$this->shouldHaveType('Phorm\Renderer\FileRenderer');
 	}
 
