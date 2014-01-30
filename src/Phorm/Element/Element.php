@@ -28,6 +28,30 @@ class Element {
 	/** @var array Element attributes. */
 	protected $attributes;
 
+	/** @var string */
+	protected $templateName;
+
+	/**
+	 * Set templateName.
+	 *
+	 * @param string $templateName
+	 *
+	 * @return Element
+	 */
+	public function setTemplateName($templateName) {
+		$this->templateName = $templateName;
+		return $this;
+	}
+
+	/**
+	 * Get templateName.
+	 *
+	 * @return string
+	 */
+	public function getTemplateName() {
+		return $this->templateName;
+	}
+
 	/**
 	 * Get element type.
 	 *

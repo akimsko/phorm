@@ -24,14 +24,30 @@ use Phorm\Element\Element;
  */
 abstract class Renderer {
 
+	/** @var Helper */
+	private $helper;
+
 	/**
 	 * Get helper.
 	 *
 	 * @return Helper
 	 */
 	public function getHelper() {
-		static $helper;
-		return $helper ? $helper : ($helper = new Helper($this));
+		return $this->helper
+			? $this->helper
+			: ($this->helper = new Helper($this));
+	}
+
+	/**
+	 * setHelper.
+	 *
+	 * @param Helper $helper
+	 *
+	 * @return $this
+	 */
+	public function setHelper(Helper $helper) {
+		$this->helper = $helper;
+		return $this;
 	}
 
 	/**

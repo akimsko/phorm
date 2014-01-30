@@ -21,6 +21,12 @@ class ElementSpec extends ObjectBehavior {
 		$this->getElementType()->shouldBeEqualTo('test');
 	}
 
+	function it_can_have_template_name() {
+		$this->getTemplateName()->shouldBeNull();
+		$this->setTemplateName('template');
+		$this->getTemplateName()->shouldReturn('template');
+	}
+
 	function it_has_attributes() {
 		$this->getAttributes()->shouldBeEqualTo(array('cTest1' => 'cTest1', 'cTest2' => 'cTest2'));
 	}

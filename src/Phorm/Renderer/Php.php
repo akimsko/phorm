@@ -15,6 +15,7 @@
 namespace Phorm\Renderer;
 
 use Phorm\Element\Element;
+use Phorm\Resolver\FileResolver;
 
 /**
  * Class Php
@@ -22,7 +23,19 @@ use Phorm\Element\Element;
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class Php extends Template {
+class Php extends FileRenderer {
+
+	/**
+	 * Get the default resolver.
+	 *
+	 * @return FileResolver
+	 */
+	protected function getDefaultResolver() {
+		$resolver = new FileResolver();
+		return $resolver
+			->setTemplatePath(__DIR__ . '/../templates/php')
+			->setExtension('.tpl.php');
+	}
 
 	/**
 	 * Render an element tree.
@@ -35,7 +48,7 @@ class Php extends Template {
 		static $scoper;
 
 		if (!$scoper) {
-			$scoper = new PhpScoper($this->getTemplates(), $this->getHelper());
+			$scoper = new PhpScoper($this->getResolver(), $this->getHelper());
 		}
 
 		return $scoper->render($element);
@@ -45,7 +58,7 @@ class Php extends Template {
 /**
  * Class PhpScoper
  *
- * A bit of hack in an attempt to isolate the php template as much as possible.
+ * A little hack in an attempt to isolate the php template as much as possible.
  *
  * @package Phorm\Renderer
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
@@ -56,12 +69,12 @@ class PhpScoper {
 	private $superNotSoSecretStuff = array();
 
 	/**
-	 * @param TemplateResolver $templates
-	 * @param Helper           $helper
+	 * @param FileResolver $resolver
+	 * @param Helper       $helper
 	 */
-	public function __construct(TemplateResolver $templates, Helper $helper) {
-		$this->superNotSoSecretStuff['resolver'] = $templates;
-		$this->superNotSoSecretStuff['helper'] = $helper;
+	public function __construct(FileResolver $resolver, Helper $helper) {
+		$this->superNotSoSecretStuff['resolver'] = $resolver;
+		$this->superNotSoSecretStuff['helper']   = $helper;
 	}
 
 	/**
@@ -72,8 +85,9 @@ class PhpScoper {
 	 * @return string The rendered element tree.
 	 */
 	public function render(Element $element) {
-		$formHelper = $this->superNotSoSecretStuff['helper'];
-		if (!($this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolver']->getTemplateForElement($element))) {
+		$formHelper                              = $this->superNotSoSecretStuff['helper'];
+		$this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolver']->getTemplateForElement($element);
+		if (!file_exists($this->superNotSoSecretStuff['template'])) {
 			return $formHelper->renderElement($element);
 		}
 		ob_start();
