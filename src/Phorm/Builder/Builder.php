@@ -71,7 +71,7 @@ abstract class Builder {
 	 *
 	 * @return $this
 	 */
-	public function setId($elementId) {
+	public function id($elementId) {
 		return $this->setAttribute('id', $elementId);
 	}
 
@@ -82,7 +82,7 @@ abstract class Builder {
 	 *
 	 * @return $this
 	 */
-	public function setClass($class) {
+	public function class_($class) {
 		return $this->setAttribute('class', $class);
 	}
 

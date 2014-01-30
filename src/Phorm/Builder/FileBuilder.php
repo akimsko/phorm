@@ -30,7 +30,7 @@ class FileBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setAccept($accept) {
+	public function accept($accept) {
 		return $this->setAttribute('accept', $accept);
 	}
 
@@ -42,7 +42,7 @@ class FileBuilder extends InputBuilder {
 	 * @return Element
 	 */
 	public function build(Element $element = null) {
-		$this->setType('file');
+		$this->type('file');
 		return parent::build($element);
 	}
 }

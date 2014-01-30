@@ -30,7 +30,7 @@ class RadioBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setChecked($checked) {
+	public function checked($checked) {
 		return $this->setAttribute('checked', $checked);
 	}
 
@@ -42,7 +42,7 @@ class RadioBuilder extends InputBuilder {
 	 * @return Element
 	 */
 	public function build(Element $element = null) {
-		$this->setType('radio');
+		$this->type('radio');
 		return parent::build($element);
 	}
 }

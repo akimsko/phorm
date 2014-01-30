@@ -15,6 +15,8 @@ class FileBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_an_element_to_spec(Element $element) {
+		$this->accept('accept')->shouldHaveType($this->type);
+
 		$element->setElementType('input')->shouldBeCalled();
 		$element->setAttributes(
 				array(
@@ -23,12 +25,6 @@ class FileBuilderSpec extends ObjectBehavior {
 				)
 		)->shouldBeCalled();
 
-		$this->setAccept('accept');
-
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
-	}
-
-	function it_is_chainable() {
-		$this->setAccept('test')->shouldHaveType($this->type);
 	}
 }

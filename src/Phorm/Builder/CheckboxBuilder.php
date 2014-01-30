@@ -30,7 +30,7 @@ class CheckboxBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setChecked($checked) {
+	public function checked($checked) {
 		return $this->setAttribute('checked', $checked);
 	}
 
@@ -42,7 +42,7 @@ class CheckboxBuilder extends InputBuilder {
 	 * @return Element
 	 */
 	public function build(Element $element = null) {
-		$this->setType('checkbox');
+		$this->type('checkbox');
 		return parent::build($element);
 	}
 }

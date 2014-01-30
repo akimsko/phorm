@@ -31,7 +31,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setAlt($alt) {
+	public function alt($alt) {
 		return $this->setAttribute('alt', $alt);
 	}
 
@@ -42,7 +42,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setFormaction($formaction) {
+	public function formaction($formaction) {
 		return $this->setAttribute('formaction', $formaction);
 	}
 
@@ -53,7 +53,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setFormenctype($formenctype) {
+	public function formenctype($formenctype) {
 		return $this->setAttribute('formenctype', $formenctype);
 	}
 
@@ -64,7 +64,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setFormmethod($formmethod) {
+	public function formmethod($formmethod) {
 		return $this->setAttribute('formmethod', $formmethod);
 	}
 
@@ -75,7 +75,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setFormtarget($formtarget) {
+	public function formtarget($formtarget) {
 		return $this->setAttribute('formtarget', $formtarget);
 	}
 
@@ -86,7 +86,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setHeight($height) {
+	public function height($height) {
 		return $this->setAttribute('height', $height);
 	}
 
@@ -97,7 +97,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setSrc($src) {
+	public function src($src) {
 		return $this->setAttribute('src', $src);
 	}
 
@@ -108,7 +108,7 @@ class ImageBuilder extends InputBuilder {
 	 *
 	 * @return $this
 	 */
-	public function setWidth($width) {
+	public function width($width) {
 		return $this->setAttribute('width', $width);
 	}
 
@@ -120,7 +120,7 @@ class ImageBuilder extends InputBuilder {
 	 * @return Element
 	 */
 	public function build(Element $element = null) {
-		$this->setType('image');
+		$this->type('image');
 		return parent::build($element);
 	}
 }

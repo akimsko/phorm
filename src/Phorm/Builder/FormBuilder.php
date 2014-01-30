@@ -29,6 +29,11 @@ class FormBuilder extends Builder {
 	/** @var Element[] */
 	private $elements = array();
 
+	/**
+	 * Get elements.
+	 *
+	 * @return \Phorm\Element\Element[]
+	 */
 	protected function getElements() {
 		return $this->elements;
 	}
@@ -40,7 +45,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setAcceptCharset($acceptCharset) {
+	public function acceptCharset($acceptCharset) {
 		return $this->setAttribute('accept-charset', $acceptCharset);
 	}
 
@@ -51,7 +56,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setAction($action) {
+	public function action($action) {
 		return $this->setAttribute('action', $action);
 	}
 
@@ -62,7 +67,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setAutocomplete($autocomplete) {
+	public function autocomplete($autocomplete) {
 		return $this->setAttribute('autocomplete', $autocomplete);
 	}
 
@@ -73,7 +78,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setEnctype($enctype) {
+	public function enctype($enctype) {
 		return $this->setAttribute('enctype', $enctype);
 	}
 
@@ -84,7 +89,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setMethod($method) {
+	public function method($method) {
 		return $this->setAttribute('method', $method);
 	}
 
@@ -95,7 +100,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setName($name) {
+	public function name($name) {
 		return $this->setAttribute('name', $name);
 	}
 
@@ -106,7 +111,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setNovalidate($novalidate) {
+	public function novalidate($novalidate) {
 		return $this->setAttribute('novalidate', $novalidate);
 	}
 
@@ -117,7 +122,7 @@ class FormBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setTarget($target) {
+	public function target($target) {
 		return $this->setAttribute('target', $target);
 	}
 

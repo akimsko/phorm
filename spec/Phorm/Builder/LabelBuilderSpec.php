@@ -15,22 +15,17 @@ class LabelBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_an_element_to_spec(Element $element) {
+		$this->for_('for')->shouldHaveType($this->type);
+		$this->form('form')->shouldHaveType($this->type);
+
 		$element->setElementType('label')->shouldBeCalled();
 		$element->setAttributes(
-			  array(
-				  'for'  => 'for',
-				  'form' => 'form'
-			  )
+				array(
+					'for'  => 'for',
+					'form' => 'form'
+				)
 		)->shouldBeCalled();
 
-		$this->setFor('for');
-		$this->setForm('form');
-
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
-	}
-
-	function it_is_chainable() {
-		$this->setFor('test')->shouldHaveType($this->type);
-		$this->setForm('test')->shouldHaveType($this->type);
 	}
 }

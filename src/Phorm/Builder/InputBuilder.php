@@ -31,7 +31,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setAutocomplete($autocomplete) {
+	public function autocomplete($autocomplete) {
 		return $this->setAttribute('autocomplete', $autocomplete);
 	}
 
@@ -42,7 +42,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setAutofocus($autofocus) {
+	public function autofocus($autofocus) {
 		return $this->setAttribute('autofocus', $autofocus);
 	}
 
@@ -53,7 +53,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setDisabled($disabled) {
+	public function disabled($disabled) {
 		return $this->setAttribute('disabled', $disabled);
 	}
 
@@ -64,7 +64,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setForm($formId) {
+	public function form($formId) {
 		return $this->setAttribute('form', $formId);
 	}
 
@@ -75,7 +75,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setFormnovalidate($formnovalidate) {
+	public function formnovalidate($formnovalidate) {
 		return $this->setAttribute('formnovalidate', $formnovalidate);
 	}
 
@@ -86,7 +86,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setList($listId) {
+	public function list_($listId) {
 		return $this->setAttribute('list', $listId);
 	}
 
@@ -97,7 +97,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setMax($max) {
+	public function max($max) {
 		return $this->setAttribute('max', $max);
 	}
 
@@ -108,7 +108,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setMaxlength($maxlength) {
+	public function maxlength($maxlength) {
 		return $this->setAttribute('maxlength', $maxlength);
 	}
 
@@ -119,7 +119,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setMultiple($multiple) {
+	public function multiple($multiple) {
 		return $this->setAttribute('multiple', $multiple);
 	}
 
@@ -130,7 +130,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setName($name) {
+	public function name($name) {
 		return $this->setAttribute('name', $name);
 	}
 
@@ -141,7 +141,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setPattern($pattern) {
+	public function pattern($pattern) {
 		return $this->setAttribute('pattern', $pattern);
 	}
 
@@ -152,7 +152,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setPlaceholder($placeholder) {
+	public function placeholder($placeholder) {
 		return $this->setAttribute('placeholder', $placeholder);
 	}
 
@@ -163,7 +163,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setReadonly($readonly) {
+	public function readonly($readonly) {
 		return $this->setAttribute('readonly', $readonly);
 	}
 
@@ -174,7 +174,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setRequired($required) {
+	public function required($required) {
 		return $this->setAttribute('required', $required);
 	}
 
@@ -185,7 +185,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setSize($size) {
+	public function size($size) {
 		return $this->setAttribute('size', $size);
 	}
 
@@ -196,7 +196,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setStep($step) {
+	public function step($step) {
 		return $this->setAttribute('step', $step);
 	}
 
@@ -207,7 +207,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setType($type) {
+	public function type($type) {
 		return $this->setAttribute('type', $type);
 	}
 
@@ -218,7 +218,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setValue($value) {
+	public function value($value) {
 		return $this->setAttribute('value', $value);
 	}
 
@@ -229,7 +229,7 @@ class InputBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setMin($min) {
+	public function min($min) {
 		return $this->setAttribute('min', $min);
 	}
 

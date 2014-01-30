@@ -31,7 +31,7 @@ class LabelBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setFor($elementId) {
+	public function for_($elementId) {
 		return $this->setAttribute('for', $elementId);
 	}
 
@@ -42,7 +42,7 @@ class LabelBuilder extends Builder {
 	 *
 	 * @return $this
 	 */
-	public function setForm($formId) {
+	public function form($formId) {
 		return $this->setAttribute('form', $formId);
 	}
 

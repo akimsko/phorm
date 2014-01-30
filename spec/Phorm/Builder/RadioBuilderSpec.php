@@ -15,6 +15,8 @@ class RadioBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_an_element_to_spec(Element $element) {
+		$this->checked('checked')->shouldHaveType($this->type);
+
 		$element->setElementType('input')->shouldBeCalled();
 		$element->setAttributes(
 				array(
@@ -23,12 +25,6 @@ class RadioBuilderSpec extends ObjectBehavior {
 				)
 		)->shouldBeCalled();
 
-		$this->setChecked('checked');
-
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
-	}
-
-	function it_is_chainable() {
-		$this->setChecked('checked')->shouldHaveType($this->type);
 	}
 }

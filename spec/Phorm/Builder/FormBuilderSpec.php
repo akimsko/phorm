@@ -16,45 +16,32 @@ class FormBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_a_form_to_spec(Composite $form, Element $element) {
+		$this->acceptCharset('accept-charset')->shouldHaveType($this->type);
+		$this->action('action')->shouldHaveType($this->type);
+		$this->autocomplete('autocomplete')->shouldHaveType($this->type);
+		$this->enctype('enctype')->shouldHaveType($this->type);
+		$this->method('method')->shouldHaveType($this->type);
+		$this->name('name')->shouldHaveType($this->type);
+		$this->novalidate('novalidate')->shouldHaveType($this->type);
+		$this->target('target')->shouldHaveType($this->type);
+
+		$this->addElement($element)->shouldHaveType($this->type);
+
 		$form->setElementType('form')->shouldBeCalled();
 		$form->setChildren(array($element))->shouldBeCalled();
 		$form->setAttributes(
-			array(
-				'accept-charset' => 'accept-charset',
-				'action'         => 'action',
-				'autocomplete'   => 'autocomplete',
-				'enctype'        => 'enctype',
-				'method'         => 'method',
-				'name'           => 'name',
-				'novalidate'     => 'novalidate',
-				'target'         => 'target'
-			)
+			 array(
+				 'accept-charset' => 'accept-charset',
+				 'action'         => 'action',
+				 'autocomplete'   => 'autocomplete',
+				 'enctype'        => 'enctype',
+				 'method'         => 'method',
+				 'name'           => 'name',
+				 'novalidate'     => 'novalidate',
+				 'target'         => 'target'
+			 )
 		)->shouldBeCalled();
-
-		$this->setAcceptCharset('accept-charset');
-		$this->setAction('action');
-		$this->setAutocomplete('autocomplete');
-		$this->setEnctype('enctype');
-		$this->setMethod('method');
-		$this->setName('name');
-		$this->setNovalidate('novalidate');
-		$this->setTarget('target');
-
-		$this->addElement($element);
 
 		$this->build($form)->shouldHaveType('Phorm\Element\Composite');
 	}
-
-	function it_is_chainable(Element $element) {
-		$this->setAcceptCharset('accept-charset')->shouldHaveType($this->type);
-		$this->setAction('action')->shouldHaveType($this->type);
-		$this->setAutocomplete('autocomplete')->shouldHaveType($this->type);
-		$this->setEnctype('enctype')->shouldHaveType($this->type);
-		$this->setMethod('method')->shouldHaveType($this->type);
-		$this->setName('name')->shouldHaveType($this->type);
-		$this->setNovalidate('novalidate')->shouldHaveType($this->type);
-		$this->setTarget('target')->shouldHaveType($this->type);
-		$this->addElement($element)->shouldHaveType($this->type);
-	}
-
 }
