@@ -24,19 +24,7 @@ use Phorm\Exception\BuilderException;
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class FormBuilder extends Builder {
-
-	/** @var Element[] */
-	private $elements = array();
-
-	/**
-	 * Get elements.
-	 *
-	 * @return \Phorm\Element\Element[]
-	 */
-	protected function getElements() {
-		return $this->elements;
-	}
+class FormBuilder extends CompositeBuilder {
 
 	/**
 	 * Set accept-charset.
@@ -129,34 +117,30 @@ class FormBuilder extends Builder {
 	/**
 	 * Add element.
 	 *
-	 * @param Element $element
+	 * @param Builder $element
 	 *
 	 * @return $this
 	 */
-	public function addElement(Element $element) {
-		$this->elements[] = $element;
+	public function addElement(Builder $element) {
+		$this->addChildBuilder($element);
 		return $this;
 	}
 
 	/**
 	 * Build element.
 	 *
-	 * @param Element $element
+	 * @param Composite $element
 	 *
 	 * @return Composite
 	 *
 	 * @throws BuilderException
 	 */
-	public function build(Element $element = null) {
+	public function build(Composite $element = null) {
 		$form = $element ? $element : new Composite();
-
-		if (!$element instanceof Composite) {
-			throw new BuilderException('This builder can only build composites.');
-		}
 
 		$form->setElementType('form');
 		$form->setAttributes($this->getAttributes());
-		$form->setChildren($this->getElements());
+		$form->setChildren($this->buildChildren());
 
 		return $form;
 	}
