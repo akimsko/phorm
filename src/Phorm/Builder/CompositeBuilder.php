@@ -5,6 +5,8 @@
 
 
 namespace Phorm\Builder;
+use Phorm\Element\Composite;
+use Phorm\Element\Element;
 
 
 /**
@@ -33,14 +35,26 @@ abstract class CompositeBuilder extends Builder {
 	/**
 	 * Build children.
 	 *
-	 * @return \Phorm\Element\Element[]
+	 * @param Composite $element
+	 *
+	 * @return Composite
 	 */
-	protected function buildChildren() {
-		$children = array();
+	protected function buildChildren(Composite $element) {
 		foreach ($this->childBuilders as $builder) {
-			$children[] = $builder->build();
+			$element->addChild($builder->build());
 		}
-		return $children;
+		return $element;
 	}
 
-} 
+	/**
+	 * Build internal.
+	 *
+	 * @param Element $element
+	 *
+	 * @return Composite
+	 */
+	protected function buildInternal(Element $element) {
+		parent::buildInternal($element);
+		return $this->buildChildren($element);
+	}
+}

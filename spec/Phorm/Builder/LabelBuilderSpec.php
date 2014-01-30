@@ -18,13 +18,14 @@ class LabelBuilderSpec extends ObjectBehavior {
 		$this->for_('for')->shouldHaveType($this->type);
 		$this->form('form')->shouldHaveType($this->type);
 
-		$element->setElementType('label')->shouldBeCalled();
+		$element->setElementType('label')->shouldBeCalled()->willReturn($element);
+		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					'for'  => 'for',
 					'form' => 'form'
 				)
-		)->shouldBeCalled();
+		)->shouldBeCalled()->willReturn($element);
 
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
 	}

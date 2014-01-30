@@ -17,13 +17,14 @@ class RadioBuilderSpec extends ObjectBehavior {
 	function it_builds_an_element_to_spec(Element $element) {
 		$this->checked('checked')->shouldHaveType($this->type);
 
-		$element->setElementType('input')->shouldBeCalled();
+		$element->setElementType('input')->shouldBeCalled()->willReturn($element);
+		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					'type'    => 'radio',
 					'checked' => 'checked'
 				)
-		)->shouldBeCalled();
+		)->shouldBeCalled()->willReturn($element);
 
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
 	}

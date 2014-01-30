@@ -27,6 +27,33 @@ abstract class Builder {
 	/** @var array Element attributes. */
 	private $attributes = array();
 
+	/** @var string */
+	private $templateNamespace;
+
+	/**
+	 * Set template namespace.
+	 *
+	 * This decides what namespace (like a subfolder)
+	 * to look for a template in, when this element is rendered.
+	 *
+	 * @param string $templateNamespace
+	 *
+	 * @return $this
+	 */
+	public function setTemplateNamespace($templateNamespace) {
+		$this->templateNamespace = $templateNamespace;
+		return $this;
+	}
+
+	/**
+	 * Get templateNamespace.
+	 *
+	 * @return string
+	 */
+	protected function getTemplateNamespace() {
+		return $this->templateNamespace;
+	}
+
 	/**
 	 * Get attributes.
 	 *
@@ -84,6 +111,19 @@ abstract class Builder {
 	 */
 	public function class_($class) {
 		return $this->setAttribute('class', $class);
+	}
+
+	/**
+	 * Build internal.
+	 *
+	 * @param Element $element
+	 *
+	 * @return Element
+	 */
+	protected function buildInternal(Element $element) {
+		return $element
+			->setAttributes($this->getAttributes())
+			->setTemplateName($this->getTemplateNamespace());
 	}
 
 	/**

@@ -241,11 +241,8 @@ class InputBuilder extends Builder {
 	 * @return Element
 	 */
 	public function build(Element $element = null) {
-		$element = $element ? $element : new Element();
-
-		$element->setElementType('input');
-		$element->setAttributes($this->getAttributes());
-
-		return $element;
+		return $this
+			->buildInternal($element ? $element : new Element())
+			->setElementType('input');
 	}
 }

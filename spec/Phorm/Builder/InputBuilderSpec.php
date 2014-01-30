@@ -35,7 +35,8 @@ class InputBuilderSpec extends ObjectBehavior {
 		$this->type('type')->shouldHaveType($this->type);
 		$this->value('value')->shouldHaveType($this->type);
 
-		$element->setElementType('input')->shouldBeCalled();
+		$element->setElementType('input')->shouldBeCalled()->willReturn($element);
+		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					'autocomplete'   => 'autocomplete',
@@ -58,7 +59,7 @@ class InputBuilderSpec extends ObjectBehavior {
 					'type'           => 'type',
 					'value'          => 'value',
 				)
-		)->shouldBeCalled();
+		)->shouldBeCalled()->willReturn($element);
 
 
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');

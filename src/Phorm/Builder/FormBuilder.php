@@ -132,16 +132,10 @@ class FormBuilder extends CompositeBuilder {
 	 * @param Composite $element
 	 *
 	 * @return Composite
-	 *
-	 * @throws BuilderException
 	 */
 	public function build(Composite $element = null) {
-		$form = $element ? $element : new Composite();
-
-		$form->setElementType('form');
-		$form->setAttributes($this->getAttributes());
-		$form->setChildren($this->buildChildren());
-
-		return $form;
+		return $this
+			->buildInternal($element ? $element : new Composite())
+			->setElementType('form');
 	}
 }

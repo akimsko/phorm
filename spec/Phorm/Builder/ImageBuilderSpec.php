@@ -24,7 +24,8 @@ class ImageBuilderSpec extends ObjectBehavior {
 		$this->src('src')->shouldHaveType($this->type);
 		$this->width('width')->shouldHaveType($this->type);
 
-		$element->setElementType('input')->shouldBeCalled();
+		$element->setElementType('input')->shouldBeCalled()->willReturn($element);
+		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					'type'        => 'image',
@@ -37,7 +38,7 @@ class ImageBuilderSpec extends ObjectBehavior {
 					'src'         => 'src',
 					'width'       => 'width',
 				)
-		)->shouldBeCalled();
+		)->shouldBeCalled()->willReturn($element);
 
 		$this->build($element)->shouldHaveType('Phorm\Element\Element');
 	}

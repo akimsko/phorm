@@ -28,8 +28,10 @@ class FormBuilderSpec extends ObjectBehavior {
 
 		$this->addElement($builder)->shouldHaveType($this->type);
 
-		$form->setElementType('form')->shouldBeCalled();
-		$form->setChildren(array($element))->shouldBeCalled();
+		$form->setElementType('form')->shouldBeCalled()->willReturn($form);
+		$form->addChild($element)->shouldBeCalled()->willReturn($form);
+		$form->setTemplateName(null)->shouldBeCalled()->willReturn($form);
+
 		$form->setAttributes(
 			 array(
 				 'accept-charset' => 'accept-charset',
@@ -41,7 +43,8 @@ class FormBuilderSpec extends ObjectBehavior {
 				 'novalidate'     => 'novalidate',
 				 'target'         => 'target'
 			 )
-		)->shouldBeCalled();
+		)->shouldBeCalled()->willReturn($form);
+
 
 		$builder->build()->willReturn($element);
 
