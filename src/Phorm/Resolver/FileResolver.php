@@ -63,7 +63,7 @@ class FileResolver implements Resolver {
 	 * @return $this
 	 */
 	public function setTemplatePath($path) {
-		$this->templatePath = realpath($path);
+		$this->templatePath = $path;
 		return $this;
 	}
 

@@ -15,8 +15,6 @@
 namespace Phorm\Builder;
 
 use Phorm\Element\Composite;
-use Phorm\Element\Element;
-use Phorm\Exception\BuilderException;
 
 /**
  * Class FormBuilder

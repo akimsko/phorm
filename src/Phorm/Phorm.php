@@ -24,13 +24,13 @@ use Phorm\Renderer\Renderer;
  * @package Phorm
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  *
- * @method Builder\LabelBuilder label() Build a label element.
- * @method Builder\CheckboxBuilder checkbox() Build a checkbox element.
- * @method Builder\FileBuilder file() Build a file element.
- * @method Builder\FormBuilder form() Build a form.
- * @method Builder\ImageBuilder image() Build an image element.
- * @method Builder\InputBuilder input() Build an input element.
- * @method Builder\RadioBuilder radio() Build a radio element.
+ * @method \Phorm\Builder\LabelBuilder label() Build a label element.
+ * @method \Phorm\Builder\CheckboxBuilder checkbox() Build a checkbox element.
+ * @method \Phorm\Builder\FileBuilder file() Build a file element.
+ * @method \Phorm\Builder\FormBuilder form() Build a form.
+ * @method \Phorm\Builder\ImageBuilder image() Build an image element.
+ * @method \Phorm\Builder\InputBuilder input() Build an input element.
+ * @method \Phorm\Builder\RadioBuilder radio() Build a radio element.
  */
 class Phorm {
 
