@@ -26,12 +26,12 @@ class FileBuilder extends InputBuilder {
 	/**
 	 * Set accept.
 	 *
-	 * @param string $accept
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function accept($accept) {
-		return $this->setAttribute('accept', $accept);
+	public function accept($value) {
+		return $this->setAttribute('accept', $value);
 	}
 
 	/**

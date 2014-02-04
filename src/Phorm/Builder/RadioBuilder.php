@@ -26,12 +26,12 @@ class RadioBuilder extends InputBuilder {
 	/**
 	 * Set checked.
 	 *
-	 * @param string $checked
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function checked($checked) {
-		return $this->setAttribute('checked', $checked);
+	public function checked($value) {
+		return $this->setAttribute('checked', $value);
 	}
 
 	/**

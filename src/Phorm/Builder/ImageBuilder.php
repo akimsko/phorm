@@ -27,89 +27,89 @@ class ImageBuilder extends InputBuilder {
 	/**
 	 * Set alt.
 	 *
-	 * @param string $alt
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function alt($alt) {
-		return $this->setAttribute('alt', $alt);
+	public function alt($value) {
+		return $this->setAttribute('alt', $value);
 	}
 
 	/**
 	 * Set formaction.
 	 *
-	 * @param string $formaction
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function formaction($formaction) {
-		return $this->setAttribute('formaction', $formaction);
+	public function formaction($value) {
+		return $this->setAttribute('formaction', $value);
 	}
 
 	/**
 	 * Set formenctype.
 	 *
-	 * @param string $formenctype
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function formenctype($formenctype) {
-		return $this->setAttribute('formenctype', $formenctype);
+	public function formenctype($value) {
+		return $this->setAttribute('formenctype', $value);
 	}
 
 	/**
 	 * Set formmethod.
 	 *
-	 * @param string $formmethod
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function formmethod($formmethod) {
-		return $this->setAttribute('formmethod', $formmethod);
+	public function formmethod($value) {
+		return $this->setAttribute('formmethod', $value);
 	}
 
 	/**
 	 * Set formtarget.
 	 *
-	 * @param string $formtarget
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function formtarget($formtarget) {
-		return $this->setAttribute('formtarget', $formtarget);
+	public function formtarget($value) {
+		return $this->setAttribute('formtarget', $value);
 	}
 
 	/**
 	 * Set height.
 	 *
-	 * @param string $height
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function height($height) {
-		return $this->setAttribute('height', $height);
+	public function height($value) {
+		return $this->setAttribute('height', $value);
 	}
 
 	/**
 	 * Set src.
 	 *
-	 * @param string $src
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function src($src) {
-		return $this->setAttribute('src', $src);
+	public function src($value) {
+		return $this->setAttribute('src', $value);
 	}
 
 	/**
 	 * Set width.
 	 *
-	 * @param string $width
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function width($width) {
-		return $this->setAttribute('width', $width);
+	public function width($value) {
+		return $this->setAttribute('width', $value);
 	}
 
 	/**

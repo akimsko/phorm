@@ -31,6 +31,9 @@ class Element {
 	/** @var string */
 	protected $templateName;
 
+	/** @var string */
+	protected $tag;
+
 	/**
 	 * Set templateName.
 	 *
@@ -63,6 +66,29 @@ class Element {
 			$this->elementType = strtolower($refl->getShortName());
 		}
 		return $this->elementType;
+	}
+
+	/**
+	 * Set tag.
+	 *
+	 * @param string $tag
+	 *
+	 * @return Element
+	 */
+	public function setTag($tag) {
+		$this->tag = $tag;
+		return $this;
+	}
+
+	/**
+	 * Get tag.
+	 *
+	 * @return string
+	 */
+	public function getTag() {
+		return $this->tag
+			? $this->tag
+			: $this->getElementType();
 	}
 
 	/**

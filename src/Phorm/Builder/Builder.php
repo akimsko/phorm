@@ -20,7 +20,7 @@ use Phorm\Element\Element;
  * Class Builder
  *
  * @package Phorm\Builder
- * @author Bo Thinggaard <bo@unpossiblesystems.com>
+ * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 abstract class Builder {
 

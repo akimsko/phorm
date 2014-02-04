@@ -17,66 +17,54 @@ namespace Phorm\Builder;
 use Phorm\Element\Composite;
 
 /**
- * Class FormBuilder
+ * Class SelectBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class FormBuilder extends CompositeBuilder {
-
+class SelectBuilder extends CompositeBuilder {
 	/**
-	 * Set accept-charset.
+	 * Set autofocus.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function acceptCharset($value) {
-		return $this->setAttribute('accept-charset', $value);
+	public function autofocus($value) {
+		return $this->setAttribute('autofocus', $value);
 	}
 
 	/**
-	 * Set action.
+	 * Set disabled.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function action($value) {
-		return $this->setAttribute('action', $value);
+	public function disabled($value) {
+		return $this->setAttribute('disabled', $value);
 	}
 
 	/**
-	 * Set autocomplete.
+	 * Set form.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function autocomplete($value) {
-		return $this->setAttribute('autocomplete', $value);
+	public function form($value) {
+		return $this->setAttribute('form', $value);
 	}
 
 	/**
-	 * Set enctype.
+	 * Set multiple.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function enctype($value) {
-		return $this->setAttribute('enctype', $value);
-	}
-
-	/**
-	 * Set method.
-	 *
-	 * @param string $value
-	 *
-	 * @return $this
-	 */
-	public function method($value) {
-		return $this->setAttribute('method', $value);
+	public function multiple($value) {
+		return $this->setAttribute('multiple', $value);
 	}
 
 	/**
@@ -91,37 +79,47 @@ class FormBuilder extends CompositeBuilder {
 	}
 
 	/**
-	 * Set novalidate.
+	 * Set required.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function novalidate($value) {
-		return $this->setAttribute('novalidate', $value);
+	public function required($value) {
+		return $this->setAttribute('required', $value);
 	}
 
 	/**
-	 * Set target.
+	 * Set size.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function target($value) {
-		return $this->setAttribute('target', $value);
+	public function size($value) {
+		return $this->setAttribute('size', $value);
 	}
 
 	/**
-	 * Add element.
+	 * Add option.
 	 *
-	 * @param Builder $element
+	 * @param OptionBuilder $option
 	 *
 	 * @return $this
 	 */
-	public function addElement(Builder $element) {
-		$this->addChildBuilder($element);
-		return $this;
+	public function addOption(OptionBuilder $option) {
+		return $this->addChildBuilder($option);
+	}
+
+	/**
+	 * Add option group.
+	 *
+	 * @param OptgroupBuilder $optgroup
+	 *
+	 * @return $this
+	 */
+	public function addOptgroup(OptgroupBuilder $optgroup) {
+		return $this->addChildBuilder($optgroup);
 	}
 
 	/**
@@ -134,6 +132,6 @@ class FormBuilder extends CompositeBuilder {
 	public function build(Composite $element = null) {
 		return $this
 			->buildInternal($element ? $element : new Composite())
-			->setElementType('form');
+			->setElementType('select');
 	}
 }

@@ -13,7 +13,7 @@ class FormBuilderSpec extends ObjectBehavior {
 
 	function it_is_initializable() {
 		$this->shouldHaveType($this->type);
-		$this->shouldHaveType('Phorm\Builder\Builder');
+		$this->shouldHaveType('Phorm\Builder\CompositeBuilder');
 	}
 
 	function it_builds_a_form_to_spec(Composite $form, Builder $builder, Element $element) {

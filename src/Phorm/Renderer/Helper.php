@@ -60,7 +60,7 @@ class Helper {
 	 * @return string
 	 */
 	public function renderTagOpen(Element $element, $newline = true) {
-		return "<{$element->getElementType()}{$this->renderAttributes($element->getAttributes())}>" . ($newline ? "\n" : "");
+		return "<{$element->getTag()}{$this->renderAttributes($element->getAttributes())}>" . ($newline ? "\n" : "");
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Helper {
 	 * @return string
 	 */
 	public function renderTagClose(Element $element, $newline = true) {
-		return "</{$element->getElementType()}>" . ($newline ? "\n" : "");
+		return "</{$element->getTag()}>" . ($newline ? "\n" : "");
 	}
 
 	/**

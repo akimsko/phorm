@@ -17,22 +17,44 @@ namespace Phorm\Builder;
 use Phorm\Element\Element;
 
 /**
- * Class LabelBuilder
+ * Class KeygenBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class LabelBuilder extends Builder {
+class KeygenBuilder extends Builder {
 
 	/**
-	 * Set for.
+	 * Set autofocus.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function for_($value) {
-		return $this->setAttribute('for', $value);
+	public function autofocus($value) {
+		return $this->setAttribute('autofocus', $value);
+	}
+
+	/**
+	 * Set challenge.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function challenge($value) {
+		return $this->setAttribute('challenge', $value);
+	}
+
+	/**
+	 * Set disabled.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function disabled($value) {
+		return $this->setAttribute('disabled', $value);
 	}
 
 	/**
@@ -47,6 +69,28 @@ class LabelBuilder extends Builder {
 	}
 
 	/**
+	 * Set keytype.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function keytype($value) {
+		return $this->setAttribute('keytype', $value);
+	}
+
+	/**
+	 * Set name.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function name($value) {
+		return $this->setAttribute('name', $value);
+	}
+
+	/**
 	 * Build element.
 	 *
 	 * @param Element $element
@@ -56,6 +100,6 @@ class LabelBuilder extends Builder {
 	public function build(Element $element = null) {
 		return $this
 			->buildInternal($element ? $element : new Element())
-			->setElementType('label');
+			->setElementType('keygen');
 	}
 }

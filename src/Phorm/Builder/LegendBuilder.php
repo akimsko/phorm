@@ -14,35 +14,25 @@
 
 namespace Phorm\Builder;
 
-use Phorm\Element\Element;
+use Phorm\Element\Content;
 
 /**
- * Class CheckboxBuilder
+ * Class LegendBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class CheckboxBuilder extends InputBuilder {
-	/**
-	 * Set checked.
-	 *
-	 * @param string $value
-	 *
-	 * @return $this
-	 */
-	public function checked($value) {
-		return $this->setAttribute('checked', $value);
-	}
-
+class LegendBuilder extends ContentBuilder {
 	/**
 	 * Build element.
 	 *
-	 * @param Element $element
+	 * @param Content $element
 	 *
-	 * @return Element
+	 * @return Content
 	 */
-	public function build(Element $element = null) {
-		$this->type('checkbox');
-		return parent::build($element);
+	public function build(Content $element = null) {
+		return $this
+			->buildInternal($element ? $element : new Content())
+			->setElementType('legend');
 	}
 }

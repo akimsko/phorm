@@ -18,8 +18,8 @@ class PhormSpec extends ObjectBehavior {
 	}
 
 	function it_registers_builders_as_methods() {
-		$this->registerBuilder('label', 'Phorm\Builder\LabelBuilder');
-		$this->label()->shouldHaveType('Phorm\Builder\LabelBuilder');
+		$this->registerBuilder('test', 'Phorm\Builder\LabelBuilder');
+		$this->test()->shouldHaveType('Phorm\Builder\LabelBuilder');
 	}
 
 	function it_throws_exception_if_builder_not_registered() {
@@ -36,4 +36,23 @@ class PhormSpec extends ObjectBehavior {
 		$this->setRenderer($renderer);
 		$this->getRenderer()->shouldReturn($renderer);
 	}
+
+	function it_has_all_base_builders() {
+		$this->checkbox()->shouldHaveType('Phorm\Builder\CheckboxBuilder');
+		$this->fieldset()->shouldHaveType('Phorm\Builder\FieldsetBuilder');
+		$this->file()->shouldHaveType('Phorm\Builder\FileBuilder');
+		$this->form()->shouldHaveType('Phorm\Builder\FormBuilder');
+		$this->image()->shouldHaveType('Phorm\Builder\ImageBuilder');
+		$this->input()->shouldHaveType('Phorm\Builder\InputBuilder');
+		$this->keygen()->shouldHaveType('Phorm\Builder\KeygenBuilder');
+		$this->label()->shouldHaveType('Phorm\Builder\LabelBuilder');
+		$this->legend()->shouldHaveType('Phorm\Builder\LegendBuilder');
+		$this->optgroup()->shouldHaveType('Phorm\Builder\OptgroupBuilder');
+		$this->option()->shouldHaveType('Phorm\Builder\OptionBuilder');
+		$this->radio()->shouldHaveType('Phorm\Builder\RadioBuilder');
+		$this->select()->shouldHaveType('Phorm\Builder\SelectBuilder');
+		$this->textarea()->shouldHaveType('Phorm\Builder\TextareaBuilder');
+	}
+
+
 }

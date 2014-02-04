@@ -17,33 +17,54 @@ namespace Phorm\Builder;
 use Phorm\Element\Element;
 
 /**
- * Class LabelBuilder
+ * Class OptionBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class LabelBuilder extends Builder {
-
+class OptionBuilder extends Builder {
 	/**
-	 * Set for.
+	 * Set disabled.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function for_($value) {
-		return $this->setAttribute('for', $value);
+	public function disabled($value) {
+		return $this->setAttribute('disabled', $value);
 	}
 
 	/**
-	 * Set form.
+	 * Set label.
 	 *
 	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function form($value) {
-		return $this->setAttribute('form', $value);
+	public function label($value) {
+		return $this->setAttribute('label', $value);
+	}
+
+	/**
+	 * Set selected.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function selected($value) {
+		return $this->setAttribute('selected', $value);
+	}
+
+	/**
+	 * Set value.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function value($value) {
+		return $this->setAttribute('value', $value);
 	}
 
 	/**
@@ -56,6 +77,6 @@ class LabelBuilder extends Builder {
 	public function build(Element $element = null) {
 		return $this
 			->buildInternal($element ? $element : new Element())
-			->setElementType('label');
+			->setElementType('option');
 	}
 }

@@ -14,35 +14,38 @@
 
 namespace Phorm\Builder;
 
-use Phorm\Element\Element;
+use Phorm\Element\Composite;
 
 /**
- * Class CheckboxBuilder
+ * Class FieldsetBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class CheckboxBuilder extends InputBuilder {
+class FieldsetBuilder extends CompositeBuilder {
+
 	/**
-	 * Set checked.
+	 * Add element.
 	 *
-	 * @param string $value
+	 * @param Builder $element
 	 *
 	 * @return $this
 	 */
-	public function checked($value) {
-		return $this->setAttribute('checked', $value);
+	public function addElement(Builder $element) {
+		$this->addChildBuilder($element);
+		return $this;
 	}
 
 	/**
 	 * Build element.
 	 *
-	 * @param Element $element
+	 * @param Composite $element
 	 *
-	 * @return Element
+	 * @return Composite
 	 */
-	public function build(Element $element = null) {
-		$this->type('checkbox');
-		return parent::build($element);
+	public function build(Composite $element = null) {
+		return $this
+			->buildInternal($element ? $element : new Composite())
+			->setElementType('fieldset');
 	}
 }

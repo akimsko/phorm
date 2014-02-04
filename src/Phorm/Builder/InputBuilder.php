@@ -27,188 +27,188 @@ class InputBuilder extends Builder {
 	/**
 	 * Set autocomplete.
 	 *
-	 * @param string $autocomplete
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function autocomplete($autocomplete) {
-		return $this->setAttribute('autocomplete', $autocomplete);
+	public function autocomplete($value) {
+		return $this->setAttribute('autocomplete', $value);
 	}
 
 	/**
 	 * Set autofocus.
 	 *
-	 * @param string $autofocus
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function autofocus($autofocus) {
-		return $this->setAttribute('autofocus', $autofocus);
+	public function autofocus($value) {
+		return $this->setAttribute('autofocus', $value);
 	}
 
 	/**
 	 * Set disabled.
 	 *
-	 * @param string $disabled
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function disabled($disabled) {
-		return $this->setAttribute('disabled', $disabled);
+	public function disabled($value) {
+		return $this->setAttribute('disabled', $value);
 	}
 
 	/**
 	 * Set form id.
 	 *
-	 * @param string $formId
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function form($formId) {
-		return $this->setAttribute('form', $formId);
+	public function form($value) {
+		return $this->setAttribute('form', $value);
 	}
 
 	/**
 	 * Set formnovalidate.
 	 *
-	 * @param string $formnovalidate
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function formnovalidate($formnovalidate) {
-		return $this->setAttribute('formnovalidate', $formnovalidate);
+	public function formnovalidate($value) {
+		return $this->setAttribute('formnovalidate', $value);
 	}
 
 	/**
 	 * Set list id.
 	 *
-	 * @param string $listId
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function list_($listId) {
-		return $this->setAttribute('list', $listId);
+	public function list_($value) {
+		return $this->setAttribute('list', $value);
 	}
 
 	/**
 	 * Set max.
 	 *
-	 * @param string $max
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function max($max) {
-		return $this->setAttribute('max', $max);
+	public function max($value) {
+		return $this->setAttribute('max', $value);
 	}
 
 	/**
 	 * Set maxlength.
 	 *
-	 * @param string $maxlength
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function maxlength($maxlength) {
-		return $this->setAttribute('maxlength', $maxlength);
+	public function maxlength($value) {
+		return $this->setAttribute('maxlength', $value);
 	}
 
 	/**
 	 * Set multiple.
 	 *
-	 * @param string $multiple
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function multiple($multiple) {
-		return $this->setAttribute('multiple', $multiple);
+	public function multiple($value) {
+		return $this->setAttribute('multiple', $value);
 	}
 
 	/**
 	 * Set name.
 	 *
-	 * @param string $name
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function name($name) {
-		return $this->setAttribute('name', $name);
+	public function name($value) {
+		return $this->setAttribute('name', $value);
 	}
 
 	/**
 	 * Set pattern.
 	 *
-	 * @param string $pattern
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function pattern($pattern) {
-		return $this->setAttribute('pattern', $pattern);
+	public function pattern($value) {
+		return $this->setAttribute('pattern', $value);
 	}
 
 	/**
 	 * Set placeholder.
 	 *
-	 * @param string $placeholder
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function placeholder($placeholder) {
-		return $this->setAttribute('placeholder', $placeholder);
+	public function placeholder($value) {
+		return $this->setAttribute('placeholder', $value);
 	}
 
 	/**
 	 * Set readonly.
 	 *
-	 * @param string $readonly
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function readonly($readonly) {
-		return $this->setAttribute('readonly', $readonly);
+	public function readonly($value) {
+		return $this->setAttribute('readonly', $value);
 	}
 
 	/**
 	 * Set required.
 	 *
-	 * @param string $required
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function required($required) {
-		return $this->setAttribute('required', $required);
+	public function required($value) {
+		return $this->setAttribute('required', $value);
 	}
 
 	/**
 	 * Set size.
 	 *
-	 * @param string $size
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function size($size) {
-		return $this->setAttribute('size', $size);
+	public function size($value) {
+		return $this->setAttribute('size', $value);
 	}
 
 	/**
 	 * Set step.
 	 *
-	 * @param string $step
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function step($step) {
-		return $this->setAttribute('step', $step);
+	public function step($value) {
+		return $this->setAttribute('step', $value);
 	}
 
 	/**
 	 * Set type.
 	 *
-	 * @param string $type
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function type($type) {
-		return $this->setAttribute('type', $type);
+	public function type($value) {
+		return $this->setAttribute('type', $value);
 	}
 
 	/**
@@ -225,12 +225,12 @@ class InputBuilder extends Builder {
 	/**
 	 * Set min.
 	 *
-	 * @param string $min
+	 * @param string $value
 	 *
 	 * @return $this
 	 */
-	public function min($min) {
-		return $this->setAttribute('min', $min);
+	public function min($value) {
+		return $this->setAttribute('min', $value);
 	}
 
 	/**
