@@ -2,6 +2,7 @@
 
 namespace spec\Phorm;
 
+use Phorm\Builder\Builder;
 use Phorm\Element\Element;
 use Phorm\Renderer\Renderer;
 use PhpSpec\ObjectBehavior;
@@ -25,9 +26,10 @@ class PhormSpec extends ObjectBehavior {
 		$this->shouldThrow('Phorm\Exception\PhormException')->duringTestInvalid();
 	}
 
-	function it_renders_elements(Renderer $renderer, Element $element) {
+	function it_renders_element_builder(Renderer $renderer, Builder $builder, Element $element) {
 		$renderer->render($element)->shouldBeCalled();
-		$this->render($element);
+		$builder->build()->willReturn($element);
+		$this->render($builder);
 	}
 
 	function it_holds_a_renderer(Renderer $renderer) {

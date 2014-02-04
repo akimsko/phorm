@@ -14,7 +14,7 @@
 
 namespace Phorm;
 
-use Phorm\Element\Element;
+use Phorm\Builder\Builder;
 use Phorm\Exception\PhormException;
 use Phorm\Renderer\Renderer;
 
@@ -109,11 +109,11 @@ class Phorm {
 	/**
 	 * Render an element.
 	 *
-	 * @param Element $element
+	 * @param Builder $element
 	 *
 	 * @return string The rendered element.
 	 */
-	public function render(Element $element) {
-		return $this->getRenderer()->render($element);
+	public function render(Builder $element) {
+		return $this->getRenderer()->render($element->build());
 	}
 }
