@@ -38,21 +38,18 @@ class PhormSpec extends ObjectBehavior {
 	}
 
 	function it_has_all_base_builders() {
-		$this->checkbox()->shouldHaveType('Phorm\Builder\CheckboxBuilder');
+		$this->button()->shouldHaveType('Phorm\Builder\ButtonBuilder');
+		$this->datalist()->shouldHaveType('Phorm\Builder\DatalistBuilder');
 		$this->fieldset()->shouldHaveType('Phorm\Builder\FieldsetBuilder');
-		$this->file()->shouldHaveType('Phorm\Builder\FileBuilder');
 		$this->form()->shouldHaveType('Phorm\Builder\FormBuilder');
-		$this->image()->shouldHaveType('Phorm\Builder\ImageBuilder');
 		$this->input()->shouldHaveType('Phorm\Builder\InputBuilder');
 		$this->keygen()->shouldHaveType('Phorm\Builder\KeygenBuilder');
 		$this->label()->shouldHaveType('Phorm\Builder\LabelBuilder');
 		$this->legend()->shouldHaveType('Phorm\Builder\LegendBuilder');
 		$this->optgroup()->shouldHaveType('Phorm\Builder\OptgroupBuilder');
 		$this->option()->shouldHaveType('Phorm\Builder\OptionBuilder');
-		$this->radio()->shouldHaveType('Phorm\Builder\RadioBuilder');
+		$this->output()->shouldHaveType('Phorm\Builder\OutputBuilder');
 		$this->select()->shouldHaveType('Phorm\Builder\SelectBuilder');
 		$this->textarea()->shouldHaveType('Phorm\Builder\TextareaBuilder');
 	}
-
-
 }

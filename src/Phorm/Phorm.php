@@ -24,19 +24,18 @@ use Phorm\Renderer\Renderer;
  * @package Phorm
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  *
- * @method \Phorm\Builder\CheckboxBuilder checkbox() Build a checkbox element.
+ * @method \Phorm\Builder\ButtonBuilder   button()   Build a button element.
+ * @method \Phorm\Builder\DatalistBuilder datalist() Build a datalist element.
  * @method \Phorm\Builder\FieldsetBuilder fieldset() Build a fieldset element.
- * @method \Phorm\Builder\FileBuilder file() Build a file element.
- * @method \Phorm\Builder\FormBuilder form() Build a form.
- * @method \Phorm\Builder\ImageBuilder image() Build an image element.
- * @method \Phorm\Builder\InputBuilder input() Build an input element.
- * @method \Phorm\Builder\KeygenBuilder keygen() Build a keygen element.
- * @method \Phorm\Builder\LabelBuilder label() Build a label element.
- * @method \Phorm\Builder\LegendBuilder legend() Build a legend element.
+ * @method \Phorm\Builder\FormBuilder     form()     Build a form.
+ * @method \Phorm\Builder\InputBuilder    input()    Build an input element.
+ * @method \Phorm\Builder\KeygenBuilder   keygen()   Build a keygen element.
+ * @method \Phorm\Builder\LabelBuilder    label()    Build a label element.
+ * @method \Phorm\Builder\LegendBuilder   legend()   Build a legend element.
  * @method \Phorm\Builder\OptgroupBuilder optgroup() Build an optgroup element.
- * @method \Phorm\Builder\OptionBuilder option() Build an option element.
- * @method \Phorm\Builder\RadioBuilder radio() Build a radio element.
- * @method \Phorm\Builder\SelectBuilder select() Build a select element.
+ * @method \Phorm\Builder\OptionBuilder   option()   Build an option element.
+ * @method \Phorm\Builder\OutputBuilder   output()   Build an output element.
+ * @method \Phorm\Builder\SelectBuilder   select()   Build a select element.
  * @method \Phorm\Builder\TextareaBuilder textarea() Build a textarea element.
  */
 class Phorm {
@@ -46,18 +45,17 @@ class Phorm {
 
 	/** @var array type => builder class map. */
 	private $builders = array(
-		'checkbox' => 'Phorm\Builder\CheckboxBuilder',
+		'button'   => 'Phorm\Builder\ButtonBuilder',
+		'datalist' => 'Phorm\Builder\DatalistBuilder',
 		'fieldset' => 'Phorm\Builder\FieldsetBuilder',
-		'file'     => 'Phorm\Builder\FileBuilder',
 		'form'     => 'Phorm\Builder\FormBuilder',
-		'image'    => 'Phorm\Builder\ImageBuilder',
 		'input'    => 'Phorm\Builder\InputBuilder',
 		'keygen'   => 'Phorm\Builder\KeygenBuilder',
 		'label'    => 'Phorm\Builder\LabelBuilder',
 		'legend'   => 'Phorm\Builder\LegendBuilder',
 		'optgroup' => 'Phorm\Builder\OptgroupBuilder',
 		'option'   => 'Phorm\Builder\OptionBuilder',
-		'radio'    => 'Phorm\Builder\RadioBuilder',
+		'output'   => 'Phorm\Builder\OutputBuilder',
 		'select'   => 'Phorm\Builder\SelectBuilder',
 		'textarea' => 'Phorm\Builder\TextareaBuilder',
 	);

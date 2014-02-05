@@ -17,7 +17,7 @@ class SelectBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\CompositeBuilder');
 	}
 
-	function it_builds_a_form_to_spec(Composite $select, OptionBuilder $builder, OptgroupBuilder $optgroup, Element $element) {
+	function it_builds_to_spec(Composite $select, OptionBuilder $builder, OptgroupBuilder $optgroup, Element $element) {
 		$this->autofocus('autofocus')->shouldHaveType($this->type);
 		$this->disabled('disabled')->shouldHaveType($this->type);
 		$this->form('form')->shouldHaveType($this->type);
@@ -46,8 +46,10 @@ class SelectBuilderSpec extends ObjectBehavior {
 		)    ->shouldBeCalled()->willReturn($select);
 
 
-		$builder->build()->willReturn($element);
-		$optgroup->build()->willReturn($element);
+		$builder->build()->shouldBecalled()->willReturn($element);
+		$builder->setTemplateNamespace(null)->shouldBecalled()->willReturn($element);
+		$optgroup->build()->shouldBecalled()->willReturn($element);
+		$optgroup->setTemplateNamespace(null)->shouldBecalled()->willReturn($element);
 
 		$this->build($select)->shouldHaveType('Phorm\Element\Composite');
 	}

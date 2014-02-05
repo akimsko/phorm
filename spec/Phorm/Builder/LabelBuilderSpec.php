@@ -14,7 +14,7 @@ class LabelBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\Builder');
 	}
 
-	function it_builds_an_element_to_spec(Element $element) {
+	function it_builds_to_spec(Element $element) {
 		$this->for_('for')->shouldHaveType($this->type);
 		$this->form('form')->shouldHaveType($this->type);
 

@@ -14,7 +14,7 @@ class TextareaBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\ContentBuilder');
 	}
 
-	function it_builds_a_textarea_to_spec(Content $content) {
+	function it_builds_to_spec(Content $content) {
 
 		$this->autofocus('autofocus')->shouldHaveType($this->type);
 		$this->cols('cols')->shouldHaveType($this->type);

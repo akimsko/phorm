@@ -16,7 +16,7 @@ class FormBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\CompositeBuilder');
 	}
 
-	function it_builds_a_form_to_spec(Composite $form, Builder $builder, Element $element) {
+	function it_builds_to_spec(Composite $form, Builder $builder, Element $element) {
 		$this->acceptCharset('accept-charset')->shouldHaveType($this->type);
 		$this->action('action')->shouldHaveType($this->type);
 		$this->autocomplete('autocomplete')->shouldHaveType($this->type);
@@ -45,8 +45,8 @@ class FormBuilderSpec extends ObjectBehavior {
 			 )
 		)->shouldBeCalled()->willReturn($form);
 
-
-		$builder->build()->willReturn($element);
+		$builder->build()->shouldBecalled()->willReturn($element);
+		$builder->setTemplateNamespace(null)->shouldBecalled()->willReturn($element);
 
 		$this->build($form)->shouldHaveType('Phorm\Element\Composite');
 	}

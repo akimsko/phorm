@@ -17,7 +17,7 @@ class FieldsetBuilderSpec extends ObjectBehavior
 		$this->shouldHaveType('Phorm\Builder\CompositeBuilder');
 	}
 
-	function it_builds_a_group_to_spec(Composite $group, Builder $builder, Element $element) {
+	function it_builds_to_spec(Composite $group, Builder $builder, Element $element) {
 		$this->addElement($builder)->shouldHaveType($this->type);
 
 		$group->setElementType('fieldset')->shouldBeCalled()->willReturn($group);
@@ -28,7 +28,8 @@ class FieldsetBuilderSpec extends ObjectBehavior
 			->shouldBeCalled()
 			->willReturn($group);
 
-		$builder->build()->willReturn($element);
+		$builder->build()->shouldBecalled()->willReturn($element);
+		$builder->setTemplateNamespace(null)->shouldBecalled()->willReturn($element);
 
 		$this->build($group)->shouldHaveType('Phorm\Element\Composite');
 	}

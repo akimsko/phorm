@@ -245,4 +245,114 @@ class InputBuilder extends Builder {
 			->buildInternal($element ? $element : new Element())
 			->setElementType('input');
 	}
+
+	/**
+	 * Set checked.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function checked($value) {
+		return $this->setAttribute('checked', $value);
+	}
+
+	/**
+	 * Set accept.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function accept($value) {
+		return $this->setAttribute('accept', $value);
+	}
+
+	/**
+	 * Set alt.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function alt($value) {
+		return $this->setAttribute('alt', $value);
+	}
+
+	/**
+	 * Set formaction.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function formaction($value) {
+		return $this->setAttribute('formaction', $value);
+	}
+
+	/**
+	 * Set formenctype.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function formenctype($value) {
+		return $this->setAttribute('formenctype', $value);
+	}
+
+	/**
+	 * Set formmethod.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function formmethod($value) {
+		return $this->setAttribute('formmethod', $value);
+	}
+
+	/**
+	 * Set formtarget.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function formtarget($value) {
+		return $this->setAttribute('formtarget', $value);
+	}
+
+	/**
+	 * Set height.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function height($value) {
+		return $this->setAttribute('height', $value);
+	}
+
+	/**
+	 * Set src.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function src($value) {
+		return $this->setAttribute('src', $value);
+	}
+
+	/**
+	 * Set width.
+	 *
+	 * @param string $value
+	 *
+	 * @return $this
+	 */
+	public function width($value) {
+		return $this->setAttribute('width', $value);
+	}
 }

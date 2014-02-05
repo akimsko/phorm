@@ -14,7 +14,7 @@ class InputBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\Builder');
 	}
 
-	function it_builds_an_element_to_spec(Element $element) {
+	function it_builds_to_spec(Element $element) {
 		$this->autocomplete('autocomplete')->shouldHaveType($this->type);
 		$this->autofocus('autofocus')->shouldHaveType($this->type);
 		$this->disabled('disabled')->shouldHaveType($this->type);
@@ -34,30 +34,50 @@ class InputBuilderSpec extends ObjectBehavior {
 		$this->step('step')->shouldHaveType($this->type);
 		$this->type('type')->shouldHaveType($this->type);
 		$this->value('value')->shouldHaveType($this->type);
+		$this->checked('checked')->shouldHaveType($this->type);
+		$this->accept('accept')->shouldHaveType($this->type);
+		$this->alt('alt')->shouldHaveType($this->type);
+		$this->formaction('formaction')->shouldHaveType($this->type);
+		$this->formenctype('formenctype')->shouldHaveType($this->type);
+		$this->formmethod('formmethod')->shouldHaveType($this->type);
+		$this->formtarget('formtarget')->shouldHaveType($this->type);
+		$this->height('height')->shouldHaveType($this->type);
+		$this->src('src')->shouldHaveType($this->type);
+		$this->width('width')->shouldHaveType($this->type);
 
 		$element->setElementType('input')->shouldBeCalled()->willReturn($element);
 		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
-					'autocomplete'   => 'autocomplete',
-					'autofocus'      => 'autofocus',
-					'disabled'       => 'disabled',
-					'form'           => 'form',
-					'formnovalidate' => 'formnovalidate',
-					'list'           => 'list',
-					'max'            => 'max',
-					'maxlength'      => 'maxlength',
-					'min'            => 'min',
-					'multiple'       => 'multiple',
-					'name'           => 'name',
-					'pattern'        => 'pattern',
-					'placeholder'    => 'placeholder',
-					'readonly'       => 'readonly',
-					'required'       => 'required',
-					'size'           => 'size',
-					'step'           => 'step',
-					'type'           => 'type',
-					'value'          => 'value',
+					 'autocomplete'   => 'autocomplete',
+					 'autofocus'      => 'autofocus',
+					 'disabled'       => 'disabled',
+					 'form'           => 'form',
+					 'formnovalidate' => 'formnovalidate',
+					 'list'           => 'list',
+					 'max'            => 'max',
+					 'maxlength'      => 'maxlength',
+					 'min'            => 'min',
+					 'multiple'       => 'multiple',
+					 'name'           => 'name',
+					 'pattern'        => 'pattern',
+					 'placeholder'    => 'placeholder',
+					 'readonly'       => 'readonly',
+					 'required'       => 'required',
+					 'size'           => 'size',
+					 'step'           => 'step',
+					 'type'           => 'type',
+					 'value'          => 'value',
+					 'checked'        => 'checked',
+					 'accept'         => 'accept',
+					 'alt'            => 'alt',
+					 'formaction'     => 'formaction',
+					 'formenctype'    => 'formenctype',
+					 'formmethod'     => 'formmethod',
+					 'formtarget'     => 'formtarget',
+					 'height'         => 'height',
+					 'src'            => 'src',
+					 'width'          => 'width',
 				)
 		)->shouldBeCalled()->willReturn($element);
 

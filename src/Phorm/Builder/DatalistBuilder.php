@@ -14,35 +14,37 @@
 
 namespace Phorm\Builder;
 
-use Phorm\Element\Element;
+use Phorm\Element\Composite;
 
 /**
- * Class CheckboxBuilder
+ * Class DatalistBuilder
  *
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class CheckboxBuilder extends InputBuilder {
+class DatalistBuilder extends CompositeBuilder {
+
 	/**
-	 * Set checked.
+	 * Add option.
 	 *
-	 * @param string $value
+	 * @param OptionBuilder $option
 	 *
 	 * @return $this
 	 */
-	public function checked($value) {
-		return $this->setAttribute('checked', $value);
+	public function addOption(OptionBuilder $option) {
+		return $this->addChildBuilder($option);
 	}
 
 	/**
 	 * Build element.
 	 *
-	 * @param Element $element
+	 * @param Composite $element
 	 *
-	 * @return Element
+	 * @return Composite
 	 */
-	public function build(Element $element = null) {
-		$this->type('checkbox');
-		return parent::build($element);
+	public function build(Composite $element = null) {
+		return $this
+			->buildInternal($element ? $element : new Composite())
+			->setElementType('datalist');
 	}
 }

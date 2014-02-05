@@ -8,8 +8,8 @@ use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class OptgroupBuilderSpec extends ObjectBehavior {
-	private $type = 'Phorm\Builder\OptgroupBuilder';
+class DatalistBuilderSpec extends ObjectBehavior {
+	private $type = 'Phorm\Builder\DatalistBuilder';
 
 	function it_is_initializable() {
 		$this->shouldHaveType($this->type);
@@ -17,22 +17,13 @@ class OptgroupBuilderSpec extends ObjectBehavior {
 	}
 
 	function it_builds_to_spec(Composite $optgroup, OptionBuilder $builder, Element $element) {
-		$this->disabled('disabled')->shouldHaveType($this->type);
-		$this->label('label')->shouldHaveType($this->type);
-
 		$this->addOption($builder)->shouldHaveType($this->type);
 
-		$optgroup->setElementType('optgroup')->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setElementType('datalist')->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->addChild($element)->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->setTemplateName(null)->shouldBeCalled()->willReturn($optgroup);
 
-		$optgroup->setAttributes(
-				 array(
-					  'disabled' => 'disabled',
-					  'label'    => 'label',
-				 )
-		)        ->shouldBeCalled()->willReturn($optgroup);
-
+		$optgroup->setAttributes(array())->shouldBeCalled()->willReturn($optgroup);
 
 		$builder->build()->shouldBecalled()->willReturn($element);
 		$builder->setTemplateNamespace(null)->shouldBecalled()->willReturn($element);

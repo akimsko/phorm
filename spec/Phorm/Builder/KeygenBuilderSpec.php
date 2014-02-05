@@ -14,7 +14,7 @@ class KeygenBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\Builder');
 	}
 
-	function it_builds_an_element_to_spec(Element $element) {
+	function it_builds_to_spec(Element $element) {
 		$this->autofocus('autofocus')->shouldHaveType($this->type);
 		$this->challenge('challenge')->shouldHaveType($this->type);
 		$this->disabled('disabled')->shouldHaveType($this->type);

@@ -14,7 +14,7 @@ class OptionBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\Builder');
 	}
 
-	function it_builds_an_element_to_spec(Element $element) {
+	function it_builds_to_spec(Element $element) {
 		$this->disabled('disabled')->shouldHaveType($this->type);
 		$this->label('label')->shouldHaveType($this->type);
 		$this->selected('selected')->shouldHaveType($this->type);
