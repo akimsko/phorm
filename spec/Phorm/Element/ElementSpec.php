@@ -93,6 +93,15 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo(array('test1' => 'test1', 'test2' => 'test2'));
 	}
 
+	function it_stores_extras() {
+		$this->setExtras(array('test' => 'test'));
+		$this->getExtra('test')->shouldReturn('test');
+		$this->setExtra('test2', 'test2');
+		$this->getExtra('test2')->shouldReturn('test2');
+		$this->getExtra('nothing')->shouldBeNull();
+		$this->getExtras()->shouldReturn(array('test' => 'test', 'test2' => 'test2'));
+	}
+
 	function it_is_chainable() {
 		$this->setElementType('test')->shouldHaveType('Phorm\Element\Element');
 		$this->setAttribute('test', 'test')->shouldHaveType('Phorm\Element\Element');

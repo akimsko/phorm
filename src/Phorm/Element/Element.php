@@ -26,13 +26,60 @@ class Element {
 	protected $elementType;
 
 	/** @var array Element attributes. */
-	protected $attributes;
+	protected $attributes = array();
 
 	/** @var string */
 	protected $templateName;
 
 	/** @var string */
 	protected $tag;
+
+	/** @var array */
+	protected $extras = array();
+
+	/**
+	 * Set extras.
+	 *
+	 * @param array $extras
+	 *
+	 * @return Element
+	 */
+	public function setExtras(array $extras) {
+		$this->extras = $extras;
+		return $this;
+	}
+
+	/**
+	 * Get extras.
+	 *
+	 * @return array
+	 */
+	public function getExtras() {
+		return $this->extras;
+	}
+
+	/**
+	 * Set extra.
+	 *
+	 * @param string $name
+	 * @param mixed  $value
+	 */
+	public function setExtra($name, $value) {
+		$this->extras[$name] = $value;
+	}
+
+	/**
+	 * Get extra.
+	 *
+	 * @param string $name
+	 *
+	 * @return null|mixed
+	 */
+	public function getExtra($name) {
+		return isset($this->extras[$name])
+			? $this->extras[$name]
+			: null;
+	}
 
 	/**
 	 * Set templateName.
