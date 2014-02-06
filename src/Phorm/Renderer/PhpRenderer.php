@@ -16,6 +16,7 @@ namespace Phorm\Renderer;
 
 use Phorm\Element\Element;
 use Phorm\Resolver\FileResolver;
+use Phorm\Resolver\ResolverAggregate;
 
 /**
  * Class PhpRenderer
@@ -24,18 +25,6 @@ use Phorm\Resolver\FileResolver;
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 class PhpRenderer extends FileRenderer {
-
-	/**
-	 * Get the default resolver.
-	 *
-	 * @return FileResolver
-	 */
-	protected function getDefaultResolver() {
-		$resolver = new FileResolver();
-		return $resolver
-			->setTemplatePath(__DIR__ . '/../templates/php')
-			->setExtension('.tpl.php');
-	}
 
 	/**
 	 * Render an element tree.
@@ -48,7 +37,7 @@ class PhpRenderer extends FileRenderer {
 		static $scoper;
 
 		if (!$scoper) {
-			$scoper = new PhpScoper($this->getResolver(), $this->getHelper());
+			$scoper = new PhpScoper($this->getResolvers(), $this->getHelper());
 		}
 
 		return $scoper->render($element);
@@ -69,11 +58,11 @@ class PhpScoper {
 	private $superNotSoSecretStuff = array();
 
 	/**
-	 * @param FileResolver $resolver
+	 * @param ResolverAggregate $resolvers
 	 * @param Helper       $helper
 	 */
-	public function __construct(FileResolver $resolver, Helper $helper) {
-		$this->superNotSoSecretStuff['resolver'] = $resolver;
+	public function __construct(ResolverAggregate $resolvers, Helper $helper) {
+		$this->superNotSoSecretStuff['resolvers'] = $resolvers;
 		$this->superNotSoSecretStuff['helper']   = $helper;
 	}
 
@@ -86,8 +75,8 @@ class PhpScoper {
 	 */
 	public function render(Element $element) {
 		$formHelper                              = $this->superNotSoSecretStuff['helper'];
-		$this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolver']->getTemplateForElement($element);
-		if (!file_exists($this->superNotSoSecretStuff['template'])) {
+		$this->superNotSoSecretStuff['template'] = $this->superNotSoSecretStuff['resolvers']->resolve($element);
+		if (!$this->superNotSoSecretStuff['template']) {
 			return $formHelper->renderElement($element);
 		}
 		ob_start();

@@ -118,8 +118,12 @@ class FileResolver implements Resolver {
 			$name = "{$element->getTemplateName()}/$name";
 		}
 
-		return array_key_exists($name, $this->templates)
+		$location = array_key_exists($name, $this->templates)
 			? $this->templates[$name]
 			: $this->getTemplatePath() . $name . $this->getExtension();
+
+		return file_exists($location)
+			? $location
+			: null;
 	}
 }

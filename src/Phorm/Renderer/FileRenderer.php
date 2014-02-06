@@ -15,6 +15,7 @@
 namespace Phorm\Renderer;
 
 use Phorm\Resolver\FileResolver;
+use Phorm\Resolver\ResolverAggregate;
 
 /**
  * Class FileRenderer
@@ -24,20 +25,18 @@ use Phorm\Resolver\FileResolver;
  */
 abstract class FileRenderer extends Renderer {
 
-	/** @var FileResolver */
-	private $resolver;
+	/** @var ResolverAggregate */
+	private $resolvers;
 
 	/**
-	 * Get resolver.
+	 * Get resolvers.
 	 *
-	 * @return FileResolver
+	 * @return ResolverAggregate
 	 */
-	public function getResolver() {
-		if (!$this->resolver) {
-			$this->setResolver($this->getDefaultResolver());
-		}
-
-		return $this->resolver;
+	protected function getResolvers() {
+		return $this->resolvers
+			? $this->resolvers
+			: ($this->resolvers = new ResolverAggregate());
 	}
 
 	/**
@@ -47,15 +46,8 @@ abstract class FileRenderer extends Renderer {
 	 *
 	 * @return $this
 	 */
-	public function setResolver(FileResolver $resolver) {
-		$this->resolver = $resolver;
+	public function registerResolver(FileResolver $resolver) {
+		$this->getResolvers()->registerResolver($resolver);
 		return $this;
 	}
-
-	/**
-	 * Get the default resolver.
-	 *
-	 * @return FileResolver
-	 */
-	abstract protected function getDefaultResolver();
 }

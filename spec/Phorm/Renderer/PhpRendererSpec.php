@@ -2,6 +2,7 @@
 
 namespace spec\Phorm\Renderer;
 
+use Phorm\Resolver\FileResolver;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Phorm\Element\Composite;
@@ -13,8 +14,8 @@ class PhpRendererSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Renderer\FileRenderer');
 	}
 
-	function it_has_a_resolver() {
-		$this->getResolver()->shouldHaveType('Phorm\Resolver\FileResolver');
+	function it_registers_file_resolvers(FileResolver $resolver) {
+		$this->registerResolver($resolver)->shouldHaveType('Phorm\Renderer\FileRenderer');
 	}
 
 	function it_renders_elements(Composite $composite, Element $element1, Element $element2) {
