@@ -103,13 +103,13 @@ class FileResolver implements Resolver {
 	}
 
 	/**
-	 * Get the template for element.
+	 * Get template filename for element.
 	 *
 	 * @param Element $element
 	 *
-	 * @return null|string
+	 * @return string
 	 */
-	public function getTemplateForElement(Element $element) {
+	public function resolveFilename(Element $element) {
 		$name = $element->getAttribute('type')
 			? "{$element->getElementType()}_{$element->getAttribute('type')}"
 			: $element->getElementType();
@@ -118,12 +118,45 @@ class FileResolver implements Resolver {
 			$name = "{$element->getTemplateName()}/$name";
 		}
 
-		$location = array_key_exists($name, $this->templates)
+		$filePath = array_key_exists($name, $this->templates)
 			? $this->templates[$name]
 			: $this->getTemplatePath() . $name . $this->getExtension();
 
-		return file_exists($location)
-			? $location
-			: null;
+		return $filePath;
+	}
+
+	/**
+	 * Check exists.
+	 *
+	 * @param string $filePath
+	 *
+	 * @return boolean
+	 */
+	protected function checkExists($filePath) {
+		return file_exists($filePath);
+	}
+
+	/**
+	 * Get the template for element.
+	 *
+	 * @param Element $element
+	 *
+	 * @return null|string
+	 */
+	public function getTemplateForElement(Element $element) {
+		static $miss = array();
+
+		$filePath = $this->resolveFilename($element);
+
+		if (isset($miss[$filePath])) {
+			return null;
+		}
+
+		if (!$this->checkExists($filePath)) {
+			$miss[$filePath] = true;
+			return null;
+		}
+
+		return $filePath;
 	}
 }
