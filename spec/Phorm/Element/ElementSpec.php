@@ -109,5 +109,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->addAttributes(array())->shouldHaveType('Phorm\Element\Element');
 		$this->removeAttribute('test')->shouldHaveType('Phorm\Element\Element');
 		$this->removeAttributes()->shouldHaveType('Phorm\Element\Element');
+		$this->setExtras(array())->shouldHaveType('Phorm\Element\Element');
+		$this->setExtra('test', 'test')->shouldHaveType('Phorm\Element\Element');
 	}
 }

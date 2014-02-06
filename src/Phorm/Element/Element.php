@@ -63,9 +63,12 @@ class Element {
 	 *
 	 * @param string $name
 	 * @param mixed  $value
+	 *
+	 * @return $this
 	 */
 	public function setExtra($name, $value) {
 		$this->extras[$name] = $value;
+		return $this;
 	}
 
 	/**
