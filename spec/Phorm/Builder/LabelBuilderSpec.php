@@ -2,6 +2,7 @@
 
 namespace spec\Phorm\Builder;
 
+use Phorm\Element\Content;
 use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -11,22 +12,24 @@ class LabelBuilderSpec extends ObjectBehavior {
 
 	function it_is_initializable() {
 		$this->shouldHaveType($this->type);
-		$this->shouldHaveType('Phorm\Builder\Builder');
+		$this->shouldHaveType('Phorm\Builder\ContentBuilder');
 	}
 
-	function it_builds_to_spec(Element $element) {
+	function it_builds_to_spec(Content $content) {
 		$this->for_('for')->shouldHaveType($this->type);
 		$this->form('form')->shouldHaveType($this->type);
+		$this->setContent('test')->shouldHaveType($this->type);
 
-		$element->setElementType('label')->shouldBeCalled()->willReturn($element);
-		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
-		$element->setAttributes(
+		$content->setElementType('label')->shouldBeCalled()->willReturn($content);
+		$content->setTemplateName(null)->shouldBeCalled()->willReturn($content);
+		$content->setContent('test')->shouldBeCalled()->willReturn($content);
+		$content->setAttributes(
 				array(
 					'for'  => 'for',
 					'form' => 'form'
 				)
-		)->shouldBeCalled()->willReturn($element);
+		)->shouldBeCalled()->willReturn($content);
 
-		$this->build($element)->shouldHaveType('Phorm\Element\Element');
+		$this->build($content)->shouldHaveType('Phorm\Element\Content');
 	}
 }
