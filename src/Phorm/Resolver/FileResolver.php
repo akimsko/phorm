@@ -15,7 +15,6 @@
 namespace Phorm\Resolver;
 
 use Phorm\Element\Element;
-use Phorm\Exception\ResolverException;
 
 /**
  * Class FileResolver
