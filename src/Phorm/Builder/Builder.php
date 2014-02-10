@@ -64,6 +64,19 @@ abstract class Builder {
 	}
 
 	/**
+	 * Get attribute.
+	 *
+	 * @param string $name
+	 *
+	 * @return null|string
+	 */
+	protected function getAttribute($name) {
+		return isset($this->attributes[$name])
+			? $this->attributes[$name]
+			: null;
+	}
+
+	/**
 	 * Add additional element attributes.
 	 *
 	 * @param array $attributes

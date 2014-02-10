@@ -15,6 +15,7 @@
 namespace Phorm\Builder;
 
 use Phorm\Element\Composite;
+use Phorm\Element\Element;
 
 /**
  * Class SelectBuilder
@@ -23,6 +24,25 @@ use Phorm\Element\Composite;
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
 class SelectBuilder extends CompositeBuilder {
+
+	/** @var array */
+	private $selected = array();
+
+	/**
+	 * Set selectedValue.
+	 *
+	 * @param mixed $value
+	 *
+	 * @return SelectBuilder
+	 */
+	public function selected($value) {
+		if ($value) {
+			$value = is_array($value) ? $value : array($value);
+			$this->selected = array_flip($value);
+		}
+		return $this;
+	}
+
 	/**
 	 * Set autofocus.
 	 *
@@ -107,8 +127,25 @@ class SelectBuilder extends CompositeBuilder {
 	 *
 	 * @return $this
 	 */
-	public function addOption(OptionBuilder $option) {
+	public function option(OptionBuilder $option) {
 		return $this->addChildBuilder($option);
+	}
+
+	/**
+	 * Add options.
+	 *
+	 * [value => content, ...]
+	 *
+	 * @param array $options
+	 *
+	 * @return $this
+	 */
+	public function options(array $options) {
+		foreach ($options as $value => $content) {
+			$option = new OptionBuilder();
+			$this->option($option->value($value)->setContent($content));
+		}
+		return $this;
 	}
 
 	/**
@@ -118,9 +155,26 @@ class SelectBuilder extends CompositeBuilder {
 	 *
 	 * @return $this
 	 */
-	public function addOptgroup(OptgroupBuilder $optgroup) {
+	public function optgroup(OptgroupBuilder $optgroup) {
 		return $this->addChildBuilder($optgroup);
 	}
+
+	/**
+	 * Build child.
+	 *
+	 * @param Builder $child
+	 *
+	 * @return Element
+	 */
+	protected function buildChild(Builder $child) {
+		if ($child instanceof OptionBuilder) {
+			if (($value = $child->getAttribute('value')) && isset($this->selected[$value])) {
+				$child->selected('selected');
+			}
+		}
+		return parent::buildChild($child);
+	}
+
 
 	/**
 	 * Build element.

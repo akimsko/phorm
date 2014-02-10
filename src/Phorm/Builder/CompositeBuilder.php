@@ -48,11 +48,22 @@ abstract class CompositeBuilder extends Builder {
 	 * @return Composite
 	 */
 	protected function buildChildren(Composite $element) {
-		foreach ($this->childBuilders as $builder) {
-			$builder->setTemplateNamespace($this->getTemplateNamespace());
-			$element->addChild($builder->build());
+		foreach ($this->childBuilders as $child) {
+			$element->addChild($this->buildChild($child));
 		}
 		return $element;
+	}
+
+	/**
+	 * Build child.
+	 *
+	 * @param Builder $child
+	 *
+	 * @return Element
+	 */
+	protected function buildChild(Builder $child) {
+		$child->setTemplateNamespace($this->getTemplateNamespace());
+		return $child->build();
 	}
 
 	/**

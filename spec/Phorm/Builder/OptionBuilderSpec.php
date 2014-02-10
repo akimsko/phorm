@@ -2,7 +2,7 @@
 
 namespace spec\Phorm\Builder;
 
-use Phorm\Element\Element;
+use Phorm\Element\Content;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -11,26 +11,28 @@ class OptionBuilderSpec extends ObjectBehavior {
 
 	function it_is_initializable() {
 		$this->shouldHaveType($this->type);
-		$this->shouldHaveType('Phorm\Builder\Builder');
+		$this->shouldHaveType('Phorm\Builder\ContentBuilder');
 	}
 
-	function it_builds_to_spec(Element $element) {
+	function it_builds_to_spec(Content $content) {
 		$this->disabled('disabled')->shouldHaveType($this->type);
 		$this->label('label')->shouldHaveType($this->type);
 		$this->selected('selected')->shouldHaveType($this->type);
 		$this->value('value')->shouldHaveType($this->type);
+		$this->setContent('test')->shouldHaveType($this->type);
 
-		$element->setElementType('option')->shouldBeCalled()->willReturn($element);
-		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
-		$element->setAttributes(
+		$content->setElementType('option')->shouldBeCalled()->willReturn($content);
+		$content->setTemplateName(null)->shouldBeCalled()->willReturn($content);
+		$content->setContent('test')->shouldBeCalled()->willReturn($content);
+		$content->setAttributes(
 				array(
 					 'disabled' => 'disabled',
 					 'label'    => 'label',
 					 'selected' => 'selected',
 					 'value'    => 'value',
 				)
-		)->shouldBeCalled()->willReturn($element);
+		)->shouldBeCalled()->willReturn($content);
 
-		$this->build($element)->shouldHaveType('Phorm\Element\Element');
+		$this->build($content)->shouldHaveType('Phorm\Element\Element');
 	}
 }

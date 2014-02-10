@@ -14,7 +14,7 @@
 
 namespace Phorm\Builder;
 
-use Phorm\Element\Element;
+use Phorm\Element\Content;
 
 /**
  * Class OptionBuilder
@@ -22,7 +22,7 @@ use Phorm\Element\Element;
  * @package Phorm\Builder
  * @author  Bo Thinggaard <bo@unpossiblesystems.com>
  */
-class OptionBuilder extends Builder {
+class OptionBuilder extends ContentBuilder {
 	/**
 	 * Set disabled.
 	 *
@@ -70,13 +70,13 @@ class OptionBuilder extends Builder {
 	/**
 	 * Build element.
 	 *
-	 * @param Element $element
+	 * @param Content $element
 	 *
-	 * @return Element
+	 * @return Content
 	 */
-	public function build(Element $element = null) {
+	public function build(Content $element = null) {
 		return $this
-			->buildInternal($element ? $element : new Element())
+			->buildInternal($element ? $element : new Content())
 			->setElementType('option');
 	}
 }

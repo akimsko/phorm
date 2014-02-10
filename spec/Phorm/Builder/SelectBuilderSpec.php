@@ -5,7 +5,7 @@ namespace spec\Phorm\Builder;
 use Phorm\Builder\OptgroupBuilder;
 use Phorm\Builder\OptionBuilder;
 use Phorm\Element\Composite;
-use Phorm\Element\Element;
+use Phorm\Element\Content;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -17,7 +17,7 @@ class SelectBuilderSpec extends ObjectBehavior {
 		$this->shouldHaveType('Phorm\Builder\CompositeBuilder');
 	}
 
-	function it_builds_to_spec(Composite $select, OptionBuilder $builder, OptgroupBuilder $optgroup, Element $element) {
+	function it_builds_to_spec(Composite $select, OptionBuilder $builder, OptgroupBuilder $optgroup, Content $element) {
 		$this->autofocus('autofocus')->shouldHaveType($this->type);
 		$this->disabled('disabled')->shouldHaveType($this->type);
 		$this->form('form')->shouldHaveType($this->type);
@@ -25,9 +25,11 @@ class SelectBuilderSpec extends ObjectBehavior {
 		$this->name('name')->shouldHaveType($this->type);
 		$this->required('required')->shouldHaveType($this->type);
 		$this->size('size')->shouldHaveType($this->type);
+		$this->selected('test')->shouldHaveType($this->type);
 
-		$this->addOption($builder)->shouldHaveType($this->type);
-		$this->addOptgroup($optgroup)->shouldHaveType($this->type);
+		$this->option($builder)->shouldHaveType($this->type);
+		$this->options(array())->shouldHaveType($this->type);
+		$this->optgroup($optgroup)->shouldHaveType($this->type);
 
 		$select->setElementType('select')->shouldBeCalled()->willReturn($select);
 		$select->addChild($element)->shouldBeCalled()->willReturn($select);
@@ -43,7 +45,7 @@ class SelectBuilderSpec extends ObjectBehavior {
 				  'required'  => 'required',
 				  'size'      => 'size',
 			 )
-		)    ->shouldBeCalled()->willReturn($select);
+		)->shouldBeCalled()->willReturn($select);
 
 
 		$builder->build()->shouldBecalled()->willReturn($element);
