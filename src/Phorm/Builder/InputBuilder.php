@@ -233,18 +233,6 @@ class InputBuilder extends Builder {
 		return $this->setAttribute('min', $value);
 	}
 
-	/**
-	 * Build element.
-	 *
-	 * @param Element $element
-	 *
-	 * @return Element
-	 */
-	public function build(Element $element = null) {
-		return $this
-			->buildInternal($element ? $element : new Element())
-			->setElementType('input');
-	}
 
 	/**
 	 * Set checked.
@@ -354,5 +342,18 @@ class InputBuilder extends Builder {
 	 */
 	public function width($value) {
 		return $this->setAttribute('width', $value);
+	}
+
+	/**
+	 * Build element.
+	 *
+	 * @param Element $element
+	 *
+	 * @return Element
+	 */
+	public function build(Element $element = null) {
+		return $this
+			->buildInternal($element ? $element : new Element())
+			->setElementType('input');
 	}
 }
