@@ -100,6 +100,13 @@ class Helper {
 				$rendered .= $this->renderTagOpen($element);
 		}
 
+		if ($label = $element->getLabel()) {
+			$renderedLabel = $this->renderChild($label);
+			$rendered = $element->isLabelAfter()
+				? $rendered . $renderedLabel
+				: $renderedLabel . $rendered;
+		}
+
 		return $rendered;
 	}
 

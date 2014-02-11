@@ -37,6 +37,44 @@ class Element {
 	/** @var array */
 	protected $extras = array();
 
+	/** @var Element|null */
+	protected $label;
+
+	/** @var boolean */
+	protected $labelAfter = false;
+
+	/**
+	 * Set label.
+	 *
+	 * @param Element $label
+	 * @param boolean $after
+	 *
+	 * @return Element
+	 */
+	public function setLabel(Element $label, $after = false) {
+		$this->label = $label;
+		$this->labelAfter = $after;
+		return $this;
+	}
+
+	/**
+	 * Get label.
+	 *
+	 * @return null|Element
+	 */
+	public function getLabel() {
+		return $this->label;
+	}
+
+	/**
+	 * Is label after.
+	 *
+	 * @return boolean
+	 */
+	public function isLabelAfter() {
+		return $this->labelAfter;
+	}
+
 	/**
 	 * Set extras.
 	 *

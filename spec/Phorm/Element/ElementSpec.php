@@ -2,6 +2,7 @@
 
 namespace spec\Phorm\Element;
 
+use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -83,7 +84,7 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo(array_merge($attributes1, $attributes2));
 	}
 
-	function it_stores_attribute() {
+	function it_holds_attribute() {
 		$this->removeAttributes();
 
 		$this->setAttribute('test1', 'test1');
@@ -93,13 +94,24 @@ class ElementSpec extends ObjectBehavior {
 		$this->getAttributes()->shouldBeEqualTo(array('test1' => 'test1', 'test2' => 'test2'));
 	}
 
-	function it_stores_extras() {
+	function it_holds_extras() {
 		$this->setExtras(array('test' => 'test'));
 		$this->getExtra('test')->shouldReturn('test');
 		$this->setExtra('test2', 'test2');
 		$this->getExtra('test2')->shouldReturn('test2');
 		$this->getExtra('nothing')->shouldBeNull();
 		$this->getExtras()->shouldReturn(array('test' => 'test', 'test2' => 'test2'));
+	}
+
+	function it_holds_a_label(Element $label) {
+		$this->setLabel($label);
+		$this->getLabel()->shouldReturn($label);
+	}
+
+	function it_can_mark_label_as_after(Element $label) {
+		$this->isLabelAfter()->shouldReturn(false);
+		$this->setLabel($label, true);
+		$this->isLabelAfter()->shouldReturn(true);
 	}
 
 	function it_is_chainable() {

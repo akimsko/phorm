@@ -27,8 +27,65 @@ abstract class Builder {
 	/** @var array Element attributes. */
 	private $attributes = array();
 
-	/** @var string */
+	/** @var string The template namespace. */
 	private $templateNamespace;
+
+	/** @var LabelBuilder The label builder. */
+	private $label;
+
+	/** @var boolean Mark label as after. */
+	private $labelAfter = false;
+
+	/**
+	 * Set a custom label builder.
+	 *
+	 * @param LabelBuilder $label The custom label builder.
+	 * @param boolean      $after Request it be shown after the element.
+	 *
+	 * @return $this This.
+	 */
+	public function addLabelBuilder(LabelBuilder $label, $after = false) {
+		$this->label = $label;
+		$this->labelAfter = $after;
+		return $this;
+	}
+
+	/**
+	 * Set label text.
+	 *
+	 * If this element has an id set, the label "for" attribute will be set to match.
+	 *
+	 * @param string  $label The label text.
+	 * @param boolean $after Request it be shown after the element.
+	 *
+	 * @return $this This.
+	 */
+	public function addLabel($label, $after = false) {
+		$labelBuilder = new LabelBuilder();
+		if ($id = $this->getAttribute('id')) {
+			$labelBuilder->for_($id);
+		}
+		$this->addLabelBuilder($labelBuilder->setContent($label), $after);
+		return $this;
+	}
+
+	/**
+	 * Get label.
+	 *
+	 * @return LabelBuilder|null The label builder, if set.
+	 */
+	protected function getLabel() {
+		return $this->label;
+	}
+
+	/**
+	 * Is label after.
+	 *
+	 * @return boolean Is label after.
+	 */
+	protected function isLabelAfter() {
+		return $this->labelAfter;
+	}
 
 	/**
 	 * Set template namespace.
@@ -134,6 +191,10 @@ abstract class Builder {
 	 * @return Element
 	 */
 	protected function buildInternal(Element $element) {
+		if ($label = $this->getLabel()) {
+			$element->setLabel($label->build(), $this->isLabelAfter());
+		}
+
 		return $element
 			->setAttributes($this->getAttributes())
 			->setTemplateName($this->getTemplateNamespace());
