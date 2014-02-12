@@ -24,7 +24,6 @@ class FileResolverSpec extends ObjectBehavior
 	function it_resolves_template_for_elementtype(Element $element) {
 		$element->getElementType()->willReturn('testtype');
 		$element->getAttribute('type')->willReturn(null);
-		$element->getTemplateName()->willReturn(null);
 		$this->resolveFilename($element)->shouldReturn('testtype');
 		$this->getTemplateForElement($element)->shouldBeNull();
 	}
@@ -32,24 +31,7 @@ class FileResolverSpec extends ObjectBehavior
 	function it_resolves_template_for_elementtype_with_type(Element $element) {
 		$element->getElementType()->willReturn('testtype');
 		$element->getAttribute('type')->willReturn('subtype');
-		$element->getTemplateName()->willReturn(null);
 		$this->resolveFilename($element)->shouldReturn('testtype_subtype');
-		$this->getTemplateForElement($element)->shouldBeNull();
-	}
-
-	function it_resolves_template_for_elementtype_with_type_and_template_name(Element $element) {
-		$element->getElementType()->willReturn('testtype');
-		$element->getAttribute('type')->willReturn('subtype');
-		$element->getTemplateName()->willReturn('templatename');
-		$this->resolveFilename($element)->shouldReturn('templatename/testtype_subtype');
-		$this->getTemplateForElement($element)->shouldBeNull();
-	}
-
-	function it_resolves_template_for_elementtype_with_template_name(Element $element) {
-		$element->getElementType()->willReturn('testtype');
-		$element->getAttribute('type')->willReturn(null);
-		$element->getTemplateName()->willReturn('templatename');
-		$this->resolveFilename($element)->shouldReturn('templatename/testtype');
 		$this->getTemplateForElement($element)->shouldBeNull();
 	}
 
@@ -57,25 +39,11 @@ class FileResolverSpec extends ObjectBehavior
 		$this->registerTemplate('testtype', 'testTemplate1');
 		$element->getElementType()->willReturn('testtype');
 		$element->getAttribute('type')->willReturn(null);
-		$element->getTemplateName()->willReturn(null);
 		$this->resolveFilename($element)->shouldReturn('testTemplate1');
 
 		$this->registerTemplate('testtype_subtype', 'testTemplate2');
 		$element->getElementType()->willReturn('testtype');
 		$element->getAttribute('type')->willReturn('subtype');
-		$element->getTemplateName()->willReturn(null);
 		$this->resolveFilename($element)->shouldReturn('testTemplate2');
-
-		$this->registerTemplate('templatename/testtype_subtype', 'testTemplate3');
-		$element->getElementType()->willReturn('testtype');
-		$element->getAttribute('type')->willReturn('subtype');
-		$element->getTemplateName()->willReturn('templatename');
-		$this->resolveFilename($element)->shouldReturn('testTemplate3');
-
-		$this->registerTemplate('templatename/testtype', 'testTemplate4');
-		$element->getElementType()->willReturn('testtype');
-		$element->getAttribute('type')->willReturn(null);
-		$element->getTemplateName()->willReturn('templatename');
-		$this->resolveFilename($element)->shouldReturn('testTemplate4');
 	}
 }

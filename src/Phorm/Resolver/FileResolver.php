@@ -113,10 +113,6 @@ class FileResolver implements Resolver {
 			? "{$element->getElementType()}_{$element->getAttribute('type')}"
 			: $element->getElementType();
 
-		if ($element->getTemplateName()) {
-			$name = "{$element->getTemplateName()}/$name";
-		}
-
 		$filePath = array_key_exists($name, $this->templates)
 			? $this->templates[$name]
 			: $this->getTemplatePath() . $name . $this->getExtension();
