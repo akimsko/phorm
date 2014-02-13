@@ -33,7 +33,7 @@ class SelectBuilderSpec extends ObjectBehavior {
 
 		$select->setElementType('select')->shouldBeCalled()->willReturn($select);
 		$select->addChild($element)->shouldBeCalled()->willReturn($select);
-		$select->setTemplateName(null)->shouldBeCalled()->willReturn($select);
+		$select->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($select);
 
 		$select->setAttributes(
 			 array(

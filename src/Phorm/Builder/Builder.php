@@ -197,7 +197,7 @@ abstract class Builder {
 
 		return $element
 			->setAttributes($this->getAttributes())
-			->setTemplateName($this->getTemplateNamespace());
+			->setTemplateNameSpace($this->getTemplateNamespace());
 	}
 
 	/**

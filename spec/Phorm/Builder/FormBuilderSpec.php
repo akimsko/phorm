@@ -30,7 +30,7 @@ class FormBuilderSpec extends ObjectBehavior {
 
 		$form->setElementType('form')->shouldBeCalled()->willReturn($form);
 		$form->addChild($element)->shouldBeCalled()->willReturn($form);
-		$form->setTemplateName(null)->shouldBeCalled()->willReturn($form);
+		$form->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($form);
 
 		$form->setAttributes(
 			 array(

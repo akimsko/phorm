@@ -29,10 +29,10 @@ class Element {
 	protected $attributes = array();
 
 	/** @var string */
-	protected $templateName;
+	protected $templateNameSpace;
 
 	/** @var string */
-	protected $tag;
+	protected $templateName;
 
 	/** @var array */
 	protected $extras = array();
@@ -42,6 +42,27 @@ class Element {
 
 	/** @var boolean */
 	protected $labelAfter = false;
+
+	/**
+	 * Set templateName.
+	 *
+	 * @param string $templateName
+	 *
+	 * @return Element
+	 */
+	public function setTemplateName($templateName) {
+		$this->templateName = $templateName;
+		return $this;
+	}
+
+	/**
+	 * Get templateName.
+	 *
+	 * @return string|null
+	 */
+	public function getTemplateName() {
+		return $this->templateName;
+	}
 
 	/**
 	 * Set label.
@@ -138,8 +159,8 @@ class Element {
 	 *
 	 * @return Element
 	 */
-	public function setTemplateName($templateName) {
-		$this->templateName = $templateName;
+	public function setTemplateNameSpace($templateName) {
+		$this->templateNameSpace = $templateName;
 		return $this;
 	}
 
@@ -148,8 +169,8 @@ class Element {
 	 *
 	 * @return string
 	 */
-	public function getTemplateName() {
-		return $this->templateName;
+	public function getTemplateNameSpace() {
+		return $this->templateNameSpace;
 	}
 
 	/**
@@ -163,29 +184,6 @@ class Element {
 			$this->elementType = strtolower($refl->getShortName());
 		}
 		return $this->elementType;
-	}
-
-	/**
-	 * Set tag.
-	 *
-	 * @param string $tag
-	 *
-	 * @return Element
-	 */
-	public function setTag($tag) {
-		$this->tag = $tag;
-		return $this;
-	}
-
-	/**
-	 * Get tag.
-	 *
-	 * @return string
-	 */
-	public function getTag() {
-		return $this->tag
-			? $this->tag
-			: $this->getElementType();
 	}
 
 	/**

@@ -30,7 +30,7 @@ class TextareaBuilderSpec extends ObjectBehavior {
 		$this->setContent('test')->shouldHaveType($this->type);
 
 		$content->setElementType('textarea')->shouldBeCalled()->willReturn($content);
-		$content->setTemplateName(null)->shouldBeCalled()->willReturn($content);
+		$content->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($content);
 		$content->setContent('test')->shouldBeCalled()->willReturn($content);
 
 		$content->setAttributes(

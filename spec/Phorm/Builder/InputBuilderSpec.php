@@ -46,7 +46,7 @@ class InputBuilderSpec extends ObjectBehavior {
 		$this->width('width')->shouldHaveType($this->type);
 
 		$element->setElementType('input')->shouldBeCalled()->willReturn($element);
-		$element->setTemplateName(null)->shouldBeCalled()->willReturn($element);
+		$element->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					 'autocomplete'   => 'autocomplete',

@@ -102,6 +102,22 @@ class FileResolver implements Resolver {
 	}
 
 	/**
+	 * Get template name.
+	 *
+	 * @param Element $element
+	 *
+	 * @return string
+	 */
+	protected function getTemplateName(Element $element) {
+		if (!$name = $element->getTemplateName()) {
+			$name = $element->getAttribute('type')
+				? "{$element->getElementType()}_{$element->getAttribute('type')}"
+				: $element->getElementType();
+		}
+		return $name;
+	}
+
+	/**
 	 * Get template filename for element.
 	 *
 	 * @param Element $element
@@ -109,9 +125,7 @@ class FileResolver implements Resolver {
 	 * @return string
 	 */
 	public function resolveFilename(Element $element) {
-		$name = $element->getAttribute('type')
-			? "{$element->getElementType()}_{$element->getAttribute('type')}"
-			: $element->getElementType();
+		$name = $this->getTemplateName($element);
 
 		$filePath = array_key_exists($name, $this->templates)
 			? $this->templates[$name]

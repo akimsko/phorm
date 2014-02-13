@@ -25,7 +25,6 @@ class HelperSpec extends ObjectBehavior
 
 	function it_renders_tags_and_attributes(Element $element) {
 		$element->getElementType()->willReturn('test');
-		$element->getTag()->willReturn('test');
 		$element->getAttributes()->willReturn(array('test' => 'test'));
 
 		$this->renderTagOpen($element)->shouldReturn("<test test=\"test\">\n");
@@ -35,7 +34,6 @@ class HelperSpec extends ObjectBehavior
 
 	function it_renders_element_element(Element $element) {
 		$element->getElementType()->willReturn('test');
-		$element->getTag()->willReturn('test');
 		$element->getAttributes()->willReturn(array('test' => 'test'));
 		$element->getLabel()->willReturn(null);
 
@@ -44,7 +42,6 @@ class HelperSpec extends ObjectBehavior
 
 	function it_renders_content_element(Content $element) {
 		$element->getElementType()->willReturn('test');
-		$element->getTag()->willReturn('test');
 		$element->getAttributes()->willReturn(array('test' => 'test'));
 		$element->getContent()->willReturn('test');
 		$element->getLabel()->willReturn(null);
@@ -57,7 +54,6 @@ class HelperSpec extends ObjectBehavior
 		$this->renderer->render($element2)->willReturn("<typetwo name=\"test2\">\n");
 
 		$composite->getElementType()->willReturn('composite');
-		$composite->getTag()->willReturn('composite');
 		$composite->getAttributes()->willReturn(array('name' => 'container'));
 		$composite->getChildren()->willReturn(array($element1, $element2));
 		$composite->getLabel()->willReturn(null);

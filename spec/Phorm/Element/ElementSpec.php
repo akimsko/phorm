@@ -22,14 +22,13 @@ class ElementSpec extends ObjectBehavior {
 		$this->getElementType()->shouldBeEqualTo('test');
 	}
 
-	function it_can_have_a_tag() {
-		$this->getTag()->shouldReturn('cTest');
-		$this->setTag('test');
-		$this->getTag()->shouldReturn('test');
+	function it_can_have_a_template_namespace() {
+		$this->getTemplateNameSpace()->shouldBeNull();
+		$this->setTemplateNameSpace('template');
+		$this->getTemplateNameSpace()->shouldReturn('template');
 	}
 
-	function it_can_have_template_name() {
-		$this->getTemplateName()->shouldBeNull();
+	function it_can_have_a_template_name() {
 		$this->setTemplateName('template');
 		$this->getTemplateName()->shouldReturn('template');
 	}

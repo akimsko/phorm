@@ -25,25 +25,17 @@ use Phorm\Element\Element;
 class FileNamespacedResolver extends FileResolver {
 
 	/**
-	 * Get template filename for element.
+	 * Get template name.
 	 *
 	 * @param Element $element
 	 *
 	 * @return string
 	 */
-	public function resolveFilename(Element $element) {
-		$name = $element->getAttribute('type')
-			? "{$element->getElementType()}_{$element->getAttribute('type')}"
-			: $element->getElementType();
-
-		if ($element->getTemplateName()) {
-			$name = "{$element->getTemplateName()}/$name";
+	protected function getTemplateName(Element $element) {
+		$name = parent::getTemplateName($element);
+		if ($element->getTemplateNameSpace()) {
+			$name = "{$element->getTemplateNameSpace()}/{$name}";
 		}
-
-		$filePath = array_key_exists($name, $this->templates)
-			? $this->templates[$name]
-			: $this->getTemplatePath() . $name . $this->getExtension();
-
-		return $filePath;
+		return $name;
 	}
 }
