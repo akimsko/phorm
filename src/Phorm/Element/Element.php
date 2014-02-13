@@ -67,6 +67,15 @@ class Element {
 	}
 
 	/**
+	 * Has label.
+	 *
+	 * @return boolean
+	 */
+	public function hasLabel() {
+		return $this->label ? true : false;
+	}
+
+	/**
 	 * Is label after.
 	 *
 	 * @return boolean

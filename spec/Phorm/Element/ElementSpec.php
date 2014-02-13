@@ -104,14 +104,16 @@ class ElementSpec extends ObjectBehavior {
 	}
 
 	function it_holds_a_label(Element $label) {
+		$this->shouldNotHaveLabel();
 		$this->setLabel($label);
 		$this->getLabel()->shouldReturn($label);
+		$this->shouldHaveLabel();
 	}
 
 	function it_can_mark_label_as_after(Element $label) {
-		$this->isLabelAfter()->shouldReturn(false);
+		$this->shouldNotBeLabelAfter();
 		$this->setLabel($label, true);
-		$this->isLabelAfter()->shouldReturn(true);
+		$this->shouldBeLabelAfter();
 	}
 
 	function it_is_chainable() {
