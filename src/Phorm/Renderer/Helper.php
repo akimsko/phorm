@@ -89,7 +89,7 @@ class Helper {
 			case $element instanceof Composite:
 				$rendered .= $this->renderTagOpen($element);
 				foreach ($element->getChildren() as $child) {
-					$rendered .= "\t" . $this->renderChild($child);
+					$rendered .= $this->renderChild($child);
 				}
 				$rendered .= $this->renderTagClose($element);
 				break;
@@ -102,7 +102,7 @@ class Helper {
 
 		if ($label = $element->getLabel()) {
 			$renderedLabel = $this->renderChild($label);
-			$rendered = $element->isLabelAfter()
+			$rendered =  $element->isLabelAfter()
 				? $rendered . $renderedLabel
 				: $renderedLabel . $rendered;
 		}

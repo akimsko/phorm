@@ -41,8 +41,8 @@ class PhpRendererSpec extends ObjectBehavior {
 		$this->render($composite)->shouldReturn(
 <<<EOD
 <composite name="container">
-	<typeone name="test1">
-	<typetwo name="test2">
+<typeone name="test1">
+<typetwo name="test2">
 </composite>
 
 EOD
