@@ -37,6 +37,7 @@ use Phorm\Renderer\Renderer;
  * @method \Phorm\Builder\OutputBuilder   output()   Build an output element.
  * @method \Phorm\Builder\SelectBuilder   select()   Build a select element.
  * @method \Phorm\Builder\TextareaBuilder textarea() Build a textarea element.
+ * @method \Phorm\Builder\RawBuilder      raw()      Build a raw element.
  */
 class Phorm {
 
@@ -58,6 +59,7 @@ class Phorm {
 		'output'   => 'Phorm\Builder\OutputBuilder',
 		'select'   => 'Phorm\Builder\SelectBuilder',
 		'textarea' => 'Phorm\Builder\TextareaBuilder',
+		'raw'      => 'Phorm\Builder\RawBuilder'
 	);
 
 	/**

@@ -2,7 +2,6 @@
 
 namespace spec\Phorm\Element;
 
-use Phorm\Element\Element;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -102,17 +101,22 @@ class ElementSpec extends ObjectBehavior {
 		$this->getExtras()->shouldReturn(array('test' => 'test', 'test2' => 'test2'));
 	}
 
-	function it_holds_a_label(Element $label) {
-		$this->shouldNotHaveLabel();
-		$this->setLabel($label);
-		$this->getLabel()->shouldReturn($label);
-		$this->shouldHaveLabel();
+	function it_can_have_a_title() {
+		$this->getTitle()->shouldReturn(null);
+		$this->setTitle('test');
+		$this->getTitle()->shouldReturn('test');
 	}
 
-	function it_can_mark_label_as_after(Element $label) {
-		$this->shouldNotBeLabelAfter();
-		$this->setLabel($label, true);
-		$this->shouldBeLabelAfter();
+	function it_can_have_a_description() {
+		$this->getDescription()->shouldReturn(null);
+		$this->setDescription('test');
+		$this->getDescription()->shouldReturn('test');
+	}
+
+	function it_can_have_an_error() {
+		$this->getError()->shouldReturn(null);
+		$this->setError('test');
+		$this->getError()->shouldReturn('test');
 	}
 
 	function it_is_chainable() {
@@ -124,5 +128,8 @@ class ElementSpec extends ObjectBehavior {
 		$this->removeAttributes()->shouldHaveType('Phorm\Element\Element');
 		$this->setExtras(array())->shouldHaveType('Phorm\Element\Element');
 		$this->setExtra('test', 'test')->shouldHaveType('Phorm\Element\Element');
+		$this->setTitle('test')->shouldHaveType('Phorm\Element\Element');
+		$this->setDescription('test')->shouldHaveType('Phorm\Element\Element');
+		$this->setError('test')->shouldHaveType('Phorm\Element\Element');
 	}
 }

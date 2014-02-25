@@ -2,40 +2,30 @@
 
 namespace spec\Phorm\Builder;
 
-use Phorm\Element\Content;
+use Phorm\Element\Raw;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class OutputBuilderSpec extends ObjectBehavior {
-	private $type = 'Phorm\Builder\OutputBuilder';
+class RawBuilderSpec extends ObjectBehavior
+{
+	private $type = 'Phorm\Builder\RawBuilder';
 
 	function it_is_initializable() {
 		$this->shouldHaveType($this->type);
 		$this->shouldHaveType('Phorm\Builder\ContentBuilder');
 	}
 
-	function it_builds_to_spec(Content $content) {
-		$this->for_('for')->shouldHaveType($this->type);
-		$this->form('form')->shouldHaveType($this->type);
-		$this->name('name')->shouldHaveType($this->type);
+	function it_builds_to_spec(Raw $content) {
 		$this->setContent('test')->shouldHaveType($this->type);
 
-		$content->setElementType('output')->shouldBeCalled()->willReturn($content);
 		$content->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($content);
 		$content->setContent('test')->shouldBeCalled()->willReturn($content);
 		$content->setTitle(null)->shouldBeCalled()->willReturn($content);
 		$content->setDescription(null)->shouldBeCalled()->willReturn($content);
 		$content->setError(null)->shouldBeCalled()->willReturn($content);
 		$content->setExtras(array())->shouldBeCalled()->willReturn($content);
+		$content->setAttributes(array())->shouldBeCalled()->willReturn($content);
 
-		$content->setAttributes(
-				array(
-					 'for'  => 'for',
-					 'form' => 'form',
-					 'name' => 'name',
-				)
-		)->shouldBeCalled()->willReturn($content);
-
-		$this->build($content)->shouldHaveType('Phorm\Element\Content');
+		$this->build($content)->shouldHaveType('Phorm\Element\Element');
 	}
 }

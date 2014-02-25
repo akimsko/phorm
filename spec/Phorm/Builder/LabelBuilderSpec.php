@@ -23,6 +23,10 @@ class LabelBuilderSpec extends ObjectBehavior {
 		$content->setElementType('label')->shouldBeCalled()->willReturn($content);
 		$content->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($content);
 		$content->setContent('test')->shouldBeCalled()->willReturn($content);
+		$content->setTitle(null)->shouldBeCalled()->willReturn($content);
+		$content->setDescription(null)->shouldBeCalled()->willReturn($content);
+		$content->setError(null)->shouldBeCalled()->willReturn($content);
+		$content->setExtras(array())->shouldBeCalled()->willReturn($content);
 		$content->setAttributes(
 				array(
 					'for'  => 'for',

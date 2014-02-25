@@ -25,6 +25,10 @@ class OptgroupBuilderSpec extends ObjectBehavior {
 		$optgroup->setElementType('optgroup')->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->addChild($element)->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setTitle(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setDescription(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setError(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setExtras(array())->shouldBeCalled()->willReturn($optgroup);
 
 		$optgroup->setAttributes(
 				 array(

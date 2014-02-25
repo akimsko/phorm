@@ -22,6 +22,10 @@ class LegendBuilderSpec extends ObjectBehavior
 		$content->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($content);
 		$content->setContent('test')->shouldBeCalled()->willReturn($content);
 		$content->setAttributes(array())->shouldBeCalled()->willReturn($content);
+		$content->setTitle(null)->shouldBeCalled()->willReturn($content);
+		$content->setDescription(null)->shouldBeCalled()->willReturn($content);
+		$content->setError(null)->shouldBeCalled()->willReturn($content);
+		$content->setExtras(array())->shouldBeCalled()->willReturn($content);
 
 		$this->build($content)->shouldHaveType('Phorm\Element\Content');
 	}

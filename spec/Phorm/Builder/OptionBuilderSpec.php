@@ -24,6 +24,10 @@ class OptionBuilderSpec extends ObjectBehavior {
 		$content->setElementType('option')->shouldBeCalled()->willReturn($content);
 		$content->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($content);
 		$content->setContent('test')->shouldBeCalled()->willReturn($content);
+		$content->setTitle(null)->shouldBeCalled()->willReturn($content);
+		$content->setDescription(null)->shouldBeCalled()->willReturn($content);
+		$content->setError(null)->shouldBeCalled()->willReturn($content);
+		$content->setExtras(array())->shouldBeCalled()->willReturn($content);
 		$content->setAttributes(
 				array(
 					 'disabled' => 'disabled',

@@ -24,6 +24,10 @@ class KeygenBuilderSpec extends ObjectBehavior {
 
 		$element->setElementType('keygen')->shouldBeCalled()->willReturn($element);
 		$element->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($element);
+		$element->setTitle(null)->shouldBeCalled()->willReturn($element);
+		$element->setDescription(null)->shouldBeCalled()->willReturn($element);
+		$element->setError(null)->shouldBeCalled()->willReturn($element);
+		$element->setExtras(array())->shouldBeCalled()->willReturn($element);
 		$element->setAttributes(
 				array(
 					 'autofocus' => 'autofocus',

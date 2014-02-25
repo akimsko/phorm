@@ -35,7 +35,6 @@ class HelperSpec extends ObjectBehavior
 	function it_renders_element_element(Element $element) {
 		$element->getElementType()->willReturn('test');
 		$element->getAttributes()->willReturn(array('test' => 'test'));
-		$element->getLabel()->willReturn(null);
 
 		$this->renderElement($element)->shouldReturn("<test test=\"test\">\n");
 	}
@@ -44,7 +43,6 @@ class HelperSpec extends ObjectBehavior
 		$element->getElementType()->willReturn('test');
 		$element->getAttributes()->willReturn(array('test' => 'test'));
 		$element->getContent()->willReturn('test');
-		$element->getLabel()->willReturn(null);
 
 		$this->renderElement($element)->shouldReturn("<test test=\"test\">test</test>\n");
 	}
@@ -56,7 +54,6 @@ class HelperSpec extends ObjectBehavior
 		$composite->getElementType()->willReturn('composite');
 		$composite->getAttributes()->willReturn(array('name' => 'container'));
 		$composite->getChildren()->willReturn(array($element1, $element2));
-		$composite->getLabel()->willReturn(null);
 
 		$this->renderElement($composite)->shouldReturn(
 <<<EOD

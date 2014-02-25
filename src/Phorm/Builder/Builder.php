@@ -30,61 +30,101 @@ abstract class Builder {
 	/** @var string The template namespace. */
 	private $templateNamespace;
 
-	/** @var LabelBuilder The label builder. */
-	private $label;
+	/** @var string */
+	private $title;
 
-	/** @var boolean Mark label as after. */
-	private $labelAfter = false;
+	/** @var string */
+	private $description;
+
+	/** @var string */
+	private $error;
+
+	/** @var array */
+	private $extras = array();
 
 	/**
-	 * Set a custom label builder.
+	 * Set extra.
 	 *
-	 * @param LabelBuilder $label The custom label builder.
-	 * @param boolean      $after Request it be shown after the element.
+	 * @param string $name
+	 * @param mixed  $value
 	 *
-	 * @return $this This.
+	 * @return Builder
 	 */
-	public function addLabelBuilder(LabelBuilder $label, $after = false) {
-		$this->label = $label;
-		$this->labelAfter = $after;
+	public function setExtra($name, $value) {
+		$this->extras[$name] = $value;
 		return $this;
 	}
 
 	/**
-	 * Set label text.
+	 * Get extra.
 	 *
-	 * If this element has an id set, the label "for" attribute will be set to match.
-	 *
-	 * @param string  $label The label text.
-	 * @param boolean $after Request it be shown after the element.
-	 *
-	 * @return $this This.
+	 * @return array
 	 */
-	public function addLabel($label, $after = false) {
-		$labelBuilder = new LabelBuilder();
-		if ($id = $this->getAttribute('id')) {
-			$labelBuilder->for_($id);
-		}
-		$this->addLabelBuilder($labelBuilder->setContent($label), $after);
+	protected function getExtras() {
+		return $this->extras;
+	}
+
+	/**
+	 * Set description.
+	 *
+	 * @param string $description
+	 *
+	 * @return Builder
+	 */
+	public function description($description) {
+		$this->description = $description;
 		return $this;
 	}
 
 	/**
-	 * Get label.
+	 * Get description.
 	 *
-	 * @return LabelBuilder|null The label builder, if set.
+	 * @return string
 	 */
-	protected function getLabel() {
-		return $this->label;
+	protected function getDescription() {
+		return $this->description;
 	}
 
 	/**
-	 * Is label after.
+	 * Set error.
 	 *
-	 * @return boolean Is label after.
+	 * @param string $error
+	 *
+	 * @return Builder
 	 */
-	protected function isLabelAfter() {
-		return $this->labelAfter;
+	public function error($error) {
+		$this->error = $error;
+		return $this;
+	}
+
+	/**
+	 * Get error.
+	 *
+	 * @return string
+	 */
+	protected function getError() {
+		return $this->error;
+	}
+
+	/**
+	 * Set title.
+	 *
+	 * @param string $title
+	 *
+	 * @return Builder
+	 */
+	public function title($title) {
+		$this->title = $title;
+		return $this;
+	}
+
+	/**
+	 * Get title.
+	 *
+	 * @return string
+	 */
+	protected function getTitle() {
+		return $this->title;
 	}
 
 	/**
@@ -191,11 +231,11 @@ abstract class Builder {
 	 * @return Element
 	 */
 	protected function buildInternal(Element $element) {
-		if ($label = $this->getLabel()) {
-			$element->setLabel($label->build(), $this->isLabelAfter());
-		}
-
 		return $element
+			->setTitle($this->getTitle())
+			->setDescription($this->getDescription())
+			->setError($this->getError())
+			->setExtras($this->getExtras())
 			->setAttributes($this->getAttributes())
 			->setTemplateNameSpace($this->getTemplateNamespace());
 	}

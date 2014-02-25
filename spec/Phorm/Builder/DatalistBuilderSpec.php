@@ -22,6 +22,10 @@ class DatalistBuilderSpec extends ObjectBehavior {
 		$optgroup->setElementType('datalist')->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->addChild($element)->shouldBeCalled()->willReturn($optgroup);
 		$optgroup->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setTitle(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setDescription(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setError(null)->shouldBeCalled()->willReturn($optgroup);
+		$optgroup->setExtras(array())->shouldBeCalled()->willReturn($optgroup);
 
 		$optgroup->setAttributes(array())->shouldBeCalled()->willReturn($optgroup);
 

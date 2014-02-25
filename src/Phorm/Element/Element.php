@@ -37,11 +37,14 @@ class Element {
 	/** @var array */
 	protected $extras = array();
 
-	/** @var Element|null */
-	protected $label;
+	/** @var string */
+	protected $title;
 
-	/** @var boolean */
-	protected $labelAfter = false;
+	/** @var string */
+	protected $description;
+
+	/** @var string */
+	protected $error;
 
 	/**
 	 * Set templateName.
@@ -65,44 +68,66 @@ class Element {
 	}
 
 	/**
-	 * Set label.
+	 * Set description.
 	 *
-	 * @param Element $label
-	 * @param boolean $after
+	 * @param string $description
 	 *
 	 * @return Element
 	 */
-	public function setLabel(Element $label, $after = false) {
-		$this->label = $label;
-		$this->labelAfter = $after;
+	public function setDescription($description) {
+		$this->description = $description;
 		return $this;
 	}
 
 	/**
-	 * Get label.
+	 * Get description.
 	 *
-	 * @return null|Element
+	 * @return string
 	 */
-	public function getLabel() {
-		return $this->label;
+	public function getDescription() {
+		return $this->description;
 	}
 
 	/**
-	 * Has label.
+	 * Set error.
 	 *
-	 * @return boolean
+	 * @param string $error
+	 *
+	 * @return Element
 	 */
-	public function hasLabel() {
-		return $this->label ? true : false;
+	public function setError($error) {
+		$this->error = $error;
+		return $this;
 	}
 
 	/**
-	 * Is label after.
+	 * Get error.
 	 *
-	 * @return boolean
+	 * @return string
 	 */
-	public function isLabelAfter() {
-		return $this->labelAfter;
+	public function getError() {
+		return $this->error;
+	}
+
+	/**
+	 * Set title.
+	 *
+	 * @param string $title
+	 *
+	 * @return Element
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+		return $this;
+	}
+
+	/**
+	 * Get title.
+	 *
+	 * @return string
+	 */
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**

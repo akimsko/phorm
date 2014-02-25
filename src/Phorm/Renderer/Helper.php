@@ -17,6 +17,7 @@ namespace Phorm\Renderer;
 use Phorm\Element\Composite;
 use Phorm\Element\Content;
 use Phorm\Element\Element;
+use Phorm\Element\Raw;
 
 /**
  * Class Helper
@@ -93,18 +94,14 @@ class Helper {
 				}
 				$rendered .= $this->renderTagClose($element);
 				break;
+			case $element instanceof Raw:
+				$rendered .= $element->getContent() . "\n";
+				break;
 			case $element instanceof Content:
 				$rendered .= $this->renderTagOpen($element, false) . $element->getContent() . $this->renderTagClose($element);
 				break;
 			default:
 				$rendered .= $this->renderTagOpen($element);
-		}
-
-		if ($label = $element->getLabel()) {
-			$renderedLabel = $this->renderChild($label);
-			$rendered =  $element->isLabelAfter()
-				? $rendered . $renderedLabel
-				: $renderedLabel . $rendered;
 		}
 
 		return $rendered;

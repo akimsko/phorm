@@ -23,6 +23,10 @@ class FieldsetBuilderSpec extends ObjectBehavior
 		$group->setElementType('fieldset')->shouldBeCalled()->willReturn($group);
 		$group->addChild($element)->shouldBeCalled()->willReturn($group);
 		$group->setTemplateNameSpace(null)->shouldBeCalled()->willReturn($group);
+		$group->setTitle(null)->shouldBeCalled()->willReturn($group);
+		$group->setDescription(null)->shouldBeCalled()->willReturn($group);
+		$group->setError(null)->shouldBeCalled()->willReturn($group);
+		$group->setExtras(array())->shouldBeCalled()->willReturn($group);
 
 		$group->setAttributes(array())
 			->shouldBeCalled()

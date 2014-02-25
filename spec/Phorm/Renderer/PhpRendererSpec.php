@@ -24,19 +24,16 @@ class PhpRendererSpec extends ObjectBehavior {
 		$composite->getAttribute('type')->willReturn(null);
 		$composite->getTemplateNameSpace()->willReturn('');
 		$composite->getChildren()->willReturn(array($element1, $element2));
-		$composite->getLabel()->willReturn(null);
 
 		$element1->getElementType()->willReturn('typeone');
 		$element1->getAttributes()->willReturn(array('name' => 'test1'));
 		$element1->getTemplateNameSpace()->willReturn('');
 		$element1->getAttribute('type')->willReturn(null);
-		$element1->getLabel()->willReturn(null);
 
 		$element2->getElementType()->willReturn('typetwo');
 		$element2->getAttributes()->willReturn(array('name' => 'test2'));
 		$element2->getTemplateNameSpace()->willReturn('');
 		$element2->getAttribute('type')->willReturn(null);
-		$element2->getLabel()->willReturn(null);
 
 		$this->render($composite)->shouldReturn(
 <<<EOD
