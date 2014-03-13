@@ -5,7 +5,7 @@ php:
 - 5.3
 script: "./bin/phpspec run"
 install:
-  - composer install --dev
+  - composer require evert/phpdoc-md:"0.0.*" --dev
 notifications:
   email: false
 after_success: bash builddocsontravis.sh
