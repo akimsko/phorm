@@ -17,7 +17,6 @@ if [ "$PHPV" = "3" ]; then
 	~/build/akimsko/phorm/vendor/evert/phpdoc-md/bin/phpdocmd --lt "%c" structure.xml Api
 	git add Api/Phorm-*
 	git commit -m "Updated documentation." && git push
-	sleep 180
 else
 	echo " * Only building docs on PHP 5.3 - Not on 5.$PHPV"
 fi
