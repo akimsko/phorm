@@ -2,7 +2,7 @@
 PHPV=`php -r "echo PHP_MINOR_VERSION;"`
 if [ "$PHPV" = "3" ]; then
 	pear channel-discover pear.phpdoc.org
-	pear install phpdoc/phpDocumentor-alpha
+	pear install phpdoc/phpDocumentor
 	phpenv rehash
 	cd ~
 	git clone https://github.com/akimsko/phorm.wiki.git
