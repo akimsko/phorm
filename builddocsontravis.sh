@@ -10,7 +10,7 @@ if [ "$PHPV" = "3" ]; then
 	git config --global user.email "noreply@travis-ci.org"
 	git config credential.helper "store --file=.git/credentials"
 	echo $GH_TOKEN > .git/credentials
-	git clone git@github.com:akimsko/phorm.wiki.git
+	git clone https://github.com/akimsko/phorm.wiki.git
 	cd phorm.wiki
 	git rm Api/*
 	mkdir Api
