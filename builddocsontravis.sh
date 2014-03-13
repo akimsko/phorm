@@ -13,7 +13,7 @@ if [ "$PHPV" = "3" ]; then
 	echo "https://$GH_TOKEN:@github.com" > .git/credentials
 	git rm Api/*
 	mkdir Api
-	phpdoc parse -t . -d ~/build/akimsko/phorm/src --visibility=public --template="responsive-twig"
+	phpdoc -t . -d ~/build/akimsko/phorm/src --visibility=public --template="responsive-twig"
 	~/build/akimsko/phorm/vendor/evert/phpdoc-md/bin/phpdocmd --lt "%c" structure.xml Api
 	git add Api/Phorm-*
 	git commit -m "Updated documentation." && git push
