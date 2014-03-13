@@ -6,12 +6,12 @@ if [ "$PHPV" = "3" ]; then
 	composer require evert/phpdoc-md:"0.0.*"
 	phpenv rehash
 	cd ~
-	echo "https://$GH_TOKEN:@github.com" > ~/.git/credentials
-	git config --global user.name "Travis"
-	git config --global user.email "noreply@travis-ci.org"
-	git config credential.helper "store --file=~/.git/credentials"
 	git clone https://github.com/akimsko/phorm.wiki.git
 	cd phorm.wiki
+	git config user.name "Travis"
+	git config user.email "noreply@travis-ci.org"
+	git config credential.helper "store --file=.git/credentials"
+	echo "https://$GH_TOKEN:@github.com" > .git/credentials
 	git rm Api/*
 	mkdir Api
 	phpdoc parse -t . -d ~/build/akimsko/phorm/src --visibility=public
