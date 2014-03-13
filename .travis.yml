@@ -1,0 +1,14 @@
+language: php
+php:
+- 5.5
+- 5.4
+- 5.3
+script: "./bin/phpspec run"
+install:
+  - composer install --dev
+notifications:
+  email: false
+after_success: bash builddocsontravis.sh
+env:
+  global:
+    secure: bkXRG3MakA3FEoRdNp3fbZhVM4dJ9+a89qxhtfzuVp69vbCDWbeYTsESj7y12x17xT5lnjIjh18htGAtsJ4fjqO7Pq/4rSZrPYni49d2+IKztV4H9QmqOxaoQqowK/jsWe/63b9+jJ0VaLt7+YglVOtuou0O+SUfh7yOEm9mcWc=
