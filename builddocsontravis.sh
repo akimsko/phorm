@@ -18,6 +18,7 @@ if [ "$PHPV" = "3" ]; then
 	git add Api/Phorm-*
 	git commit -m "Updated documentation." && git push
 	rm ~/.git/credentials
+	sleep 20
 else
 	echo " * Only building docs on PHP 5.3 - Not on 5.$PHPV"
 fi
