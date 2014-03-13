@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/akimsko/phorm.png)](https://travis-ci.org/akimsko/phorm)
+
 phorm
 =====
 
