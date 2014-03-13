@@ -1,8 +1,8 @@
 language: php
 php:
-- 5.5
-- 5.4
-- 5.3
+#  - 5.5
+#  - 5.4
+  - 5.3
 script: "./bin/phpspec run"
 install:
   - composer require evert/phpdoc-md:"0.0.*" --dev
