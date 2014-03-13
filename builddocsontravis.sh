@@ -6,7 +6,7 @@ if [ "$PHPV" = "3" ]; then
 	composer require evert/phpdoc-md:"0.0.*"
 	phpenv rehash
 	cd ~
-	echo $GH_TOKEN > ~/.git/credentials
+	echo "https://$GH_TOKEN:@github.com" > ~/.git/credentials
 	git config --global user.name "Travis"
 	git config --global user.email "noreply@travis-ci.org"
 	git config credential.helper "store --file=~/.git/credentials"
