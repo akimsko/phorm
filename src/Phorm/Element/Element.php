@@ -34,6 +34,9 @@ class Element {
 	/** @var string */
 	protected $templateName;
 
+	/** @var string */
+	protected $templateGroup;
+
 	/** @var array */
 	protected $extras = array();
 
@@ -45,6 +48,27 @@ class Element {
 
 	/** @var string */
 	protected $error;
+
+	/**
+	 * Get templateGroup.
+	 *
+	 * @return string
+	 */
+	public function getTemplateGroup() {
+		return $this->templateGroup;
+	}
+
+	/**
+	 * Set templateGroup.
+	 *
+	 * @param string $templateGroup
+	 *
+	 * @return Element
+	 */
+	public function setTemplateGroup($templateGroup) {
+		$this->templateGroup = $templateGroup;
+		return $this;
+	}
 
 	/**
 	 * Set templateName.
